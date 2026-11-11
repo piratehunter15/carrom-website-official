@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Results — FKS Carrom Open 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="carrom-theme.css">
+<style>
+  /* ---------- ROUND TABS & TABLES OVERRIDE STYLING ---------- */
+  .results-section{padding:48px 0 64px;}
+  
+  .round-tabs{
+    display:flex;
+    gap:8px;
+    margin-bottom:28px;
+    border-bottom:2px solid var(--line);
+    overflow-x:auto;
+  }
+  .round-tab{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    font-weight:700;
+    padding:12px 18px;
+    color:var(--text-dim);
+    cursor:pointer;
+    position:relative;
+    background:none;
+    border:none;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    transition:color 0.2s ease;
+  }
+  .round-tab:hover{color:var(--carrom-black);}
+  .round-tab.active{color:var(--carrom-red);}
+  .round-tab.active::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-2px;
+    height:3px;
+    background:var(--carrom-red);
+    border-radius:3px 3px 0 0;
+  }
+
+  .results-table-wrap{
+    background:var(--carrom-white);
+    border:2px solid var(--carrom-black);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:var(--shadow-soft);
+  }
+  table{width:100%;border-collapse:collapse;font-size:14.5px;}
+  thead th{
+    text-align:left;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    padding:16px 20px;
+    border-bottom:2px solid var(--carrom-black);
+    background:var(--carrom-cream);
+  }
+  thead th.num{text-align:right;}
+  tbody td{
+    padding:16px 20px;
+    border-bottom:1px solid var(--line);
+    color:var(--carrom-black);
+  }
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover td{background:rgba(214, 40, 40, 0.02);}
+  tbody td.num{text-align:right;font-family:'JetBrains Mono',monospace;}
+  
+  .rank-cell{
+    font-family:'JetBrains Mono',monospace;
+    font-weight:800;
+    color:var(--text-dim);
+    width:60px;
+  }
+  tr.podium .rank-cell{color:var(--carrom-black);}
+  tr.podium td{font-weight:600;}
+
+  .medal{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    font-size:11px;
+    font-weight:800;
+    color:#fff;
+    margin-right:8px;
+    font-family:'JetBrains Mono',monospace;
+  }
+  .medal.gold{background:#C9971F;box-shadow:0 2px 8px rgba(201,151,31,0.4);}
+  .medal.silver{background:#8A8F99;box-shadow:0 2px 8px rgba(138,143,153,0.4);}
+  .medal.bronze{background:#A6643A;box-shadow:0 2px 8px rgba(166,100,58,0.4);}
+  
+  .grade-tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11.5px;
+    font-weight:600;
+    background:var(--carrom-cream);
+    padding:4px 10px;
+    border-radius:50px;
+    border:1px solid var(--line);
+    color:var(--carrom-black);
+  }
+  .empty-msg{
+    padding:36px;
+    text-align:center;
+    color:var(--text-dim);
+    font-size:15px;
+  }
+  
+  .event-nav{display:flex;gap:8px;flex-wrap:wrap;}
+  .event-pill{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    font-weight:700;
+    padding:8px 16px;
+    border-radius:50px;
+    border:2px solid rgba(250, 246, 240, 0.25);
+    color:rgba(250, 246, 240, 0.7);
+    cursor:pointer;
+    background:transparent;
+    transition:all 0.2s ease;
+  }
+  .event-pill:hover{border-color:var(--carrom-white);color:var(--carrom-white);}
+  .event-pill.current{background:var(--carrom-red);border-color:var(--carrom-red);color:#fff;}
+  
+  .header-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:space-between;}
+  .header-left{display:flex;align-items:center;gap:18px;}
+  .event-badge{
+    width:56px;height:56px;border-radius:16px;background:var(--carrom-red);flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Outfit',sans-serif;font-weight:800;font-size:20px;color:#fff;
+    border:2px solid var(--carrom-red-dark);
+    box-shadow:0 4px 14px rgba(214,40,40,0.4);
+  }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <img class="logo-mark" src="FKS Logo.png" alt="FKS Logo">
+      FKS Carrom Open 2027
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="overview.html">Overview</a>
+      <a href="registration.html">Register</a>
+      <a href="#" class="active">Results</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <div class="wrap">
+    <div class="header-row">
+      <div class="header-left">
+        <div class="event-badge" id="currentBadge">S</div>
+        <div>
+          <h1 id="currentTitle">Solos (Singles) <span id="liveStatusContainer"></span></h1>
+          <div class="sub">Tournament Match Results &amp; Standings</div>
+        </div>
+      </div>
+      <div class="event-nav">
+        <button class="event-pill current" onclick="switchEvent('Solos')">Solos (Singles)</button>
+        <button class="event-pill" onclick="switchEvent('Doubles')">Doubles</button>
+        <button class="event-pill" onclick="switchEvent('Open Doubles')">Open Doubles</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap results-section">
+  <div class="round-tabs" id="roundTabsContainer">
+    <!-- Dynamically populated round tabs following advancement rule: Top 64 -> Top 32 -> Top 16 -> Top 8 -> Finals -->
+  </div>
+  <div class="results-table-wrap" id="resultsTableWrap">
+    <table id="resultsTable">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Competitor(s)</th>
+          <th>Grade / Section</th>
+          <th>Status</th>
+          <th class="num">Score / Points</th>
+        </tr>
+      </thead>
+      <tbody id="resultsTableBody">
+        <tr><td colspan="5" class="empty-msg">Loading tournament results...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>&copy; 2027 FKS Carrom Open. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  const RESULTS_API_URL = "/api/results";
+
+  const EVENT_ROUNDS = {
+    "Solos": ["Top 64", "Top 32", "Top 16", "Top 8", "Finals"],
+    "Doubles": ["Top 32", "Top 16", "Top 8", "Finals"],
+    "Open Doubles": ["Top 32", "Top 16", "Top 8", "Finals"]
+  };
+
+  let allResultsData = [];
+  let currentEvent = "Solos";
+  let currentRound = "Top 64";
+
+  function getRounds(eventName) {
+    return EVENT_ROUNDS[eventName] || ["Finals"];
+  }
+
+  function fetchResults() {
+    fetch(RESULTS_API_URL)
+      .then(res => res.json())
+      .then(data => {
+        allResultsData = data.results || [];
+        renderPage();
+      })
+      .catch(err => {
+        console.error("Error fetching results:", err);
+      });
+  }
+
+  function switchEvent(eventName) {
+    currentEvent = eventName;
+    const rounds = getRounds(eventName);
+    currentRound = rounds[0];
+
+    document.querySelectorAll(".event-pill").forEach(btn => {
+      btn.classList.toggle("current", btn.innerText.trim().includes(eventName));
+    });
+    renderPage();
+  }
+
+  function switchRound(roundName) {
+    currentRound = roundName;
+    renderPage();
+  }
+
+  function renderPage() {
+    updateHeader(currentEvent);
+    renderRoundTabs();
+    renderTable();
+  }
+
+  function updateHeader(eventName) {
+    document.getElementById("currentBadge").innerText = eventName.charAt(0);
+    document.getElementById("currentTitle").childNodes[0].nodeValue = `${eventName} `;
+  }
+
+  function renderRoundTabs() {
+    const tabsContainer = document.getElementById("roundTabsContainer");
+    const rounds = getRounds(currentEvent);
+    tabsContainer.innerHTML = rounds.map(round => `
+      <button class="round-tab ${round === currentRound ? 'active' : ''}" onclick="switchRound('${round}')">
+        ${round}
+      </button>
+    `).join("");
+  }
+
+  function renderTable() {
+    const tbody = document.getElementById("resultsTableBody");
+    const filtered = allResultsData.filter(r => r.Event === currentEvent && r.Round === currentRound);
+
+    if (filtered.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="5" class="empty-msg">No match records available for ${currentRound}.</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = filtered.map((r, i) => {
+      const rank = r.Rank || (i + 1);
+      let medalHtml = "";
+      if (rank === 1) medalHtml = `<span class="medal gold">1</span>`;
+      else if (rank === 2) medalHtml = `<span class="medal silver">2</span>`;
+      else if (rank === 3) medalHtml = `<span class="medal bronze">3</span>`;
+
+      return `
+        <tr class="${rank <= 3 ? 'podium' : ''}">
+          <td class="rank-cell">${medalHtml || rank}</td>
+          <td><strong>${r.Name}</strong> ${r.PartnerName ? `<div style="font-size:12px;color:var(--text-dim);">Partner: ${r.PartnerName}</div>` : ''}</td>
+          <td><span class="grade-tag">${r.Grade || '—'}</span></td>
+          <td>${r.Status || 'Completed'}</td>
+          <td class="num"><b>${r.Score || '—'}</b></td>
+        </tr>`;
+    }).join("");
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    fetchResults();
+    setInterval(fetchResults, 5000);
+  });
+</script>
+</body>
+</html>

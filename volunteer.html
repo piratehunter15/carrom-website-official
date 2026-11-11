@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Volunteer — FKS Carrom Open 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="carrom-theme.css">
+<style>
+  :root{
+    --ink:#12172B; --paper:#F6F4EF; --paper-dim:#EAE7DD;
+    --carrom-red:#E6402A; --carrom-gold:#D4AF37; --carrom-green:#1E8E5A;
+    --line:#D9D5C8; --text-dim:#6B7280;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:720px;margin:0 auto;padding:0 28px;}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(246,244,239,0.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav-inner{max-width:1120px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;letter-spacing:-0.01em;}
+  .logo-mark{height:36px;width:auto;flex-shrink:0;}
+  .nav-links{display:flex;align-items:center;gap:28px;font-size:14.5px;font-weight:500;}
+  .nav-links .active{position:relative;}
+  .nav-links .active::after{content:"";position:absolute;left:0;right:0;bottom:-19px;height:2px;background:var(--ink);}
+  .btn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border-radius:999px;font-weight:600;font-size:14px;border:1px solid transparent;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease;}
+  .btn:hover{transform:translateY(-1px);}
+  .btn-solid-red{background:var(--carrom-red);color:#fff;}
+  .btn-solid-red:hover{box-shadow:0 6px 16px rgba(230,64,42,0.35);}
+  .btn-solid-red:disabled{opacity:0.5;cursor:not-allowed;transform:none;box-shadow:none;}
+
+  .page-header{background:radial-gradient(120% 140% at 15% 0%, #202749 0%, var(--ink) 55%, #0C1022 100%);color:var(--paper);padding:52px 0 40px;text-align:center;}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--carrom-gold);border:1px solid rgba(212,175,55,0.4);padding:6px 14px;border-radius:999px;margin-bottom:20px;}
+  .eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--carrom-red);}
+  .page-header h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(30px,5vw,44px);letter-spacing:-0.02em;margin-bottom:12px;}
+  .page-header p{color:rgba(246,244,239,0.7);font-size:15px;}
+
+  .form-section{padding:48px 0 24px;}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;}
+  .field{margin-bottom:22px;}
+  .field label{display:block;font-weight:600;font-size:14px;margin-bottom:8px;}
+  .field input[type=text], .field input[type=tel]{
+    width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:14.5px;font-family:'Inter',sans-serif;outline:none;
+  }
+  .field input[type=text]:focus, .field input[type=tel]:focus{border-color:var(--ink);}
+
+  .grade-options{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+  @media(max-width:520px){.grade-options{grid-template-columns:repeat(2,1fr);}}
+  .radio-pill{
+    border:1px solid var(--line);border-radius:10px;padding:12px;text-align:center;font-size:14px;font-weight:600;
+    cursor:pointer;transition:border-color .15s ease, background .15s ease; user-select:none;
+  }
+  .radio-pill input[type=radio]{display:none;}
+  .radio-pill.selected{border-color:var(--ink);background:var(--paper-dim);}
+
+  .event-options{display:grid;grid-template-columns:repeat(2, 1fr);gap:10px;}
+  @media(max-width:520px){.event-options{grid-template-columns:1fr;}}
+  
+  .event-check{
+    display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;padding:12px 14px;
+    cursor:pointer;transition:border-color .15s ease, background .15s ease; user-select:none;
+  }
+  .event-check input[type=checkbox]{display:none;}
+  .event-check.selected{border-color:var(--carrom-red);background:var(--paper-dim);}
+  .event-dot{width:10px;height:10px;border-radius:3px;background:var(--carrom-red);flex-shrink:0;}
+  .event-check .name{font-weight:600;font-size:14px;flex:1;}
+  .event-check .check-icon{
+    width:18px;height:18px;border-radius:5px;border:1.5px solid var(--line);flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;transition:all .15s ease;
+  }
+  .event-check.selected .check-icon{
+    background:var(--carrom-red);border-color:var(--carrom-red);
+  }
+  .event-check.selected .check-icon::after{
+    content:'✓';color:#fff;font-size:12px;font-weight:700;
+  }
+
+  .submit-row{margin-top:28px;}
+  .submit-row .btn{width:100%;justify-content:center;padding:13px;font-size:15px;}
+
+  .status-msg{margin-top:16px;font-size:13.5px;padding:12px 14px;border-radius:10px;display:none;}
+  .status-msg.success{display:block;background:rgba(30,142,90,0.1);color:var(--carrom-green);}
+  .status-msg.error{display:block;background:rgba(230,64,42,0.1);color:var(--carrom-red);}
+  .hint{font-size:12.5px;color:var(--text-dim);margin-top:6px;}
+
+  footer{background:var(--ink);color:rgba(246,244,239,0.65);padding:40px 0;font-size:13px;margin-top:48px;}
+  .footer-inner{max-width:1120px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  footer .logo{color:var(--paper);}
+  footer .logo-mark{filter:brightness(0) invert(1);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">
+      <img src="FKS Logo.png" class="logo-mark" alt="FKS Logo">
+      <span>FKS Carrom Open 2027</span>
+    </a>
+    <div class="nav-links">
+      <a href="registration.html">Register</a>
+      <a href="#" class="active">Volunteer</a>
+      <a href="index.html">Home</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-header">
+  <div class="wrap">
+    <div class="eyebrow">
+      <span class="eyebrow-dot"></span>
+      Official Call for Judges &amp; Volunteers
+    </div>
+    <h1>Volunteer Registration</h1>
+    <p>Join our team to officiate matches at FKS Carrom Open 2027.</p>
+  </div>
+</header>
+
+<section class="form-section">
+  <div class="wrap">
+    <div class="card">
+      <form id="volunteerForm">
+        
+        <!-- Full Name -->
+        <div class="field">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" placeholder="e.g. Aarav Mehta" required>
+        </div>
+
+        <!-- Grade Level -->
+        <div class="field">
+          <label>Grade</label>
+          <div class="grade-options">
+            <label class="radio-pill"><input type="radio" name="grade" value="Grade 5" required>Grade 5</label>
+            <label class="radio-pill"><input type="radio" name="grade" value="Grade 6">Grade 6</label>
+            <label class="radio-pill"><input type="radio" name="grade" value="Grade 7">Grade 7</label>
+            <label class="radio-pill"><input type="radio" name="grade" value="Grade 8">Grade 8</label>
+            <label class="radio-pill"><input type="radio" name="grade" value="Grade 9">Grade 9</label>
+          </div>
+        </div>
+
+        <!-- Section -->
+        <div class="field">
+          <label for="section">Section</label>
+          <input type="text" id="section" name="section" placeholder="e.g. A, B, or C" required>
+        </div>
+
+        <!-- Mobile Number -->
+        <div class="field">
+          <label for="mobileNumber">Mobile Number</label>
+          <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="e.g., 9876543210" pattern="[0-9]{10}" title="Please enter a valid 10-digit phone number" required>
+          <div class="hint">Used for event WhatsApp updates &amp; coordination on tournament days.</div>
+        </div>
+
+        <!-- Judging Event Selection -->
+        <div class="field">
+          <label>Judging Event(s)</label>
+          <div class="event-options">
+            <label class="event-check">
+              <input type="checkbox" name="judgingEvents" value="Solos">
+              <span class="event-dot"></span>
+              <span class="name">Solos (Singles)</span>
+              <span class="check-icon"></span>
+            </label>
+            <label class="event-check">
+              <input type="checkbox" name="judgingEvents" value="Doubles">
+              <span class="event-dot"></span>
+              <span class="name">Doubles</span>
+              <span class="check-icon"></span>
+            </label>
+          </div>
+          <div class="hint">Select which carrom event(s) you would like to judge.</div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="submit-row">
+          <button type="submit" class="btn btn-solid-red" id="submitBtn">Submit Application</button>
+        </div>
+
+        <div id="statusMsg" class="status-msg"></div>
+
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="logo">
+      <img class="logo-mark" src="FKS Logo.png" alt="FKS Carrom Open 2027">
+      <span>FKS Carrom Open 2027</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzcYqKBeoI-SlCik2nVTUWZpZAo1VDzKWn495hkntC615xHwuQNv4g8x3B2TbcjGIOj9A/exec';
+
+  const gradeInputs = document.querySelectorAll('input[name="grade"]');
+  const eventCheckboxes = document.querySelectorAll('input[name="judgingEvents"]');
+  const submitBtn = document.getElementById('submitBtn');
+
+  // Pill visual toggle state
+  gradeInputs.forEach(input => {
+    input.addEventListener('change', () => {
+      gradeInputs.forEach(i => i.closest('.radio-pill').classList.toggle('selected', i.checked));
+    });
+  });
+
+  eventCheckboxes.forEach(checkbox => {
+    checkbox.addEventListener('change', (e) => {
+      e.target.closest('.event-check').classList.toggle('selected', e.target.checked);
+    });
+  });
+
+  document.getElementById('volunteerForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const statusMsg = document.getElementById('statusMsg');
+
+    const selectedEvents = document.querySelectorAll('input[name="judgingEvents"]:checked');
+    if (selectedEvents.length === 0) {
+      statusMsg.className = 'status-msg error';
+      statusMsg.innerText = 'Please select at least one judging event (Solos or Doubles).';
+      statusMsg.style.display = 'block';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.innerText = 'Submitting...';
+    statusMsg.style.display = 'none';
+
+    const formData = new FormData(e.target);
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.result === 'success' || data.success) {
+        statusMsg.className = 'status-msg success';
+        statusMsg.innerText = 'Thank you! Your volunteer application has been submitted successfully.';
+        statusMsg.style.display = 'block';
+        document.getElementById('volunteerForm').reset();
+        document.querySelectorAll('.radio-pill, .event-check').forEach(el => el.classList.remove('selected'));
+      } else {
+        throw new Error(data.error || 'Submission failed');
+      }
+    })
+    .catch(error => {
+      statusMsg.className = 'status-msg error';
+      statusMsg.innerText = 'An error occurred while submitting. Please try again.';
+      statusMsg.style.display = 'block';
+      console.error('Error:', error);
+    })
+    .finally(() => {
+      submitBtn.disabled = false;
+      submitBtn.innerText = 'Submit Application';
+    });
+  });
+</script>
+
+</body>
+</html>

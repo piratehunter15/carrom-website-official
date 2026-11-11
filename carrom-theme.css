@@ -1,0 +1,730 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+/* ==========================================
+   CARROM THEME DESIGN SYSTEM & COLOR PALETTE
+   ========================================== */
+:root {
+  /* Core Carrom Colors */
+  --carrom-red: #D62828;         /* Queen / Main Accent */
+  --carrom-red-dark: #9E1B1B;    /* Queen Shadow / Deep Red */
+  --carrom-black: #12131C;       /* Black Piece / Ink */
+  --carrom-black-soft: #1E202C;  /* Secondary Dark Surface */
+  --carrom-white: #FAF6F0;       /* White Piece / Board Surface */
+  --carrom-cream: #F2ECDC;       /* Natural Wood/Felt Surface */
+  --carrom-gold: #F4A261;        /* Pocket / Concentric Ring Gold */
+  
+  /* Structural / Semantic Colors */
+  --line: #E2D9C5;
+  --line-dark: rgba(255, 255, 255, 0.12);
+  --text-dim: #6C727F;
+  --text-light-dim: #A0A5B5;
+  --shadow-soft: 0 10px 30px rgba(18, 19, 28, 0.08);
+  --shadow-carrom: 0 14px 36px rgba(0, 0, 0, 0.25);
+
+  /* Puzzle / Event Accents (Harmonized with Carrom Theme) */
+  --cube-red: #D62828;
+  --cube-yellow: #E9C46A;
+  --cube-green: #2A9D8F;
+  --cube-blue: #2A6F97;
+  --cube-orange: #F4A261;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--carrom-cream);
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(214, 40, 40, 0.03) 0%, transparent 60%),
+    radial-gradient(circle at 100% 0%, rgba(244, 162, 97, 0.06) 0%, transparent 40%);
+  color: var(--carrom-black);
+  font-family: 'Outfit', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ==========================================
+   NAVIGATION BAR (Inspired by Carrom Frame)
+   ========================================== */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(250, 246, 240, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 3px solid var(--carrom-black);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.nav-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--carrom-black);
+}
+
+.logo-mark {
+  height: 38px;
+  width: auto;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid var(--carrom-red);
+  padding: 2px;
+  background: var(--carrom-white);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.nav-links a {
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--carrom-red);
+}
+
+.nav-links .active {
+  position: relative;
+  color: var(--carrom-red);
+}
+
+.nav-links .active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -22px;
+  width: 100%;
+  height: 4px;
+  background: var(--carrom-red);
+  border-radius: 4px 4px 0 0;
+}
+
+/* Carrom Piece Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-solid-red {
+  background: var(--carrom-red);
+  color: var(--carrom-white);
+  border-color: var(--carrom-red-dark);
+  box-shadow: 0 4px 12px rgba(214, 40, 40, 0.3);
+}
+
+.btn-solid-red:hover {
+  background: var(--carrom-red-dark);
+  box-shadow: 0 6px 18px rgba(214, 40, 40, 0.45);
+}
+
+.btn-primary {
+  background: var(--carrom-black);
+  color: var(--carrom-white);
+  box-shadow: 0 4px 12px rgba(18, 19, 28, 0.25);
+}
+
+.btn-primary:hover {
+  background: var(--carrom-black-soft);
+  box-shadow: 0 6px 18px rgba(18, 19, 28, 0.4);
+}
+
+.btn-outline {
+  border-color: var(--carrom-black);
+  background: var(--carrom-white);
+  color: var(--carrom-black);
+}
+
+.btn-outline:hover {
+  background: var(--carrom-black);
+  color: var(--carrom-white);
+}
+
+.btn-ghost-light {
+  border: 2px solid rgba(250, 246, 240, 0.4);
+  color: var(--carrom-white);
+  background: transparent;
+}
+
+.btn-ghost-light:hover {
+  background: rgba(250, 246, 240, 0.12);
+  border-color: var(--carrom-white);
+}
+
+.nav-cta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+@media(max-width: 640px) {
+  .nav-links { display: none; }
+}
+
+/* ==========================================
+   HERO / HEADER (Carrom Frame & Board Ring Inspired)
+   ========================================== */
+.hero, .page-header {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 30%, #252838 0%, var(--carrom-black) 85%);
+  color: var(--carrom-white);
+  padding: 64px 0 20px;
+  border-bottom: 6px solid var(--carrom-red);
+  text-align: center;
+}
+
+/* Subtle decorative circle ring representing the Queen/Center Circle */
+.hero::before, .page-header::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 450px;
+  border: 2px stroke var(--carrom-gold);
+  border: 2px dashed rgba(244, 162, 97, 0.15);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.scramble-strip {
+  position: absolute;
+  inset: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  color: rgba(250, 246, 240, 0.04);
+  line-height: 2.4;
+  padding: 20px;
+  white-space: pre-wrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+.hero-inner, .page-header {
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--carrom-gold);
+  background: rgba(244, 162, 97, 0.1);
+  border: 1.5px solid rgba(244, 162, 97, 0.35);
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 22px;
+}
+
+.eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--carrom-red);
+  box-shadow: 0 0 8px var(--carrom-red);
+  animation: pulse 1.6s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+h1.hero-title, .page-header h1 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: clamp(34px, 6vw, 68px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+h1.hero-title .accent {
+  color: var(--carrom-red);
+  text-shadow: 0 0 20px rgba(214, 40, 40, 0.4);
+}
+
+.hero-sub, .page-header p {
+  font-size: 16.5px;
+  color: var(--text-light-dim);
+  max-width: 580px;
+  margin: 0 auto 34px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+/* ---------- STRIKER TIMERS ---------- */
+.timer-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 14px;
+  padding: 0 24px 40px;
+  position: relative;
+  z-index: 2;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.timer-card {
+  background: var(--carrom-black-soft);
+  border: 2px solid rgba(250, 246, 240, 0.08);
+  border-radius: 14px;
+  padding: 14px 12px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.timer-card:hover {
+  border-color: var(--carrom-red);
+  transform: translateY(-2px);
+}
+
+.timer-lane {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--text-light-dim);
+  letter-spacing: 0.12em;
+  margin-bottom: 6px;
+}
+
+.timer-display {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--carrom-white);
+}
+
+.timer-card:nth-child(4n+1) .timer-display { color: var(--carrom-red); }
+.timer-card:nth-child(4n+2) .timer-display { color: var(--carrom-gold); }
+.timer-card:nth-child(4n+3) .timer-display { color: var(--carrom-white); }
+.timer-card:nth-child(4n+4) .timer-display { color: var(--cube-blue); }
+
+.hero-photo-fade {
+  height: 40px;
+  background: linear-gradient(180deg, transparent, var(--carrom-cream));
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================
+   CARDS & LAYOUT REDESIGN
+   ========================================== */
+.info-section, .overview-section, .form-section, .sponsor {
+  padding: 48px 0 64px;
+}
+
+.info-grid, .overview-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 28px;
+}
+
+@media(max-width: 860px) {
+  .info-grid, .overview-grid { grid-template-columns: 1fr; }
+}
+
+.card, .full-card, .sponsor-card {
+  background: var(--carrom-white);
+  border: 2px solid var(--carrom-black);
+  border-radius: 20px;
+  padding: 32px;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px dashed rgba(18, 19, 28, 0.1);
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+.card-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--carrom-red);
+  margin-bottom: 12px;
+}
+
+.card h2, .card h3, .full-card h2, .sponsor-body h3 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+  color: var(--carrom-black);
+}
+
+.card p, .full-card p, .sponsor-body p {
+  font-size: 15px;
+  color: #4A4E5D;
+  line-height: 1.65;
+  margin-bottom: 16px;
+}
+
+/* Detail Rows & List Items */
+.detail-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding: 10px;
+  border-radius: 12px;
+  background: var(--carrom-cream);
+}
+
+.detail-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--carrom-black);
+  color: var(--carrom-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 18px;
+}
+
+.detail-text .k {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+}
+
+.detail-text .v {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--carrom-black);
+}
+
+.event-list { list-style: none; }
+.event-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.event-item:last-child { border-bottom: none; }
+.event-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--carrom-black);
+  flex-shrink: 0;
+}
+
+.event-item .name {
+  font-weight: 700;
+  font-size: 15px;
+  flex: 1;
+}
+
+.event-item .tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--carrom-cream);
+  padding: 4px 10px;
+  border-radius: 50px;
+  color: var(--carrom-black);
+}
+
+/* Map Box (Carrom Corner Pocket Styling) */
+.map-box {
+  margin-top: 20px;
+  height: 120px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid var(--carrom-black);
+  background: radial-gradient(circle at center, #EFE8D8 0%, #D8CDBC 100%);
+}
+
+.map-pin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50% 50% 50% 0;
+  background: var(--carrom-red);
+  rotate: -45deg;
+  box-shadow: 0 4px 12px rgba(214, 40, 40, 0.4);
+}
+
+/* Stats Row */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.stat-box {
+  background: var(--carrom-cream);
+  border: 1.5px solid var(--line);
+  border-radius: 14px;
+  padding: 16px 12px;
+  text-align: center;
+}
+
+.stat-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--carrom-red);
+}
+
+.stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+/* Full Card Banner & Action Row */
+.full-card {
+  text-align: center;
+  margin-top: 24px;
+  background: linear-gradient(135deg, var(--carrom-white) 0%, var(--carrom-cream) 100%);
+}
+
+.action-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* ==========================================
+   FORM & REGISTRATION STYLING
+   ========================================== */
+.field { margin-bottom: 24px; }
+.field label {
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.field input[type=text] {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: 'Outfit', sans-serif;
+  background: var(--carrom-cream);
+  transition: border-color 0.2s ease;
+}
+
+.field input[type=text]:focus {
+  outline: none;
+  border-color: var(--carrom-black);
+}
+
+.grade-options {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.radio-pill {
+  border: 2px solid var(--line);
+  background: var(--carrom-cream);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.radio-pill.selected, .radio-pill:hover {
+  border-color: var(--carrom-black);
+  background: var(--carrom-black);
+  color: var(--carrom-white);
+}
+
+.event-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.event-check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 16px;
+  background: var(--carrom-cream);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.event-check.selected {
+  border-color: var(--carrom-black);
+  background: var(--carrom-white);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.event-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--e-color, var(--carrom-black));
+  flex-shrink: 0;
+}
+
+.event-check .name {
+  font-weight: 700;
+  font-size: 15px;
+  flex: 1;
+}
+
+.event-check .check-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--line);
+  flex-shrink: 0;
+}
+
+.event-check.selected .check-icon {
+  background: var(--carrom-red);
+  border-color: var(--carrom-red);
+}
+
+.status-msg.error {
+  margin-top: 18px;
+  display: block;
+  background: rgba(214, 40, 40, 0.1);
+  border: 1.5px solid var(--carrom-red);
+  color: var(--carrom-red-dark);
+  font-weight: 600;
+  padding: 14px;
+  border-radius: 12px;
+}
+
+/* ==========================================
+   FOOTER (Solid Carrom Wood/Black Frame)
+   ========================================== */
+footer {
+  background: var(--carrom-black);
+  color: var(--carrom-white);
+  padding: 44px 0;
+  font-size: 14px;
+  border-top: 5px solid var(--carrom-red);
+}
+
+.footer-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+footer .logo {
+  color: var(--carrom-white);
+}
+
+footer .logo-mark {
+  filter: brightness(0) invert(1);
+  border-color: var(--carrom-gold);
+}

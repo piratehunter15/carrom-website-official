@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — FKS Carrom Open 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="carrom-theme.css">
+<style>
+  body{background:var(--carrom-cream);color:var(--carrom-black);font-family:'Outfit',sans-serif;padding:40px 20px;}
+  .wrap{max-width:960px;margin:0 auto;}
+  header{margin-bottom:36px;text-align:center;}
+  h1{font-family:'Outfit',sans-serif;font-weight:900;font-size:36px;margin-bottom:8px;text-transform:uppercase;}
+  .sub{color:var(--text-dim);font-size:15px;font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;}
+  
+  .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:20px;}
+  @media(max-width:700px){.card-grid{grid-template-columns:1fr;}}
+
+  .nav-card{
+    background:var(--carrom-white);border:2px solid var(--carrom-black);border-radius:18px;padding:32px 28px;
+    text-decoration:none;color:inherit;transition:all .2s cubic-bezier(0.4, 0, 0.2, 1);display:flex;flex-direction:column;justify-content:space-between;
+    box-shadow: var(--shadow-soft);
+  }
+  .nav-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,0.12);border-color:var(--carrom-red);}
+  
+  .card-tag{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;display:inline-block;padding:6px 12px;border-radius:50px;}
+  .tag-green{background:rgba(42,157,143,0.15);color:var(--carrom-green);}
+  .tag-blue{background:rgba(42,111,151,0.15);color:var(--cube-blue);}
+  .tag-red{background:rgba(214,40,40,0.15);color:var(--carrom-red);}
+
+  .nav-card h2{font-family:'Outfit',sans-serif;font-weight:800;font-size:22px;margin-bottom:10px;color:var(--carrom-black);}
+  .nav-card p{color:var(--text-dim);font-size:14.5px;line-height:1.6;}
+  .card-action{margin-top:24px;font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:700;color:var(--carrom-black);display:flex;align-items:center;gap:6px;}
+  .nav-card:hover .card-action{color:var(--carrom-red);}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <h1>FKS Carrom Open 2027</h1>
+    <div class="sub">Admin Control Panel Center</div>
+  </header>
+
+  <div class="card-grid">
+    <!-- Payment / Registration Module -->
+    <a href="admin_payments.html" class="nav-card">
+      <div>
+        <span class="card-tag tag-green">Registration Module</span>
+        <h2>Manage Payments</h2>
+        <p>View competitor registrations, verify payment statuses, and toggle payment confirmation records.</p>
+      </div>
+      <div class="card-action">Open Payment Manager &rarr;</div>
+    </a>
+
+    <!-- Match Results / Timing Module linked to admin_results.html -->
+    <a href="admin_results.html" class="nav-card">
+      <div>
+        <span class="card-tag tag-blue">Live Competition Module</span>
+        <h2>Submit Match Scores</h2>
+        <p>Enter board numbers, record competitor match points, and push live round scores to the results sheet.</p>
+      </div>
+      <div class="card-action">Open Results Manager &rarr;</div>
+    </a>
+
+    <!-- Volunteer Management Module -->
+    <a href="admin_volunteers.html" class="nav-card">
+      <div>
+        <span class="card-tag tag-red">Volunteer Management Module</span>
+        <h2>Manage Volunteers</h2>
+        <p>Review registered student judges and event volunteers across Solos and Doubles matches.</p>
+      </div>
+      <div class="card-action">Open Volunteer Manager &rarr;</div>
+    </a>
+  </div>
+</div>
+</body>
+</html>

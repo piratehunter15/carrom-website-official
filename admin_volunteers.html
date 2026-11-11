@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Volunteer Directory</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=IBM+Plex+Mono:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="carrom-theme.css">
+<style>
+  :root{
+    --ink:#12172B; --paper:#F6F4EF; --paper-dim:#EAE7DD;
+    --carrom-red:#E6402A; --carrom-green:#1E8E5A; --carrom-amber:#B7791F;
+    --line:#D9D5C8; --text-dim:#6B7280;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',sans-serif;padding:30px 20px;}
+  .wrap{max-width:1150px;margin:0 auto;}
+  header{margin-bottom:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  h1{font-family:'Space Grotesk',sans-serif;font-size:26px;}
+  .back-link{color:var(--text-dim);text-decoration:none;font-family:'IBM Plex Mono',monospace;font-size:13px;}
+  .back-link:hover{color:var(--ink);}
+
+  .diag{border-radius:14px;padding:14px 16px;margin-bottom:16px;border:1px solid var(--line);background:#fff;
+    font-family:'IBM Plex Mono',monospace;font-size:12.5px;line-height:1.7;}
+  .diag.ok{border-color:rgba(30,142,90,.45);background:rgba(30,142,90,.06);}
+  .diag.warn{border-color:rgba(183,121,31,.45);background:rgba(183,121,31,.07);}
+  .diag.fail{border-color:rgba(230,64,42,.45);background:rgba(230,64,42,.07);}
+  .diag-head{display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer;}
+  .diag-title{font-family:'Space Grotesk',sans-serif;font-size:14px;}
+  .diag-body{margin-top:10px;border-top:1px dashed var(--line);padding-top:10px;}
+  .diag-body[hidden]{display:none;}
+  .diag-row{display:flex;gap:10px;}
+  .diag-k{color:var(--text-dim);min-width:200px;flex-shrink:0;}
+  .diag-v{word-break:break-word;}
+
+  .role-summary{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px;}
+  .role-chip{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;}
+  .role-chip-name{font-family:'IBM Plex Mono',monospace;font-size:10.5px;text-transform:uppercase;color:var(--text-dim);}
+  .role-chip-num{font-family:'Space Grotesk',sans-serif;font-size:20px;}
+
+  .filter-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:20px;
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;align-items:end;}
+  .filter-group{display:flex;flex-direction:column;gap:6px;}
+  .filter-group label{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--text-dim);}
+  .filter-control{width:100%;padding:8px 12px;border-radius:8px;border:1px solid var(--line);background:var(--paper);
+    font-family:'Inter',sans-serif;font-size:13.5px;color:var(--ink);outline:none;transition:border-color .15s;}
+  .filter-control:focus{border-color:var(--ink);}
+
+  .actions-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;gap:12px;flex-wrap:wrap;}
+  .actions-left{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+
+  .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;overflow-x:auto;}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  th{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:var(--text-dim);
+    padding:10px;border-bottom:1px solid var(--line);background:var(--paper-dim);text-align:left;}
+  td{padding:12px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+  tr.flagged td{background:rgba(183,121,31,.06);}
+
+  .badge{display:inline-block;padding:3px 8px;border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;}
+  .badge-event{background:rgba(18,23,43,.08);color:var(--ink);border:1px solid var(--line);margin:2px 2px 2px 0;}
+  .row-note{display:block;margin-top:4px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--carrom-amber);}
+
+  .phone-link{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--ink);text-decoration:none;font-weight:500;white-space:nowrap;}
+  .phone-link:hover{text-decoration:underline;color:var(--carrom-green);}
+
+  .btn{padding:6px 12px;border-radius:6px;border:none;font-size:12px;font-weight:600;cursor:pointer;
+    font-family:'IBM Plex Mono',monospace;transition:opacity .15s ease;}
+  .btn:hover{opacity:.85;}
+  .btn-refresh{background:var(--ink);color:#fff;padding:8px 16px;border-radius:999px;}
+  .btn-export{background:var(--carrom-green);color:#fff;padding:8px 16px;border-radius:999px;}
+  .stats-counter{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:var(--text-dim);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Volunteer &amp; Judge Directory</h1>
+    <a href="admin_home.html" class="back-link">&larr; Back to Home</a>
+  </header>
+
+  <div class="diag" id="diagCard">
+    <div class="diag-head" onclick="toggleDiag()">
+      <span class="diag-title" id="diagHeadline">Checking connection to volunteers database...</span>
+      <span style="color:var(--text-dim);" id="diagCaret">show details ▾</span>
+    </div>
+    <div class="diag-body" id="diagBody" hidden>
+      <div class="diag-row"><span class="diag-k">Endpoint</span><span class="diag-v" id="dGet">—</span></div>
+      <div class="diag-row"><span class="diag-k">Rows returned</span><span class="diag-v" id="dRows">—</span></div>
+    </div>
+  </div>
+
+  <div class="role-summary" id="roleSummary"></div>
+
+  <div class="filter-card">
+    <div class="filter-group">
+      <label for="eventFilter">Filter by Event</label>
+      <select id="eventFilter" class="filter-control"><option value="ALL">All Events</option></select>
+    </div>
+    <div class="filter-group">
+      <label for="gradeFilter">Grade Level</label>
+      <select id="gradeFilter" class="filter-control"><option value="ALL">All Grades</option></select>
+    </div>
+    <div class="filter-group">
+      <label for="sortBy">Sort Priority</label>
+      <select id="sortBy" class="filter-control">
+        <option value="Name-asc">Name (A-Z)</option>
+        <option value="Grade-asc">Grade Level</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="searchInput">Search Volunteer</label>
+      <input type="text" id="searchInput" class="filter-control" placeholder="Search name, phone, section...">
+    </div>
+  </div>
+
+  <div class="actions-bar">
+    <div class="actions-left">
+      <button class="btn btn-refresh" id="btnRefresh">↻ Refresh Volunteers</button>
+      <button class="btn btn-export" id="btnExport">⇩ Export CSV</button>
+    </div>
+    <div id="volunteerCount" class="stats-counter">Showing 0 volunteers</div>
+  </div>
+
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Full Name</th><th>Mobile Number</th><th>Grade</th>
+          <th>Section</th><th>Judging Event(s)</th>
+        </tr>
+      </thead>
+      <tbody id="volunteerTableBody">
+        <tr><td colspan="5" style="text-align:center;padding:20px;color:var(--text-dim);">Loading...</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+const VOLUNTEER_API_URL = "PASTE_YOUR_VOLUNTEER_API_URL_HERE";
+
+let rawVolunteers = [];
+let DUPLICATE_MOBILES = [];
+
+function normKey(k){ return String(k).toLowerCase().replace(/[^a-z0-9]/g, ""); }
+function indexRow(row){
+  if (!row.__idx){
+    const idx = {};
+    Object.keys(row).forEach(k => { if (idx[normKey(k)] === undefined) idx[normKey(k)] = k; });
+    Object.defineProperty(row, "__idx", { value: idx, enumerable: false, writable: true });
+  }
+  return row.__idx;
+}
+
+function pick(row, candidates){
+  if (!row || typeof row !== "object") return "";
+  const idx = indexRow(row);
+  for (const c of candidates){
+    const real = idx[normKey(c)];
+    if (real !== undefined && row[real] !== null && String(row[real]).trim() !== ""){
+      return String(row[real]).trim();
+    }
+  }
+  return "";
+}
+
+function getName(r)   { return pick(r, ["fullName","full_name","Name"]) || "—"; }
+function getMobile(r) { return pick(r, ["mobileNumber","mobile_number","Mobile","Phone"]) || "—"; }
+function getGrade(r)  { return pick(r, ["grade","grade_level","Grade"]) || "—"; }
+function getSection(r){ return pick(r, ["section","Section"]) || "—"; }
+function getEvents(r) {
+  const ev = pick(r, ["judgingEvents","judging_events","events","Events"]);
+  return ev ? ev.split(/[,;|\n\/]+/).map(s => s.trim()).filter(Boolean) : [];
+}
+
+function mobileDigits(r){ return getMobile(r).replace(/\D/g, ""); }
+const ESC = { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" };
+function esc(s){ return String(s).replace(/[&<>"']/g, c => ESC[c]); }
+
+function toggleDiag(){
+  const b = document.getElementById("diagBody");
+  b.hidden = !b.hidden;
+  document.getElementById("diagCaret").textContent = b.hidden ? "show details ▾" : "hide details ▴";
+}
+
+function loadVolunteers(){
+  const tbody = document.getElementById("volunteerTableBody");
+  tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--text-dim);">Loading...</td></tr>';
+
+  fetch(VOLUNTEER_API_URL + "?_=" + Date.now(), { cache: "no-store" })
+    .then(res => res.json())
+    .then(data => {
+      rawVolunteers = Array.isArray(data) ? data : (data.data || []);
+      
+      const seen = {}, dupes = [];
+      rawVolunteers.forEach(r => {
+        const d = mobileDigits(r);
+        if (!d) return;
+        if (seen[d] && dupes.indexOf(d) === -1) dupes.push(d);
+        seen[d] = true;
+      });
+      DUPLICATE_MOBILES = dupes;
+
+      document.getElementById("diagCard").className = "diag ok";
+      document.getElementById("diagHeadline").textContent = `Connected. Loaded ${rawVolunteers.length} volunteer record(s).`;
+      document.getElementById("dGet").textContent = "OK (" + rawVolunteers.length + " rows)";
+      document.getElementById("dRows").textContent = String(rawVolunteers.length);
+
+      populateDropdowns(rawVolunteers);
+      applyFilterAndSort();
+    })
+    .catch(err => {
+      console.error("Error loading volunteers:", err);
+      document.getElementById("diagCard").className = "diag fail";
+      document.getElementById("diagHeadline").textContent = "Cannot read the volunteer database.";
+      tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--carrom-red);padding:20px;">' + esc(err.message) + '</td></tr>';
+    });
+}
+
+function populateDropdowns(data){
+  const eventSelect = document.getElementById("eventFilter");
+  const gradeSelect = document.getElementById("gradeFilter");
+  const events = new Set(), grades = new Set();
+
+  data.forEach(item => {
+    getEvents(item).forEach(e => events.add(e));
+    const g = getGrade(item);
+    if (g && g !== "—") grades.add(g);
+  });
+
+  eventSelect.innerHTML = '<option value="ALL">All Events</option>' + Array.from(events).sort().map(e => `<option value="${esc(e)}">${esc(e)}</option>`).join("");
+  gradeSelect.innerHTML = '<option value="ALL">All Grades</option>' + Array.from(grades).sort().map(g => `<option value="${esc(g)}">${esc(g)}</option>`).join("");
+
+  document.getElementById("roleSummary").innerHTML = `
+    <div class="role-chip"><div class="role-chip-name">Total Volunteers</div><div class="role-chip-num">${data.length}</div></div>
+  `;
+}
+
+function applyFilterAndSort(){
+  const eventFilter = document.getElementById("eventFilter").value;
+  const gradeFilter = document.getElementById("gradeFilter").value;
+  const sortBy = document.getElementById("sortBy").value;
+  const q = document.getElementById("searchInput").value.toLowerCase().trim();
+
+  const filtered = rawVolunteers.filter(row => {
+    const events = getEvents(row).map(e => e.toLowerCase());
+    const grade = getGrade(row);
+    const section = getSection(row);
+
+    const matchEvent = eventFilter === "ALL" || events.indexOf(eventFilter.toLowerCase()) !== -1;
+    const matchGrade = gradeFilter === "ALL" || grade.toLowerCase() === gradeFilter.toLowerCase();
+    const matchSearch = !q || getName(row).toLowerCase().includes(q) || getMobile(row).toLowerCase().includes(q) || section.toLowerCase().includes(q);
+
+    return matchEvent && matchGrade && matchSearch;
+  });
+
+  filtered.sort((a,b) => {
+    if (sortBy === "Grade-asc") return getGrade(a).localeCompare(getGrade(b), undefined, {numeric:true});
+    return getName(a).localeCompare(getName(b));
+  });
+
+  document.getElementById("volunteerCount").textContent = `Showing ${filtered.length} of ${rawVolunteers.length} volunteers`;
+  
+  const tbody = document.getElementById("volunteerTableBody");
+  if (filtered.length === 0){
+    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;padding:20px;color:var(--text-dim);">No matching volunteers found.</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = filtered.map(row => {
+    const name = getName(row);
+    const mobile = getMobile(row);
+    const digits = mobileDigits(row);
+    const grade = getGrade(row);
+    const section = getSection(row);
+    const events = getEvents(row);
+    const isDupe = digits && DUPLICATE_MOBILES.indexOf(digits) !== -1;
+
+    const eventHtml = events.length ? events.map(e => `<span class="badge badge-event">${esc(e)}</span>`).join(" ") : '—';
+    const phoneHtml = digits ? `<a href="tel:${esc(digits)}" class="phone-link">📞 ${esc(mobile)}</a>` : '—';
+
+    return `<tr class="${isDupe ? 'flagged' : ''}">
+      <td><b>${esc(name)}</b>${isDupe ? '<span class="row-note">⚠ duplicate mobile</span>' : ''}</td>
+      <td>${phoneHtml}</td>
+      <td>${esc(grade)}</td>
+      <td>${esc(section)}</td>
+      <td>${eventHtml}</td>
+    </tr>`;
+  }).join("");
+}
+
+function exportCsv(){
+  const q = s => '"' + String(s).replace(/"/g, '""') + '"';
+  const lines = [["Name","Mobile","Grade","Section","Judging Events"].map(q).join(",")];
+  rawVolunteers.forEach(r => {
+    lines.push([getName(r), getMobile(r), getGrade(r), getSection(r), getEvents(r).join(" / ")].map(q).join(","));
+  });
+  const blob = new Blob(["﻿" + lines.join("\r\n")], { type: "text/csv;charset=utf-8;" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "carrom_volunteers.csv";
+  document.body.appendChild(a); a.click();
+  document.body.removeChild(a); URL.revokeObjectURL(a.href);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  ["eventFilter","gradeFilter","sortBy"].forEach(id => document.getElementById(id).addEventListener("change", applyFilterAndSort));
+  document.getElementById("searchInput").addEventListener("input", applyFilterAndSort);
+  document.getElementById("btnRefresh").addEventListener("click", loadVolunteers);
+  document.getElementById("btnExport").addEventListener("click", exportCsv);
+  loadVolunteers();
+});
+</script>
+</body>
+</html>
