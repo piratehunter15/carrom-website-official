@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "vercel dev",
-    "build": "vercel build",
+    "build": "echo 'No build step required'",
     "start": "node api/index.js"
   },
   "dependencies": {
@@ -16,14 +16,5 @@
   },
   "devDependencies": {
     "vercel": "^33.0.0"
-  },
-  "keywords": [
-    "carrom",
-    "tournament",
-    "fks-carrom-open",
-    "supabase",
-    "vercel"
-  ],
-  "author": "FKS Cubing / Carrom Tech Team",
-  "license": "ISC"
+  }
 }
