@@ -1,6 +1,10 @@
 {
   "version": 2,
+  "outputDirectory": ".",
   "rewrites": [
+    { "source": "/api/registrations", "destination": "/registrations.js" },
+    { "source": "/api/volunteers", "destination": "/volunteers_2.js" },
+    { "source": "/api/results", "destination": "/results.js" },
     { "source": "/api/(.*)", "destination": "/api/$1" }
   ]
 }
