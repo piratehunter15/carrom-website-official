@@ -1,0 +1,29 @@
+{
+  "name": "fks-carrom-open-2027",
+  "version": "1.0.0",
+  "description": "FKS Carrom Open 2027 Tournament Web Management Platform & Supabase Backend",
+  "main": "api/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "vercel build",
+    "start": "node api/index.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "vercel": "^33.0.0"
+  },
+  "keywords": [
+    "carrom",
+    "tournament",
+    "fks-carrom-open",
+    "supabase",
+    "vercel"
+  ],
+  "author": "FKS Cubing / Carrom Tech Team",
+  "license": "ISC"
+}
