@@ -1,0 +1,867 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Outfit:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Domine:wght@500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-container":"#f9ebe7","inverse-on-surface":"#fbeeea","tertiary-fixed-dim":"#c8c5cd","secondary":"#735c00","on-secondary-fixed":"#241a00","inverse-primary":"#ffb4a9","court-line":"#C8BEAB","on-primary-fixed-variant":"#930003","on-tertiary-fixed-variant":"#47464d","on-surface":"#201a18","on-secondary-container":"#745c00","surface-variant":"#ede0dc","surface-container-lowest":"#ffffff","trophy-gold-bright":"#E5C158","primary":"#b71711","pocket-void":"#0F0B0A","on-tertiary-fixed":"#1b1b21","outline":"#906f6b","primary-fixed":"#ffdad5","secondary-fixed-dim":"#e9c349","on-background":"#201a18","tertiary":"#5c5b62","outline-variant":"#e4beb8","on-error-container":"#93000a","on-secondary":"#ffffff","surface-container-high":"#f3e5e1","surface-tint":"#ba1a14","text-dim":"#6E685F","tertiary-container":"#75747b","surface-dim":"#e4d7d4","on-tertiary-container":"#fffbff","primary-fixed-dim":"#ffb4a9","on-tertiary":"#ffffff","on-secondary-fixed-variant":"#574500","surface":"#fff8f6","on-primary-container":"#fffbff","tertiary-fixed":"#e4e1ea","surface-container-low":"#fef1ed","surface-container-highest":"#ede0dc","on-surface-variant":"#5b403c","on-error":"#ffffff","carrom-red-deep":"#C2271B","background":"#fff8f6","secondary-fixed":"#ffe088","error":"#ba1a1a","inverse-surface":"#362f2c","error-container":"#ffdad6","secondary-container":"#fed65b","surface-cream":"#F7F3E9","primary-container":"#db3428","surface-cream-subtle":"#EFE9D8","on-primary":"#ffffff","frame-mahogany":"#2B1D16","surface-bright":"#fff8f6","on-primary-fixed":"#410001"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-md":"1rem","space-xl":"2.25rem",margin:"2.5rem","gutter-mobile":"1rem","margin-mobile":"1.25rem","space-sm":"0.5rem","space-lg":"1.5rem",gutter:"1.5rem","space-2xl":"3.5rem","space-xs":"0.25rem"},fontFamily:{"label-md":["JetBrains Mono"],"body-sm":["Outfit"],"headline-xl-mobile":["Outfit"],"body-lg":["Outfit"],"label-sm":["JetBrains Mono"],"display-lg":["Outfit"],"bracket-node":["JetBrains Mono"],"headline-lg":["Outfit"],"body-md":["Outfit"],"headline-sm":["Outfit"],"headline-md":["Outfit"],"display-lg-mobile":["Outfit"],"headline-xl":["Outfit"],"label-lg":["JetBrains Mono"]},fontSize:{"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.04em",fontWeight:"500"}],"body-sm":["13px",{lineHeight:"19px",fontWeight:"400"}],"headline-xl-mobile":["30px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"700"}],"body-lg":["16px",{lineHeight:"26px",fontWeight:"400"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"600"}],"display-lg":["56px",{lineHeight:"64px",letterSpacing:"-0.03em",fontWeight:"800"}],"bracket-node":["13px",{lineHeight:"22px",fontWeight:"500"}],"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"700"}],"body-md":["14.5px",{lineHeight:"23px",fontWeight:"400"}],"headline-sm":["18px",{lineHeight:"24px",fontWeight:"600"}],"headline-md":["22px",{lineHeight:"30px",fontWeight:"600"}],"display-lg-mobile":["38px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"800"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.02em",fontWeight:"600"}]}}}}</script></head><body class="bg-surface-cream font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-72 bg-frame-mahogany z-50 flex flex-col justify-between shadow-[4px_0_24px_rgba(15,11,10,0.45)]"><div class="flex flex-col">
+  <!-- Top Branding Header -->
+  <div class="p-space-lg bg-pocket-void flex flex-col gap-space-xs">
+    <div class="flex items-center gap-space-sm">
+      <div class="w-3 h-3 rounded-full bg-carrom-red-deep ring-2 ring-trophy-gold-bright/40 animate-pulse"></div>
+      <span class="font-label-sm text-label-sm uppercase tracking-wider text-trophy-gold-bright font-bold">SECRETARIAT OPS DESK</span>
+    </div>
+    <div class="flex items-center gap-2 mt-1">
+      <div class="w-6 h-6 rounded-full bg-trophy-gold-bright flex items-center justify-center p-0.5 shadow-sm flex-shrink-0">
+        <div class="w-full h-full rounded-full bg-surface-cream flex items-center justify-center">
+          <div class="w-2.5 h-2.5 rounded-full bg-carrom-red-deep"></div>
+        </div>
+      </div>
+      <h1 class="font-headline-sm text-headline-sm text-surface-cream tracking-tight font-bold" style="font-family: Domine, serif;">FKS Carrom Open ‘27</h1>
+    </div>
+    <div class="mt-space-xs inline-flex items-center px-space-sm py-0.5 rounded-full bg-surface-cream/10 border border-court-line/20 self-start">
+      <span class="font-label-sm text-[10px] text-surface-cream-subtle uppercase tracking-widest font-semibold">ADMIN COMMAND CENTER</span>
+    </div>
+  </div>
+
+  <!-- Section Header -->
+  <div class="px-space-md py-space-sm bg-pocket-void/60 flex items-center justify-between">
+    <span class="font-label-sm text-label-sm text-court-line uppercase tracking-wider font-semibold">OPERATIONAL PANELS</span>
+    <span class="font-label-sm text-[10px] text-trophy-gold-bright bg-trophy-gold-bright/10 px-2 py-0.5 rounded-full font-bold border border-trophy-gold-bright/30 uppercase tracking-wider">RESTRICTED</span>
+  </div>
+
+  <!-- Navigation Links -->
+  <nav class="p-space-md flex flex-col gap-space-sm">
+    <!-- 1. Payments Manager (Inactive) -->
+    <a class="group flex items-center gap-space-md px-space-md py-space-md rounded-xl text-surface-cream-subtle hover:bg-surface-cream/10 hover:text-surface-cream transition-all" href="admin_payments.html">
+      <span class="material-symbols-outlined text-court-line group-hover:text-surface-cream text-[22px]">payments</span>
+      <div class="flex flex-col">
+        <span class="font-body-md font-semibold tracking-tight leading-snug">Payments Manager</span>
+        <span class="font-label-sm text-[10px] text-court-line/80">Cash on Desk · Shift Audits</span>
+      </div>
+    </a>
+
+    <!-- 2. Results Console (Active) -->
+    <a aria-current="page" class="group flex items-center justify-between px-space-md py-space-md rounded-xl transition-all bg-carrom-red-deep text-on-primary font-bold shadow-[inset_0_2px_0_rgba(255,255,255,0.2)] border-l-4 border-trophy-gold-bright" href="admin_results.html">
+      <div class="flex items-center gap-space-md">
+        <span class="material-symbols-outlined text-trophy-gold-bright text-[22px]">scoreboard</span>
+        <div class="flex flex-col">
+          <span class="font-body-md font-bold tracking-tight leading-snug text-surface-cream">Results Console</span>
+          <span class="font-label-sm text-[10px] text-surface-cream-subtle/80 font-normal">Boards 01–15 · Queen · Stream</span>
+        </div>
+      </div>
+      <div class="w-2 h-2 rounded-full bg-trophy-gold-bright animate-pulse"></div>
+    </a>
+
+    <!-- 3. Volunteer Manager (Inactive) -->
+    <a class="group flex items-center gap-space-md px-space-md py-space-md rounded-xl text-surface-cream-subtle hover:bg-surface-cream/10 hover:text-surface-cream transition-all" href="admin_volunteers.html">
+      <span class="material-symbols-outlined text-court-line group-hover:text-surface-cream text-[22px]">sports_score</span>
+      <div class="flex flex-col">
+        <span class="font-body-md font-semibold tracking-tight leading-snug">Volunteer Manager</span>
+        <span class="font-label-sm text-[10px] text-court-line/80">Ref Allocations · Rosters</span>
+      </div>
+    </a>
+
+    <!-- 4. Volunteer News (Inactive) -->
+    <a class="group flex items-center gap-space-md px-space-md py-space-md rounded-xl text-surface-cream-subtle hover:bg-surface-cream/10 hover:text-surface-cream transition-all" href="admin_news_editor.html">
+      <span class="material-symbols-outlined text-court-line group-hover:text-surface-cream text-[22px]">campaign</span>
+      <div class="flex flex-col">
+        <span class="font-body-md font-semibold tracking-tight leading-snug">Volunteer News</span>
+        <span class="font-label-sm text-[10px] text-court-line/80">Editor &amp; Live Dispatches</span>
+      </div>
+    </a>
+  </nav>
+</div>
+
+<!-- Bottom Status & Exit -->
+<div class="p-space-md bg-pocket-void/80 flex flex-col gap-space-md">
+  <div class="flex items-center justify-between px-space-sm">
+    <div class="flex items-center gap-space-xs">
+      <div class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-pulse"></div>
+      <span class="font-label-sm text-[11px] text-surface-cream/80 uppercase font-semibold">BRD 01–15 SYNCED</span>
+    </div>
+    <span class="font-label-sm text-[10px] text-court-line font-mono font-medium">TLS 1.3</span>
+  </div>
+  <a class="flex items-center justify-center gap-space-sm w-full py-space-sm px-space-md rounded-full bg-surface-cream/10 hover:bg-carrom-red-deep hover:text-on-primary text-surface-cream-subtle font-label-md text-label-md uppercase tracking-wider transition-all" href="index.html">
+    <span class="material-symbols-outlined text-[18px]">logout</span>
+    <span>EXIT TO PUBLIC SITE</span>
+  </a>
+</div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-20 bg-surface-cream/95 backdrop-blur-md z-40 shadow-[0_4px_16px_rgba(43,29,22,0.08)]"><div class="w-full h-full px-space-xl flex items-center justify-between"><div class="flex items-center gap-space-md"><div class="px-space-md py-space-xs rounded-full bg-carrom-red-deep text-on-primary font-label-sm text-label-sm font-bold uppercase tracking-wider flex items-center gap-space-xs"><span class="material-symbols-outlined text-[14px]">verified_user</span><span>Organizers Lead Console</span></div><div class="hidden xl:flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-cream-subtle border border-court-line text-on-surface-variant font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-carrom-red-deep animate-ping"></span><span class="font-medium">Live Arena Sync:</span><span class="text-primary font-bold">Active</span></div></div><div class="flex items-center gap-space-lg"><div class="hidden md:flex items-center gap-space-sm"><button class="px-space-md py-space-xs rounded-full bg-surface-cream-subtle hover:bg-surface-container hover:text-on-surface text-on-surface-variant border border-court-line font-label-sm text-label-sm font-semibold uppercase tracking-wider flex items-center gap-space-xs transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">grid_view</span><span>Arena Board Status</span></button><button class="px-space-md py-space-xs rounded-full bg-surface-cream-subtle hover:bg-surface-container hover:text-on-surface text-on-surface-variant border border-court-line font-label-sm text-label-sm font-semibold uppercase tracking-wider flex items-center gap-space-xs transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">file_download</span><span>Export CSV</span></button><button class="px-space-md py-space-xs rounded-full bg-carrom-red-deep hover:bg-primary text-on-primary font-label-sm text-label-sm font-bold uppercase tracking-wider flex items-center gap-space-xs shadow-sm transition-all" onclick="document.getElementById('bracketEngineSection').scrollIntoView({behavior: 'smooth'})" type="button"><span class="material-symbols-outlined text-[16px]">account_tree</span><span>Draws &amp; Brackets</span></button></div><div class="h-8 w-px bg-court-line/60 hidden sm:block"></div><div class="flex items-center gap-space-md pl-space-xs"><div class="flex flex-col text-right hidden sm:flex"><span class="font-label-md text-label-md font-bold text-frame-mahogany tracking-tight">Chandan &amp; Navaneet</span><span class="font-label-sm text-[11px] text-text-dim tracking-wider uppercase font-semibold">Organizers Lead</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-20 px-space-xl py-space-xl flex-1 bg-surface-cream"><div class="flex flex-col w-full gap-space-lg">
+<!-- TOP STRIP: Competition Board Quick Station Selector (Boards 01 to 15) -->
+<section class="bg-surface-cream-subtle rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-carrom-red-deep animate-ping"></span>
+<span class="font-label-lg text-label-lg text-frame-mahogany uppercase tracking-wider">Tournament Arena Stations</span><button class="font-label-sm text-label-sm px-2.5 py-0.5 rounded-full bg-trophy-gold-bright/10 text-frame-mahogany border border-trophy-gold-bright/40 font-bold hover:bg-trophy-gold-bright/20 flex items-center gap-1 transition-all" onclick="document.getElementById('bracketEngineSection').scrollIntoView({behavior: 'smooth'})" type="button"><span class="material-symbols-outlined text-[14px] text-carrom-red-deep">alt_route</span><span>Draw Generator</span></button>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant">15 Tournament Tables</span>
+</div>
+<div class="flex items-center gap-space-md text-text-dim">
+<div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-primary"></span><span class="font-label-sm text-label-sm">Active (7)</span></div>
+<div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-secondary-container"></span><span class="font-label-sm text-label-sm">Awaiting Score (3)</span></div>
+<div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-surface-container"></span><span class="font-label-sm text-label-sm">Ready (4)</span></div>
+<div class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-text-dim"></span><span class="font-label-sm text-label-sm">Break (1)</span></div>
+</div>
+</div>
+<!-- Horizontal Board Carousel / Strip -->
+<div class="grid grid-cols-2 sm:grid-cols-5 lg:grid-cols-8 xl:grid-cols-15 gap-space-xs" id="boardStationBar">
+<!-- B01 -->
+<button class="board-chip flex flex-col p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-all text-left" onclick="selectBoard('B01', 'In Progress')" type="button">
+<span class="font-label-sm text-[10px] text-text-dim">STATION</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">B01</span>
+<span class="font-label-sm text-[9px] px-1 rounded bg-primary/15 text-primary font-semibold mt-1 truncate">In Progress</span>
+</button>
+<!-- B02 -->
+<button class="board-chip flex flex-col p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-all text-left" onclick="selectBoard('B02', 'Ready')" type="button">
+<span class="font-label-sm text-[10px] text-text-dim">STATION</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">B02</span>
+<span class="font-label-sm text-[9px] px-1 rounded bg-court-line/40 text-on-surface-variant font-semibold mt-1 truncate">Ready</span>
+</button>
+<!-- B03 -->
+<button class="board-chip flex flex-col p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-all text-left" onclick="selectBoard('B03', 'Awaiting')" type="button">
+<span class="font-label-sm text-[10px] text-text-dim">STATION</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">B03</span>
+<span class="font-label-sm text-[9px] px-1 rounded bg-secondary-container text-on-secondary-container font-semibold mt-1 truncate">Score Due</span>
+</button>
+<!-- B04 -->
+<button class="board-chip flex flex-col p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-all text-left" onclick="selectBoard('B04', 'Completed')" type="button">
+<span class="font-label-sm text-[10px] text-text-dim">STATION</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">B04</span>
+<span class="font-label-sm text-[9px] px-1 rounded bg-surface-container text-text-dim font-semibold mt-1 truncate">Verified</span>
+</button>
+<!-- B05 -->
+<button class="board-chip flex flex-col p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-all text-left" onclick="selectBoard('B05', 'In Progress')" type="button">
+<span class="font-label-sm text-[10px] text-text-dim">STATION</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">B05</span>
+<span class="font-label-sm text-[9px] px-1 rounded bg-primary/15 text-primary font-semibold mt-1 truncate">In Progress</span>
+</button>
+<!-- B06 -->
+<button class="board-chip flex flex-col p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-all text-left" onclick="selectBoard('B06', 'Ready')" type="button">
+<span class="font-label-sm text-[10px] text-text-dim">STATION</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">B06</span>
+<span class="font-label-sm text-[9px] px-1 rounded bg-court-line/40 text-on-surface-variant font-semibold mt-1 truncate">Ready</span>
+</button>
+<!-- B07 (CURRENTLY SELECTED DESK STATION) -->
+<button class="board-chip selected-station flex flex-col p-space-xs rounded-lg bg-carrom-red-deep text-on-primary shadow-md text-left scale-[1.03]" onclick="selectBoard('B07', 'Score Entry Active')" type="button">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[10px] text-primary-fixed uppercase tracking-tight">STATION</span>
+<span class="material-symbols-outlined text-trophy-gold-bright text-[14px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<span class="font-label-lg text-label-lg text-on-primary font-extrabold tracking-tight">B07</span>
+<span class="font-label-sm text-[9px] px-1.5 py-0.5 rounded-full bg-surface-cream text-carrom-red-deep font-bold mt-1 truncate">DESK ACTIVE</span>
+</button>
+<!-- B08 -->
+<button class="board-chip flex flex-col p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-all text-left" onclick="selectBoard('B08', 'In Progress')" type="button">
+<span class="font-label-sm text-[10px] text-text-dim">STATION</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">B08</span>
+<span class="font-label-sm text-[9px] px-1 rounded bg-primary/15 text-primary font-semibold mt-1 truncate">In Progress</span>
+</button>
+<!-- B09 -->
+<button class="board-chip flex flex-col p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-all text-left" onclick="selectBoard('B09', 'In Progress')" type="button">
+<span class="font-label-sm text-[10px] text-text-dim">STATION</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">B09</span>
+<span class="font-label-sm text-[9px] px-1 rounded bg-primary/15 text-primary font-semibold mt-1 truncate">In Progress</span>
+</button>
+<!-- B10 -->
+<button class="board-chip flex flex-col p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-all text-left" onclick="selectBoard('B10', 'Score Due')" type="button">
+<span class="font-label-sm text-[10px] text-text-dim">STATION</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">B10</span>
+<span class="font-label-sm text-[9px] px-1 rounded bg-secondary-container text-on-secondary-container font-semibold mt-1 truncate">Score Due</span>
+</button>
+<!-- B11 -->
+<button class="board-chip flex flex-col p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-all text-left" onclick="selectBoard('B11', 'Break/Rounds End')" type="button">
+<span class="font-label-sm text-[10px] text-text-dim">STATION</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">B11</span>
+<span class="font-label-sm text-[9px] px-1 rounded bg-surface-container-highest text-on-surface-variant font-semibold mt-1 truncate">Tie Break</span>
+</button>
+<!-- B12 -->
+<button class="board-chip flex flex-col p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-all text-left" onclick="selectBoard('B12', 'Ready')" type="button">
+<span class="font-label-sm text-[10px] text-text-dim">STATION</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">B12</span>
+<span class="font-label-sm text-[9px] px-1 rounded bg-court-line/40 text-on-surface-variant font-semibold mt-1 truncate">Ready</span>
+</button>
+<!-- B13 -->
+<button class="board-chip flex flex-col p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-all text-left" onclick="selectBoard('B13', 'In Progress')" type="button">
+<span class="font-label-sm text-[10px] text-text-dim">STATION</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">B13</span>
+<span class="font-label-sm text-[9px] px-1 rounded bg-primary/15 text-primary font-semibold mt-1 truncate">In Progress</span>
+</button>
+<!-- B14 -->
+<button class="board-chip flex flex-col p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-all text-left" onclick="selectBoard('B14', 'Ready')" type="button">
+<span class="font-label-sm text-[10px] text-text-dim">STATION</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">B14</span>
+<span class="font-label-sm text-[9px] px-1 rounded bg-court-line/40 text-on-surface-variant font-semibold mt-1 truncate">Ready</span>
+</button>
+<!-- B15 -->
+<button class="board-chip flex flex-col p-space-xs rounded-lg bg-surface-container-low hover:bg-surface-container transition-all text-left" onclick="selectBoard('B15', 'Break')" type="button">
+<span class="font-label-sm text-[10px] text-text-dim">STATION</span>
+<span class="font-label-lg text-label-lg text-on-surface font-bold">B15</span>
+<span class="font-label-sm text-[9px] px-1 rounded bg-surface-variant text-text-dim font-semibold mt-1 truncate">Interval</span>
+</button>
+</div>
+</section>
+<!-- SIMPLIFIED BRACKET & MATCH DRAW GENERATOR -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-md border-2 border-carrom-red-deep/20 flex flex-col gap-space-md relative overflow-hidden" id="bracketEngineSection">
+<div class="flex flex-col md:flex-row md:items-center justify-between pb-space-sm gap-space-sm border-b border-court-line/20">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-xl bg-carrom-red-deep flex items-center justify-center text-on-primary shadow-sm">
+<span class="material-symbols-outlined text-[24px]">account_tree</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm text-carrom-red-deep uppercase font-bold tracking-widest">Draw Generator</span>
+<span class="font-label-sm text-[10px] px-2 py-0.5 rounded-full bg-trophy-gold-bright/10 text-on-secondary-container font-bold border border-trophy-gold-bright/30">Official Tournament Rules</span>
+</div>
+<h2 class="font-headline-md text-headline-md font-bold text-frame-mahogany tracking-tight" style="font-family: Domine, serif;">Bracket &amp; Match Draw Generator</h2>
+</div>
+</div>
+<div class="flex items-center gap-2 flex-wrap">
+<button class="px-space-md py-1.5 rounded-full bg-surface-cream hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase font-semibold border border-court-line flex items-center gap-1.5 transition-colors" onclick="showToast('Redrawn match schedule for selected category.')" type="button">
+<span class="material-symbols-outlined text-[16px]">shuffle</span><span>Shuffle Draw</span>
+</button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-cream hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm uppercase font-semibold border border-court-line flex items-center gap-1.5 transition-colors" onclick="showToast('Exporting official bracket tree to printable PDF...')" type="button">
+<span class="material-symbols-outlined text-[16px]">print</span><span>Export PDF</span>
+</button>
+<button class="px-space-md py-1.5 rounded-full bg-carrom-red-deep hover:bg-primary text-on-primary font-label-sm text-label-sm uppercase font-bold flex items-center gap-1.5 shadow-sm transition-all" onclick="showToast('Brackets synced to live public site.')" type="button">
+<span class="material-symbols-outlined text-[16px]">cloud_sync</span><span>Push to Live Site</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md bg-surface-cream rounded-xl p-space-md">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-text-dim uppercase font-semibold">Tournament Category</label>
+<select class="p-2.5 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface outline-none border border-court-line/40 font-semibold" id="bracketCategorySelect">
+<option selected="" value="solos">Solos (Singles)</option>
+<option value="doubles">Doubles</option>
+<option value="mixed-doubles">Mixed Doubles (Open Doubles)</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-text-dim uppercase font-semibold">Arena Board Allocation</label>
+<div class="flex items-center justify-between p-2.5 bg-surface-container-lowest rounded-lg border border-court-line/40">
+<span class="font-label-md text-label-md font-bold text-on-surface">15 Active Tables</span>
+<span class="font-label-sm text-[10px] px-2 py-0.5 rounded bg-primary/10 text-primary font-bold">Wave 1 (Boards 01-15)</span>
+</div>
+</div>
+</div>
+<div class="p-space-sm rounded-xl bg-surface-cream-subtle border border-court-line/30 flex flex-col sm:flex-row items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-md flex-wrap">
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-[11px] text-text-dim uppercase">Entrants:</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">64 Registered</span>
+</div>
+<span class="h-4 w-px bg-court-line/60 hidden sm:block"></span>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-[11px] text-text-dim uppercase">Round 1:</span>
+<span class="font-label-md text-label-md font-bold text-carrom-red-deep">32 Knockout Fixtures</span>
+</div>
+<span class="h-4 w-px bg-court-line/60 hidden sm:block"></span>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-[11px] text-text-dim uppercase">Status:</span>
+<span class="font-label-sm text-[11px] text-on-surface font-semibold">Boards 01-15 Wave 1 Allocated</span>
+</div>
+</div>
+<button class="w-full sm:w-auto px-space-lg py-2 rounded-full bg-primary hover:bg-carrom-red-deep text-on-primary font-label-md text-label-md font-bold uppercase tracking-wider shadow-sm flex items-center justify-center gap-1.5 transition-all" onclick="showToast('Bracket &amp; Round 1 schedule generated for 15 boards!')" type="button">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+<span>Generate Draw &amp; Assign Boards</span>
+</button>
+</div>
+<!-- Bracket Progression Strip -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-frame-mahogany font-bold uppercase tracking-wider flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-carrom-red-deep"></span>
+<span>Interactive Knockout Progression (Auto-Advancing)</span>
+</span>
+<span class="font-label-sm text-[10px] text-text-dim">Updated live as match scores are transmitted</span>
+</div>
+<div class="overflow-x-auto pb-2">
+<div class="flex items-start gap-space-lg min-w-[960px] py-space-xs">
+<div class="flex flex-col gap-2 w-56 flex-shrink-0">
+<div class="flex items-center justify-between pb-1 border-b border-court-line/30"><span class="font-label-sm text-label-sm font-bold text-frame-mahogany uppercase">Round of 64</span><span class="font-label-sm text-[10px] px-1.5 rounded bg-surface-container text-text-dim font-bold">32 Matches</span></div>
+<div class="p-2.5 rounded-lg bg-surface-cream border border-court-line/40 flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center justify-between text-[10px] font-label-sm text-text-dim"><span class="px-1.5 py-0.5 rounded bg-carrom-red-deep text-on-primary font-bold">B01 • Match #01</span><span class="text-primary font-bold">25-0</span></div>
+<div class="flex flex-col text-[11px] font-semibold text-on-surface">
+<div class="flex justify-between items-center"><span class="font-bold text-carrom-red-deep">#01 Vihaan R.</span><span class="font-mono font-bold text-carrom-red-deep">25</span></div>
+<div class="flex justify-between items-center text-text-dim"><span class="line-through">#64 Manav G.</span><span class="font-mono">0</span></div>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-cream border border-court-line/40 flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center justify-between text-[10px] font-label-sm text-text-dim"><span class="px-1.5 py-0.5 rounded bg-frame-mahogany text-surface-cream font-bold">B02 • Match #02</span><span class="text-text-dim">Ready</span></div>
+<div class="flex flex-col text-[11px] font-semibold text-on-surface">
+<div class="flex justify-between items-center"><span>#33 Kunal V.</span><span class="font-mono text-text-dim">--</span></div>
+<div class="flex justify-between items-center"><span>#32 Aryan D.</span><span class="font-mono text-text-dim">--</span></div>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-cream border border-court-line/40 flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center justify-between text-[10px] font-label-sm text-text-dim"><span class="px-1.5 py-0.5 rounded bg-carrom-red-deep text-on-primary font-bold">B07 • Match #07</span><span class="text-carrom-red-deep font-bold">Live 21-14</span></div>
+<div class="flex flex-col text-[11px] font-semibold text-on-surface">
+<div class="flex justify-between items-center"><span class="font-bold">#03 Aarav Sharma</span><span class="font-mono font-bold text-carrom-red-deep">21</span></div>
+<div class="flex justify-between items-center text-text-dim"><span>#14 Pranav Iyer</span><span class="font-mono font-bold">14</span></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 w-56 flex-shrink-0 pt-4">
+<div class="flex items-center justify-between pb-1 border-b border-court-line/30"><span class="font-label-sm text-label-sm font-bold text-frame-mahogany uppercase">Round of 32</span><span class="font-label-sm text-[10px] px-1.5 rounded bg-surface-container text-text-dim font-bold">16 Matches</span></div>
+<div class="p-2.5 rounded-lg bg-surface-container-low border border-court-line/40 flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center justify-between text-[10px] font-label-sm text-text-dim"><span class="px-1.5 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-bold">Wave 2</span><span>On Deck</span></div>
+<div class="flex flex-col text-[11px] font-semibold text-on-surface">
+<div class="flex justify-between items-center"><span class="font-bold text-on-surface">Vihaan R. (Adv.)</span><span class="material-symbols-outlined text-secondary text-[14px]">check</span></div>
+<div class="flex justify-between items-center text-text-dim"><span>Winner Match #02</span><span class="font-mono">TBD</span></div>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low border border-court-line/40 flex flex-col gap-1.5 shadow-sm mt-8">
+<div class="flex items-center justify-between text-[10px] font-label-sm text-text-dim"><span class="px-1.5 py-0.5 rounded bg-surface-container text-text-dim font-bold">Wave 2</span><span>Pending</span></div>
+<div class="flex flex-col text-[11px] font-semibold text-on-surface">
+<div class="flex justify-between items-center"><span>Winner Match #07</span><span class="font-mono text-text-dim">TBD</span></div>
+<div class="flex justify-between items-center text-text-dim"><span>Winner Match #08</span><span class="font-mono">TBD</span></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 w-56 flex-shrink-0 pt-8">
+<div class="flex items-center justify-between pb-1 border-b border-court-line/30"><span class="font-label-sm text-label-sm font-bold text-frame-mahogany uppercase">Sweet 16</span><span class="font-label-sm text-[10px] px-1.5 rounded bg-surface-container text-text-dim font-bold">8 Matches</span></div>
+<div class="p-2.5 rounded-lg bg-surface-cream-subtle border border-court-line/40 flex flex-col gap-1.5 shadow-sm">
+<div class="flex items-center justify-between text-[10px] font-label-sm text-text-dim"><span class="px-1.5 py-0.5 rounded bg-surface-cream text-on-surface-variant font-bold border">Top 16</span><span>Match #01</span></div>
+<div class="flex flex-col text-[11px] font-semibold text-text-dim">
+<div class="flex justify-between items-center"><span>Round 2 Winner A</span><span class="font-mono text-[10px]">TBD</span></div>
+<div class="flex justify-between items-center"><span>Round 2 Winner B</span><span class="font-mono text-[10px]">TBD</span></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 w-56 flex-shrink-0 pt-12">
+<div class="flex items-center justify-between pb-1 border-b border-court-line/30"><span class="font-label-sm text-label-sm font-bold text-frame-mahogany uppercase">Quarter Finals</span><span class="font-label-sm text-[10px] px-1.5 rounded bg-surface-container text-text-dim font-bold">QF-01 to 04</span></div>
+<div class="p-2.5 rounded-lg bg-surface-cream-subtle border-2 border-dashed border-court-line flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-[10px] font-label-sm text-text-dim"><span class="px-1.5 py-0.5 rounded bg-trophy-gold-bright/20 text-on-secondary-container font-bold">QF-03 Slot</span><span>Table 7</span></div>
+<div class="flex flex-col text-[11px] font-semibold text-text-dim">
+<div class="flex justify-between items-center"><span>Winner Match #07 / 08</span><span class="font-mono text-[10px]">Slot A</span></div>
+<div class="flex justify-between items-center"><span>Winner Match #09 / 10</span><span class="font-mono text-[10px]">Slot B</span></div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2 w-56 flex-shrink-0 pt-16">
+<div class="flex items-center justify-between pb-1 border-b border-court-line/30"><span class="font-label-sm text-label-sm font-bold text-carrom-red-deep uppercase">Grand Final</span><span class="material-symbols-outlined text-trophy-gold-bright text-[16px]" style="font-variation-settings: 'FILL' 1;">emoji_events</span></div>
+<div class="p-3 rounded-xl bg-frame-mahogany text-surface-cream flex flex-col gap-2 shadow-md">
+<div class="flex items-center justify-between text-[10px] font-label-sm text-trophy-gold-bright"><span class="uppercase font-bold tracking-wider">Board 01 • Center Court</span><span>Championship</span></div>
+<div class="flex flex-col text-[12px] font-bold text-surface-cream">
+<div class="flex justify-between items-center"><span>Finalist Alpha</span><span class="font-mono text-trophy-gold-bright">—</span></div>
+<div class="flex justify-between items-center text-surface-cream/80"><span>Finalist Beta</span><span class="font-mono text-trophy-gold-bright">—</span></div>
+</div>
+<div class="text-[10px] font-label-sm text-court-line text-center uppercase tracking-widest pt-1 border-t border-surface-cream/10">FKS Open Champions Trophy</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- MAIN OPERATIONAL TWO-COLUMN CONSOLE -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: Primary Score Entry / Match Recording (7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Match Recording Card -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-md flex flex-col gap-space-md">
+<!-- Match Selector Header -->
+<div class="flex flex-col gap-space-xs pb-space-sm border-b border-court-line/20">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-carrom-red-deep"></span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-carrom-red-deep font-bold">Score Entry &amp; Match Record</span>
+</div>
+<span class="font-label-sm text-[11px] px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed uppercase font-bold" id="matchStatusBadge">Live Active</span>
+</div>
+<!-- MATCH SELECTOR DROPDOWN -->
+<div class="flex flex-col gap-1 mt-1">
+<label class="font-label-sm text-label-sm text-text-dim uppercase font-semibold flex items-center justify-between">
+<span>Select Active or Scheduled Match</span>
+<span class="text-[10px] text-primary font-bold">Pick match to record or correct score</span>
+</label>
+<div class="relative">
+<select class="match-select w-full p-3 bg-surface-cream rounded-xl font-body-md text-body-md text-frame-mahogany font-bold border-2 border-court-line/40 outline-none focus:border-carrom-red-deep transition-all cursor-pointer" id="matchSelectorDropdown" onchange="handleMatchSelect(this.value)">
+<option selected="" value="M07">Board 07 — Match #07: Aarav Sharma vs Pranav Iyer (Sweet 16 / Solos)</option>
+<option value="M01">Board 01 — Match #01: Vihaan R. vs Manav G. (Round of 32)</option>
+<option value="M02">Board 02 — Match #02: Kunal V. vs Aryan D. (Round of 32)</option>
+<option value="M04">Board 04 — Match #12: Tanvi S. vs Rhea K. (Round of 16)</option>
+<option value="M10">Board 10 — Match #15: Meera &amp; Ananya vs Tara &amp; Ira (Doubles)</option>
+<option value="M11">Board 11 — Match #18: Zayan &amp; Kabir vs Aditya &amp; Rohan (Open Doubles)</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Category & Stage Selection -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md bg-surface-cream rounded-xl p-space-md">
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-text-dim uppercase font-semibold">Assigned Station</label>
+<div class="flex items-center gap-2 p-2 bg-surface-container-lowest rounded-lg">
+<span class="material-symbols-outlined text-primary text-[20px]">sports_esports</span>
+<span class="font-body-md text-body-md font-bold text-on-surface" id="selectedStationLabel">Board 07</span>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-text-dim uppercase font-semibold">Tournament Category</label>
+<select class="p-2 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface outline-none font-medium" id="eventTierSelect">
+<option selected="" value="solos">Solos (Singles)</option>
+<option value="doubles">Doubles</option>
+<option value="mixed-doubles">Mixed Doubles (Open Doubles)</option>
+</select>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-text-dim uppercase font-semibold">Tournament Stage</label>
+<select class="p-2 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface outline-none font-medium" id="knockoutStageSelect">
+<option selected="" value="sweet16">Sweet 16 (Knockout)</option>
+<option value="r64">Round of 64</option>
+<option value="top32">Round of 32</option>
+<option value="qf">Quarter Finals</option>
+<option value="sf">Semi Finals</option>
+<option value="finals">Championship Final</option>
+</select>
+</div>
+</div>
+<!-- Competitors Match-up (White vs Black Strike Lines) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Competitor Side White / Player 1 -->
+<div class="bg-surface-cream rounded-xl p-space-md flex flex-col gap-space-sm relative overflow-hidden border border-court-line/30">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-3.5 h-3.5 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center">
+<span class="w-2 h-2 rounded-full bg-surface-variant"></span>
+</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface tracking-wider uppercase">Side White • Player 1</span>
+</div>
+<span class="font-label-sm text-[10px] px-2 py-0.5 rounded-full bg-surface-container text-primary font-bold" id="player1StatusTag">Seed #03</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<span class="font-body-lg text-body-lg font-bold text-frame-mahogany" id="player1Name">Aarav Sharma</span>
+<span class="font-label-sm text-[11px] text-text-dim font-mono" id="player1Id">ID: FKS-084</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-[11px] px-2 py-0.5 rounded bg-surface-container text-on-surface-variant" id="player1Sub">Grade 8</span>
+</div>
+</div>
+<!-- Score Counter -->
+<div class="flex items-center justify-between pt-space-xs mt-space-xs bg-surface-container-lowest rounded-lg p-space-sm border border-court-line/20">
+<span class="font-label-sm text-label-sm text-text-dim uppercase font-semibold">White Score</span>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-variant text-on-surface font-bold text-lg flex items-center justify-center transition-colors" onclick="adjustPoints('ptsA', -1)" type="button">-</button>
+<input class="w-14 text-center font-display-lg text-[28px] font-extrabold text-frame-mahogany bg-transparent outline-none" id="ptsA" type="number" value="21">
+<button class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-variant text-on-surface font-bold text-lg flex items-center justify-center transition-colors" onclick="adjustPoints('ptsA', 1)" type="button">+</button>
+</div>
+</div>
+</div>
+<!-- Competitor Side Black / Player 2 -->
+<div class="bg-surface-cream rounded-xl p-space-md flex flex-col gap-space-sm relative overflow-hidden border border-court-line/30">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-3.5 h-3.5 rounded-full bg-pocket-void shadow-sm flex items-center justify-center">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-container-lowest/40"></span>
+</span>
+<span class="font-label-sm text-label-sm font-bold text-on-surface tracking-wider uppercase">Side Black • Player 2</span>
+</div>
+<span class="font-label-sm text-[10px] px-2 py-0.5 rounded-full bg-surface-container text-primary font-bold" id="player2StatusTag">Seed #14</span>
+</div>
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-baseline justify-between">
+<span class="font-body-lg text-body-lg font-bold text-frame-mahogany" id="player2Name">Pranav Iyer</span>
+<span class="font-label-sm text-[11px] text-text-dim font-mono" id="player2Id">ID: FKS-119</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-[11px] px-2 py-0.5 rounded bg-surface-container text-on-surface-variant" id="player2Sub">Grade 9</span>
+</div>
+</div>
+<!-- Score Counter -->
+<div class="flex items-center justify-between pt-space-xs mt-space-xs bg-surface-container-lowest rounded-lg p-space-sm border border-court-line/20">
+<span class="font-label-sm text-label-sm text-text-dim uppercase font-semibold">Black Score</span>
+<div class="flex items-center gap-2">
+<button class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-variant text-on-surface font-bold text-lg flex items-center justify-center transition-colors" onclick="adjustPoints('ptsB', -1)" type="button">-</button>
+<input class="w-14 text-center font-display-lg text-[28px] font-extrabold text-frame-mahogany bg-transparent outline-none" id="ptsB" type="number" value="14">
+<button class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-variant text-on-surface font-bold text-lg flex items-center justify-center transition-colors" onclick="adjustPoints('ptsB', 1)" type="button">+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Match Breakdown & Queen Status -->
+<div class="bg-surface-cream-subtle rounded-xl p-space-md flex flex-col gap-space-sm border border-court-line/30">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface font-bold uppercase tracking-wider">Match Details &amp; Queen Cover</span>
+<span class="font-label-sm text-[11px] text-text-dim">Standard 25 Pts or Max 8 Boards</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-space-sm">
+<!-- Boards / Ends Completed -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col items-center">
+<span class="font-label-sm text-[10px] text-text-dim uppercase font-semibold">Boards / Ends Completed</span>
+<div class="flex items-center gap-2 my-1">
+<span class="material-symbols-outlined text-primary text-[18px]">timer</span>
+<input class="w-12 text-center font-headline-md text-headline-md font-bold text-on-surface bg-transparent outline-none" id="boardsCompleted" max="8" min="1" type="number" value="3">
+</div>
+<span class="font-label-sm text-[10px] text-text-dim">Rubber Decider</span>
+</div>
+<!-- Queen Bonus -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col items-center justify-between">
+<span class="font-label-sm text-[10px] text-text-dim uppercase font-semibold">Queen Bonus (+3 Pts)</span>
+<label class="inline-flex items-center gap-2 cursor-pointer my-1">
+<input checked="" class="w-4 h-4 accent-carrom-red-deep rounded cursor-pointer" id="queenCoveredCheckbox" type="checkbox">
+<span class="font-label-sm text-label-sm text-carrom-red-deep font-bold">Queen Covered</span>
+</label>
+<span class="font-label-sm text-[10px] text-on-surface-variant" id="queenClaimantLabel">Claimed by Side White</span>
+</div>
+<!-- Match State Selector -->
+<div class="bg-surface-container-lowest p-space-sm rounded-lg flex flex-col justify-between col-span-2 sm:col-span-1">
+<span class="font-label-sm text-[10px] text-text-dim uppercase font-semibold">Match Disposition</span>
+<select class="w-full p-1 bg-surface-cream rounded font-body-sm text-[12px] text-on-surface outline-none border border-court-line/30 font-medium" id="matchDisposition">
+<option selected="" value="verified">Normal Complete</option>
+<option value="walkover">Walkover Forfeit</option>
+<option value="tie">Tie Overtime</option>
+</select>
+<span class="font-label-sm text-[10px] text-text-dim">Winner advances</span>
+</div>
+</div>
+</div>
+<!-- Table Notes Input -->
+<div class="flex flex-col gap-1">
+<label class="font-label-sm text-label-sm text-text-dim uppercase font-semibold">Table Notes (Optional)</label>
+<input class="w-full p-2.5 bg-surface-cream rounded-lg font-body-md text-body-md text-on-surface placeholder:text-text-dim/60 outline-none border border-court-line/30" id="incidentNotes" placeholder="Match notes, foul penalties, or comments..." type="text" value="Clean match. Side White closed end 3 with +3 queen bonus.">
+</div>
+<!-- Primary Action Buttons (Reset desk removed, Keep Draft and Save & Transmit) -->
+<div class="flex flex-col sm:flex-row items-center justify-end pt-space-xs gap-space-sm">
+<button class="w-full sm:w-auto px-space-lg py-space-sm rounded-full bg-surface-cream hover:bg-surface-container text-on-surface-variant font-label-md text-label-md uppercase tracking-wider transition-colors flex items-center justify-center gap-1.5 border border-court-line/40" onclick="quickSaveDraft()" type="button">
+<span class="material-symbols-outlined text-[18px]">save</span>
+<span>Save Draft</span>
+</button>
+<button class="w-full sm:w-auto px-space-xl py-space-sm rounded-full bg-primary hover:bg-carrom-red-deep text-on-primary font-label-lg text-label-lg uppercase tracking-wider font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2" id="btnTransmit" onclick="transmitResultToSupabase()" type="button">
+<span class="material-symbols-outlined text-[20px]">cloud_upload</span>
+<span>Save &amp; Update Result</span>
+</button>
+</div>
+</div>
+<!-- Quick Match Score Preview Banner -->
+<div class="bg-frame-mahogany text-surface-cream rounded-xl p-space-md shadow-md flex items-center justify-between">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-full bg-carrom-red-deep flex items-center justify-center text-on-primary font-bold">
+<span class="material-symbols-outlined text-[22px]">scoreboard</span>
+</div>
+<div>
+<div class="font-label-sm text-[11px] text-court-line uppercase tracking-widest font-semibold">Tournament Progression</div>
+<div class="font-body-md text-body-md text-surface-cream" id="advancementBannerText">Winner advances to <span class="font-bold text-trophy-gold-bright">Quarter Final bracket QF-03</span></div>
+</div>
+</div>
+<div class="hidden sm:flex items-center gap-space-xs font-label-sm text-[11px] bg-pocket-void/70 px-3 py-1.5 rounded-full text-trophy-gold-bright">
+<span class="material-symbols-outlined text-[14px]">bolt</span>
+<span>Live Arena Feed</span>
+</div>
+</div>
+</div>
+<!-- RIGHT COLUMN: Interactive Live Results Wire (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Interactive Live Transmission Stream Log across all 15 Boards -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-md flex flex-col gap-space-sm border border-court-line/20">
+<div class="flex items-center justify-between pb-space-xs border-b border-court-line/20">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[20px]">rss_feed</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm font-bold text-frame-mahogany" style="font-family: Domine, serif;">Live Results Wire</h3>
+<p class="font-label-sm text-[10px] text-text-dim">Click any match to load &amp; correct discrepancy</p>
+</div>
+</div>
+<span class="font-label-sm text-[10px] px-2 py-0.5 rounded-full bg-carrom-red-deep/15 text-carrom-red-deep font-bold">INTERACTIVE</span>
+</div>
+<div class="flex flex-col gap-space-xs max-h-[520px] overflow-y-auto pr-1" id="auditStreamContainer">
+<!-- Wire Item 1 (Board 07) -->
+<div class="wire-item group p-space-sm rounded-lg bg-surface-cream hover:bg-surface-container-high transition-all flex flex-col gap-1 cursor-pointer border-2 border-carrom-red-deep/40 hover:border-carrom-red-deep" onclick="loadMatchIntoDesk('M07', 'B07', 'Aarav Sharma', 'Pranav Iyer', 21, 14, 3, true, 'Clean match. Side White closed end 3 with +3 queen bonus.')">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-[10px] px-1.5 py-0.5 rounded bg-carrom-red-deep text-on-primary font-bold">B07</span>
+<span class="font-label-sm text-[11px] font-bold text-on-surface">Aarav Sharma</span>
+<span class="font-label-sm text-[10px] text-text-dim">vs</span>
+<span class="font-label-sm text-[11px] text-on-surface">Pranav Iyer</span>
+</div>
+<span class="font-label-sm text-[10px] text-text-dim font-mono">11:42 AM</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-lg text-label-lg font-bold text-primary font-mono">21 — 14 PTS</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-carrom-red-deep text-[14px]">edit_note</span>
+<span class="font-label-sm text-[10px] text-carrom-red-deep uppercase font-bold group-hover:underline">(Click to Edit / Correct)</span>
+</div>
+</div>
+<div class="font-label-sm text-[10px] text-text-dim truncate">Sweet 16 • 3 Ends • Queen Covered Side White</div>
+</div>
+<!-- Wire Item 2 (Board 04) -->
+<div class="wire-item group p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-all flex flex-col gap-1 cursor-pointer border border-transparent hover:border-court-line" onclick="loadMatchIntoDesk('M04', 'B04', 'Tanvi S.', 'Rhea K.', 25, 6, 2, true, 'Decisive finish. White slam on board 2.')">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-[10px] px-1.5 py-0.5 rounded bg-frame-mahogany text-surface-cream font-bold">B04</span>
+<span class="font-label-sm text-[11px] font-bold text-on-surface">Tanvi S.</span>
+<span class="font-label-sm text-[10px] text-text-dim">def.</span>
+<span class="font-label-sm text-[11px] text-on-surface">Rhea K.</span>
+</div>
+<span class="font-label-sm text-[10px] text-text-dim font-mono">11:36 AM</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-lg text-label-lg font-bold text-on-surface font-mono">25 — 06 PTS</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[14px]">check_circle</span>
+<span class="font-label-sm text-[10px] text-secondary uppercase font-bold group-hover:underline">(Click to Edit / Correct)</span>
+</div>
+</div>
+<div class="font-label-sm text-[10px] text-text-dim truncate">Round of 16 • Solos • White Slam on 2nd End</div>
+</div>
+<!-- Wire Item 3 (Board 11) -->
+<div class="wire-item group p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-all flex flex-col gap-1 cursor-pointer border border-transparent hover:border-court-line" onclick="loadMatchIntoDesk('M11', 'B11', 'Zayan &amp; Kabir', 'Aditya &amp; Rohan', 18, 18, 4, false, 'Tie overtime end played. Need organizer review.')">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-[10px] px-1.5 py-0.5 rounded bg-frame-mahogany text-surface-cream font-bold">B11</span>
+<span class="font-label-sm text-[11px] font-bold text-on-surface">Zayan &amp; Kabir</span>
+<span class="font-label-sm text-[10px] text-text-dim">vs</span>
+<span class="font-label-sm text-[11px] text-on-surface">Aditya &amp; Rohan</span>
+</div>
+<span class="font-label-sm text-[10px] text-text-dim font-mono">11:29 AM</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-lg text-label-lg font-bold text-on-surface font-mono">18 — 18 PTS</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-trophy-gold-bright text-[14px]">sync_problem</span>
+<span class="font-label-sm text-[10px] text-secondary-fixed-dim uppercase font-bold group-hover:underline">(Click to Edit / Correct)</span>
+</div>
+</div>
+<div class="font-label-sm text-[10px] text-text-dim truncate">Open Doubles • Tie Overtime Decider pending</div>
+</div>
+<!-- Wire Item 4 (Board 01) -->
+<div class="wire-item group p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-all flex flex-col gap-1 cursor-pointer border border-transparent hover:border-court-line" onclick="loadMatchIntoDesk('M01', 'B01', 'Vihaan R.', 'Manav G.', 25, 0, 1, false, 'Default walkover recorded after report timeout.')">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-[10px] px-1.5 py-0.5 rounded bg-frame-mahogany text-surface-cream font-bold">B01</span>
+<span class="font-label-sm text-[11px] font-bold text-on-surface">Vihaan R.</span>
+<span class="font-label-sm text-[10px] text-text-dim">def.</span>
+<span class="font-label-sm text-[11px] text-on-surface">Manav G. (W/O)</span>
+</div>
+<span class="font-label-sm text-[10px] text-text-dim font-mono">11:15 AM</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-lg text-label-lg font-bold text-on-surface font-mono">25 — 00 PTS</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-text-dim text-[14px]">cancel</span>
+<span class="font-label-sm text-[10px] text-text-dim uppercase font-bold group-hover:underline">(Click to Edit / Correct)</span>
+</div>
+</div>
+<div class="font-label-sm text-[10px] text-text-dim truncate">Round of 32 • Default Walkover (120s expired)</div>
+</div>
+<!-- Wire Item 5 (Board 10) -->
+<div class="wire-item group p-space-sm rounded-lg bg-surface-container-low hover:bg-surface-container-high transition-all flex flex-col gap-1 cursor-pointer border border-transparent hover:border-court-line" onclick="loadMatchIntoDesk('M10', 'B10', 'Meera &amp; Ananya', 'Tara &amp; Ira', 22, 19, 3, true, 'Thriller in 3rd rubber. Queen covered.')">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="font-label-sm text-[10px] px-1.5 py-0.5 rounded bg-frame-mahogany text-surface-cream font-bold">B10</span>
+<span class="font-label-sm text-[11px] font-bold text-on-surface">Meera &amp; Ananya</span>
+<span class="font-label-sm text-[10px] text-text-dim">def.</span>
+<span class="font-label-sm text-[11px] text-on-surface">Tara &amp; Ira</span>
+</div>
+<span class="font-label-sm text-[10px] text-text-dim font-mono">11:02 AM</span>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-lg text-label-lg font-bold text-on-surface font-mono">22 — 19 PTS</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[14px]">check_circle</span>
+<span class="font-label-sm text-[10px] text-secondary uppercase font-bold group-hover:underline">(Click to Edit / Correct)</span>
+</div>
+</div>
+<div class="font-label-sm text-[10px] text-text-dim truncate">Doubles • Queen covered in 3rd rubber</div>
+</div>
+</div>
+<div class="pt-space-xs mt-space-xs">
+<button class="w-full py-2 px-space-md rounded-lg bg-surface-cream hover:bg-surface-container text-frame-mahogany font-label-sm text-label-sm uppercase font-bold tracking-wider transition-colors flex items-center justify-center gap-2 border border-court-line/40" onclick="showToast('Exporting all official match records to PDF...')" type="button">
+<span class="material-symbols-outlined text-[16px]">picture_as_pdf</span>
+<span>Export Match Sheets (PDF)</span>
+</button>
+</div>
+</div>
+<!-- Clean Quick Rules Card (Simplified, No ICF jargon) -->
+<div class="bg-surface-cream-subtle rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm border border-court-line/30">
+<div class="flex items-center gap-space-xs pb-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">rule</span>
+<h4 class="font-headline-sm text-headline-sm font-bold text-frame-mahogany" style="font-family: Domine, serif;">Tournament Scoring Rules</h4>
+</div>
+<ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-carrom-red-deep text-[16px] mt-0.5">check</span>
+<span><strong class="text-on-surface">Queen Cover (+3 Pts):</strong> Player pocketing queen must pocket a carrom man in the same turn or immediate next stroke to seal the bonus.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-carrom-red-deep text-[16px] mt-0.5">check</span>
+<span><strong class="text-on-surface">Game Cap:</strong> Match is decided when a competitor reaches 25 points or after 8 completed boards.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-carrom-red-deep text-[16px] mt-0.5">check</span>
+<span><strong class="text-on-surface">Striker Penalty:</strong> Pocketing striker yields 1 penalty coin returned to the center circle.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Notification Toast Container -->
+<div class="fixed bottom-6 right-6 hidden bg-frame-mahogany text-surface-cream px-space-lg py-space-md rounded-xl shadow-xl z-50 flex items-center gap-space-md" id="toastNotification">
+<div class="w-8 h-8 rounded-full bg-carrom-red-deep flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[18px]">cloud_done</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm font-bold text-trophy-gold-bright uppercase tracking-wider" id="toastTitle">Transmission Verified</span>
+<span class="font-body-sm text-body-sm text-surface-cream-subtle" id="toastMessage">Result for Board 07 uploaded to tournament ledger.</span>
+</div>
+</div>
+</div>
+<script>
+  // Match dictionary for clean switching
+  const MATCHES = {
+    M07: { board: 'B07', p1: 'Aarav Sharma', p2: 'Pranav Iyer', ptsA: 21, ptsB: 14, boards: 3, queen: true, cat: 'solos', stage: 'sweet16', notes: 'Clean match. Side White closed end 3 with +3 queen bonus.' },
+    M01: { board: 'B01', p1: 'Vihaan R.', p2: 'Manav G.', ptsA: 25, ptsB: 0, boards: 1, queen: false, cat: 'solos', stage: 'top32', notes: 'Default walkover recorded after report timeout.' },
+    M02: { board: 'B02', p1: 'Kunal V.', p2: 'Aryan D.', ptsA: 0, ptsB: 0, boards: 1, queen: false, cat: 'solos', stage: 'top32', notes: 'Players warming up on station.' },
+    M04: { board: 'B04', p1: 'Tanvi S.', p2: 'Rhea K.', ptsA: 25, ptsB: 6, boards: 2, queen: true, cat: 'solos', stage: 'sweet16', notes: 'Decisive finish. White slam on board 2.' },
+    M10: { board: 'B10', p1: 'Meera & Ananya', p2: 'Tara & Ira', ptsA: 22, ptsB: 19, boards: 3, queen: true, cat: 'doubles', stage: 'sweet16', notes: 'Thriller in 3rd rubber. Queen covered.' },
+    M11: { board: 'B11', p1: 'Zayan & Kabir', p2: 'Aditya & Rohan', ptsA: 18, ptsB: 18, boards: 4, queen: false, cat: 'mixed-doubles', stage: 'sweet16', notes: 'Tie overtime end played. Need organizer review.' }
+  };
+
+  function handleMatchSelect(matchKey) {
+    const data = MATCHES[matchKey];
+    if (!data) return;
+    loadMatchIntoDesk(matchKey, data.board, data.p1, data.p2, data.ptsA, data.ptsB, data.boards, data.queen, data.notes);
+  }
+
+  function loadMatchIntoDesk(matchKey, boardId, p1, p2, scoreA, scoreB, boards, queenCovered, notes) {
+    // Update match select dropdown if changed via click
+    const dropdown = document.getElementById('matchSelectorDropdown');
+    if (dropdown && dropdown.value !== matchKey) {
+      dropdown.value = matchKey;
+    }
+
+    // Update board station chips highlight
+    const chips = document.querySelectorAll('.board-chip');
+    chips.forEach(chip => {
+      chip.classList.remove('bg-carrom-red-deep', 'text-on-primary', 'shadow-md', 'scale-[1.03]');
+      chip.classList.add('bg-surface-container-low', 'hover:bg-surface-container');
+    });
+
+    const activeChips = Array.from(chips).filter(c => c.textContent.includes(boardId));
+    if (activeChips.length > 0) {
+      activeChips[0].classList.remove('bg-surface-container-low', 'hover:bg-surface-container');
+      activeChips[0].classList.add('bg-carrom-red-deep', 'text-on-primary', 'shadow-md', 'scale-[1.03]');
+    }
+
+    // Update fields
+    const stationLabel = document.getElementById('selectedStationLabel');
+    if (stationLabel) stationLabel.textContent = `Board ${boardId.replace('B', '')}`;
+
+    document.getElementById('player1Name').textContent = p1;
+    document.getElementById('player2Name').textContent = p2;
+    document.getElementById('ptsA').value = scoreA;
+    document.getElementById('ptsB').value = scoreB;
+    document.getElementById('boardsCompleted').value = boards;
+    document.getElementById('queenCoveredCheckbox').checked = !!queenCovered;
+    document.getElementById('incidentNotes').value = notes || '';
+
+    // Scroll smoothly to score card on mobile/narrow screens
+    const deskCard = document.getElementById('matchSelectorDropdown');
+    if (deskCard && window.innerWidth < 1024) {
+      deskCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    showToast(`Loaded ${boardId}: ${p1} vs ${p2} into score editor.`);
+  }
+
+  function selectBoard(boardId, status) {
+    // Match chip click to known match or update station label
+    const reverseMatch = Object.keys(MATCHES).find(k => MATCHES[k].board === boardId);
+    if (reverseMatch) {
+      handleMatchSelect(reverseMatch);
+    } else {
+      const stationLabel = document.getElementById('selectedStationLabel');
+      if (stationLabel) stationLabel.textContent = `Board ${boardId.replace('B', '')}`;
+      showToast(`Selected Board ${boardId.replace('B', '')} (${status})`);
+    }
+  }
+
+  function adjustPoints(id, delta) {
+    const input = document.getElementById(id);
+    if (!input) return;
+    let val = parseInt(input.value, 10) || 0;
+    val = Math.max(0, Math.min(29, val + delta));
+    input.value = val;
+  }
+
+  function transmitResultToSupabase() {
+    const ptsA = document.getElementById('ptsA').value;
+    const ptsB = document.getElementById('ptsB').value;
+    const p1 = document.getElementById('player1Name').textContent;
+    const p2 = document.getElementById('player2Name').textContent;
+    const dropdown = document.getElementById('matchSelectorDropdown');
+    const matchKey = dropdown.value;
+    const board = (MATCHES[matchKey] && MATCHES[matchKey].board) || 'B07';
+
+    const btn = document.getElementById('btnTransmit');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = `<span class="material-symbols-outlined text-[20px] animate-spin">refresh</span><span>Saving...</span>`;
+    btn.disabled = true;
+
+    setTimeout(() => {
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+
+      // Update in-memory dict
+      if (MATCHES[matchKey]) {
+        MATCHES[matchKey].ptsA = ptsA;
+        MATCHES[matchKey].ptsB = ptsB;
+        MATCHES[matchKey].notes = document.getElementById('incidentNotes').value;
+      }
+
+      // Add or prepend to live results wire
+      const stream = document.getElementById('auditStreamContainer');
+      if (stream) {
+        const newEntry = document.createElement('div');
+        newEntry.className = 'wire-item group p-space-sm rounded-lg bg-surface-cream transition-all flex flex-col gap-1 cursor-pointer border-l-4 border-carrom-red-deep shadow-sm hover:bg-surface-container-high';
+        newEntry.onclick = function() {
+          loadMatchIntoDesk(matchKey, board, p1, p2, ptsA, ptsB, document.getElementById('boardsCompleted').value, document.getElementById('queenCoveredCheckbox').checked, document.getElementById('incidentNotes').value);
+        };
+        newEntry.innerHTML = `
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-1.5">
+              <span class="font-label-sm text-[10px] px-1.5 py-0.5 rounded bg-carrom-red-deep text-on-primary font-bold">${board}</span>
+              <span class="font-label-sm text-[11px] font-bold text-on-surface">${p1}</span>
+              <span class="font-label-sm text-[10px] text-text-dim">vs</span>
+              <span class="font-label-sm text-[11px] text-on-surface">${p2}</span>
+            </div>
+            <span class="font-label-sm text-[10px] text-text-dim font-mono">Just Now</span>
+          </div>
+          <div class="flex items-center justify-between text-on-surface-variant">
+            <span class="font-label-lg text-label-lg font-bold text-carrom-red-deep font-mono">${ptsA} &mdash; ${ptsB} PTS</span>
+            <div class="flex items-center gap-1">
+              <span class="material-symbols-outlined text-secondary text-[14px]">check_circle</span>
+              <span class="font-label-sm text-[10px] text-secondary uppercase font-bold group-hover:underline">(Click to Edit / Correct)</span>
+            </div>
+          </div>
+          <div class="font-label-sm text-[10px] text-text-dim truncate">Updated by Lead Organizers &bull; Synced Live</div>
+        `;
+        stream.insertBefore(newEntry, stream.firstChild);
+      }
+
+      showToast(`Score updated: ${p1} (${ptsA}) vs ${p2} (${ptsB}) on ${board}!`);
+    }, 500);
+  }
+
+  function quickSaveDraft() {
+    showToast('Match draft saved to local organizers cache.');
+  }
+
+  function showToast(msg) {
+    const toast = document.getElementById('toastNotification');
+    const toastMsg = document.getElementById('toastMessage');
+    if (toast && toastMsg) {
+      toastMsg.textContent = msg;
+      toast.classList.remove('hidden');
+      setTimeout(() => {
+        toast.classList.add('hidden');
+      }, 3000);
+    }
+  }
+
+  // Keyboard shortcut Ctrl+Enter to save score
+  document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+      e.preventDefault();
+      transmitResultToSupabase();
+    }
+  });
+</script></main></div>
+
+
+
+</body></html>

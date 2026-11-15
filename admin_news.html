@@ -1,0 +1,895 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Outfit:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"surface-container":"#f9ebe7","inverse-on-surface":"#fbeeea","tertiary-fixed-dim":"#c8c5cd","secondary":"#735c00","on-secondary-fixed":"#241a00","inverse-primary":"#ffb4a9","court-line":"#C8BEAB","on-primary-fixed-variant":"#930003","on-tertiary-fixed-variant":"#47464d","on-surface":"#201a18","on-secondary-container":"#745c00","surface-variant":"#ede0dc","surface-container-lowest":"#ffffff","trophy-gold-bright":"#E5C158","primary":"#b71711","pocket-void":"#0F0B0A","on-tertiary-fixed":"#1b1b21","outline":"#906f6b","primary-fixed":"#ffdad5","secondary-fixed-dim":"#e9c349","on-background":"#201a18","tertiary":"#5c5b62","outline-variant":"#e4beb8","on-error-container":"#93000a","on-secondary":"#ffffff","surface-container-high":"#f3e5e1","surface-tint":"#ba1a14","text-dim":"#6E685F","tertiary-container":"#75747b","surface-dim":"#e4d7d4","on-tertiary-container":"#fffbff","primary-fixed-dim":"#ffb4a9","on-tertiary":"#ffffff","on-secondary-fixed-variant":"#574500","surface":"#fff8f6","on-primary-container":"#fffbff","tertiary-fixed":"#e4e1ea","surface-container-low":"#fef1ed","surface-container-highest":"#ede0dc","on-surface-variant":"#5b403c","on-error":"#ffffff","carrom-red-deep":"#C2271B","background":"#fff8f6","secondary-fixed":"#ffe088","error":"#ba1a1a","inverse-surface":"#362f2c","error-container":"#ffdad6","secondary-container":"#fed65b","surface-cream":"#F7F3E9","primary-container":"#db3428","surface-cream-subtle":"#EFE9D8","on-primary":"#ffffff","frame-mahogany":"#2B1D16","surface-bright":"#fff8f6","on-primary-fixed":"#410001"},borderRadius:{DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px"},spacing:{"space-md":"1rem","space-xl":"2.25rem",margin:"2.5rem","gutter-mobile":"1rem","margin-mobile":"1.25rem","space-sm":"0.5rem","space-lg":"1.5rem",gutter:"1.5rem","space-2xl":"3.5rem","space-xs":"0.25rem"},fontFamily:{"label-md":["JetBrains Mono"],"body-sm":["Outfit"],"headline-xl-mobile":["Outfit"],"body-lg":["Outfit"],"label-sm":["JetBrains Mono"],"display-lg":["Outfit"],"bracket-node":["JetBrains Mono"],"headline-lg":["Outfit"],"body-md":["Outfit"],"headline-sm":["Outfit"],"headline-md":["Outfit"],"display-lg-mobile":["Outfit"],"headline-xl":["Outfit"],"label-lg":["JetBrains Mono"]},fontSize:{"label-md":["12px",{lineHeight:"16px",letterSpacing:"0.04em",fontWeight:"500"}],"body-sm":["13px",{lineHeight:"19px",fontWeight:"400"}],"headline-xl-mobile":["30px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"700"}],"body-lg":["16px",{lineHeight:"26px",fontWeight:"400"}],"label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.06em",fontWeight:"600"}],"display-lg":["56px",{lineHeight:"64px",letterSpacing:"-0.03em",fontWeight:"800"}],"bracket-node":["13px",{lineHeight:"22px",fontWeight:"500"}],"headline-lg":["28px",{lineHeight:"36px",letterSpacing:"-0.01em",fontWeight:"700"}],"body-md":["14.5px",{lineHeight:"23px",fontWeight:"400"}],"headline-sm":["18px",{lineHeight:"24px",fontWeight:"600"}],"headline-md":["22px",{lineHeight:"30px",fontWeight:"600"}],"display-lg-mobile":["38px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"800"}],"headline-xl":["40px",{lineHeight:"48px",letterSpacing:"-0.02em",fontWeight:"700"}],"label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.02em",fontWeight:"600"}]}}}}</script></head><body class="bg-surface-cream font-body-md text-on-surface antialiased min-h-screen"><aside class="fixed left-0 top-0 h-full w-72 bg-frame-mahogany z-50 flex flex-col justify-between shadow-[4px_0_24px_rgba(15,11,10,0.45)]"><div class="flex flex-col"><div class="p-space-lg bg-pocket-void flex flex-col gap-space-xs"><div class="flex items-center gap-space-sm"><div class="w-3 h-3 rounded-full bg-carrom-red-deep ring-2 ring-trophy-gold-bright/40 animate-pulse"></div><span class="font-label-sm text-label-sm uppercase tracking-wider text-trophy-gold-bright">Secretariat Ops Desk</span></div><h1 class="font-headline-sm text-headline-sm text-surface-cream tracking-tight font-bold">FKS Carrom Open ‘27</h1><div class="mt-space-xs inline-flex items-center px-space-sm py-0.5 rounded-full bg-surface-cream/10 border border-court-line/20"><span class="font-label-sm text-[10px] text-surface-cream-subtle uppercase tracking-widest">Admin Command Center</span></div></div><div class="px-space-md py-space-sm bg-pocket-void/60 flex items-center justify-between"><span class="font-label-sm text-label-sm text-court-line uppercase tracking-wider">Operational Panels</span><span class="font-label-sm text-[10px] text-trophy-gold-bright bg-trophy-gold-bright/10 px-1.5 py-0.5 rounded">RESTRICTED</span></div><nav class="p-space-md flex flex-col gap-space-sm" data-active-classes="bg-primary text-on-primary font-bold shadow-[inset_0_2px_0_rgba(255,255,255,0.2)]"><a class="group flex items-center gap-space-md px-space-md py-space-md rounded-xl text-surface-cream-subtle hover:bg-surface-cream/10 hover:text-surface-cream transition-all" data-path="payments-manager" href="admin_payments.html"><span class="material-symbols-outlined text-court-line group-hover:text-surface-cream text-[22px]">receipt_long</span><div class="flex flex-col"><span class="font-body-md font-semibold tracking-tight leading-snug">Payments Manager</span><span class="font-label-sm text-[10px] text-court-line/80">Cash on Desk · Shift Audits</span></div></a><a class="group flex items-center gap-space-md px-space-md py-space-md rounded-xl text-surface-cream-subtle hover:bg-surface-cream/10 hover:text-surface-cream transition-all" data-path="results-console" href="admin_results.html"><span class="material-symbols-outlined text-court-line group-hover:text-surface-cream text-[22px]">scoreboard</span><div class="flex flex-col"><span class="font-body-md font-semibold tracking-tight leading-snug">Results Console</span><span class="font-label-sm text-[10px] text-court-line/80">Boards 01–15 · Queen · Stream</span></div></a><a class="group flex items-center gap-space-md px-space-md py-space-md rounded-xl text-surface-cream-subtle hover:bg-surface-cream/10 hover:text-surface-cream transition-all" data-path="volunteer-manager" href="admin_volunteers.html"><span class="material-symbols-outlined text-court-line group-hover:text-surface-cream text-[22px]">sports_score</span><div class="flex flex-col"><span class="font-body-md font-semibold tracking-tight leading-snug">Volunteer Manager</span><span class="font-label-sm text-[10px] text-court-line/80">Ref Allocations · Rosters</span></div></a><a class="group flex items-center justify-between px-space-md py-space-md rounded-xl bg-carrom-red-deep text-surface-cream font-bold shadow-md ring-2 ring-trophy-gold-bright/40 transition-all" data-path="volunteer-news-editor" href="admin_news_editor.html"><div class="flex items-center gap-space-md"><span class="material-symbols-outlined text-trophy-gold-bright text-[22px]">campaign</span><div class="flex flex-col"><span class="font-body-md font-bold tracking-tight leading-snug text-surface-cream">Volunteer News</span><span class="font-label-sm text-[10px] text-trophy-gold-bright">Editor &amp; Live Dispatches</span></div></div><div class="w-2 h-2 rounded-full bg-trophy-gold-bright animate-pulse"></div></a></nav></div><div class="p-space-md bg-pocket-void/80 flex flex-col gap-space-md"><div class="flex items-center justify-between px-space-sm"><div class="flex items-center gap-space-xs"><div class="w-2 h-2 rounded-full bg-secondary-fixed-dim"></div><span class="font-label-sm text-[11px] text-surface-cream/80 uppercase">Brd 01-15 Synced</span></div><span class="font-label-sm text-[10px] text-court-line">TLS 1.3</span></div><a class="flex items-center justify-center gap-space-sm w-full py-space-sm px-space-md rounded-full bg-surface-cream/10 hover:bg-carrom-red-deep hover:text-on-primary text-surface-cream-subtle font-label-md text-label-md uppercase tracking-wider transition-all" href="index.html"><span class="material-symbols-outlined text-[18px]">logout</span><span>Exit to Public Site</span></a></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-20 bg-surface-cream/95 backdrop-blur-md z-40 shadow-[0_4px_16px_rgba(43,29,22,0.08)]"><div class="w-full h-full px-space-xl flex items-center justify-between"><div class="flex items-center gap-space-md"><div class="px-space-md py-space-xs rounded-full bg-carrom-red-deep text-on-primary font-label-sm text-label-sm font-bold uppercase tracking-wider flex items-center gap-space-xs"><span class="material-symbols-outlined text-[14px]">verified_user</span><span>Organizers Desk (Chandan &amp; Navaneet)</span></div><div class="hidden xl:flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-cream-subtle border border-court-line text-on-surface-variant font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-carrom-red-deep animate-ping"></span><span class="font-medium">Supabase &amp; API Sync:</span><span class="text-primary font-bold">Live 5s</span></div></div><div class="flex items-center gap-space-lg"><div class="hidden md:flex items-center gap-space-sm"><button class="px-space-md py-space-xs rounded-full bg-surface-cream-subtle hover:bg-surface-container hover:text-on-surface text-on-surface-variant border border-court-line font-label-sm text-label-sm font-semibold uppercase tracking-wider flex items-center gap-space-xs transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">grid_view</span><span>Arena Board Status</span></button><button class="px-space-md py-space-xs rounded-full bg-surface-cream-subtle hover:bg-surface-container hover:text-on-surface text-on-surface-variant border border-court-line font-label-sm text-label-sm font-semibold uppercase tracking-wider flex items-center gap-space-xs transition-colors" type="button"><span class="material-symbols-outlined text-[16px]">file_download</span><span>Export All CSVs</span></button></div><div class="h-8 w-px bg-court-line/60 hidden sm:block"></div><div class="flex items-center gap-space-md pl-space-xs"><div class="flex flex-col text-right hidden sm:flex"><span class="font-label-md text-label-md font-bold text-frame-mahogany tracking-tight">Chandan &amp; Navaneet</span><span class="font-label-sm text-[11px] text-text-dim tracking-wider uppercase font-semibold">Tournament Directors • Organizers</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></div></header><main class="w-full pt-20 px-space-xl py-space-xl flex-1 bg-surface-cream"><div class="flex flex-col w-full gap-space-lg pb-space-2xl">
+<!-- Top Stats & Status Strip -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-space-md">
+<div class="bg-surface-cream-subtle rounded-xl p-space-md flex items-center justify-between shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-dim">Active Field Roster</span>
+<span class="font-headline-lg text-headline-lg text-frame-mahogany font-bold mt-space-xs">28 / 32</span>
+<span class="font-label-sm text-[11px] text-primary flex items-center gap-1 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span> 4 on Standby Pool
+        </span>
+</div>
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary shadow-inner">
+<span class="material-symbols-outlined text-[26px]">groups</span>
+</div>
+</div>
+<div class="bg-surface-cream-subtle rounded-xl p-space-md flex items-center justify-between shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-dim">Live Dispatch Queue</span>
+<span class="font-headline-lg text-headline-lg text-frame-mahogany font-bold mt-space-xs">6 Active</span>
+<span class="font-label-sm text-[11px] text-text-dim">Average Ack Time: 42s</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-secondary-container/40 flex items-center justify-center text-secondary shadow-inner">
+<span class="material-symbols-outlined text-[26px]">cell_tower</span>
+</div>
+</div>
+<div class="bg-surface-cream-subtle rounded-xl p-space-md flex items-center justify-between shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-dim">Latest Acknowledgement</span>
+<span class="font-headline-lg text-headline-lg text-primary font-bold mt-space-xs">96.4%</span>
+<span class="font-label-sm text-[11px] text-text-dim">Station Swap Round 2</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-carrom-red-deep shadow-inner">
+<span class="material-symbols-outlined text-[26px]">verified</span>
+</div>
+</div>
+<div class="bg-surface-cream-subtle rounded-xl p-space-md flex items-center justify-between shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-dim">Next Round Window</span>
+<span class="font-headline-lg text-headline-lg text-frame-mahogany font-bold mt-space-xs">14:15 IST</span>
+<span class="font-label-sm text-[11px] text-text-dim">Quarterfinals Board 01-08</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center text-frame-mahogany shadow-inner">
+<span class="material-symbols-outlined text-[26px]">schedule</span>
+</div>
+</div>
+</div>
+<!-- Operational Header Strip -->
+<div class="bg-frame-mahogany rounded-xl p-space-lg text-surface-cream flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md shadow-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-carrom-red-deep flex items-center justify-center text-on-primary font-bold shadow-sm">
+<span class="material-symbols-outlined text-[26px]">campaign</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-trophy-gold-bright uppercase tracking-widest text-[11px]">Volunteer News Broadcaster</span>
+<span class="text-surface-cream-subtle text-xs">•</span>
+<span class="font-label-sm text-surface-cream-subtle text-[11px]">Direct Push to PWA App</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-surface-cream font-bold tracking-tight">Arena Dispatch &amp; Noticeboard Console</h2>
+</div>
+</div>
+<div class="flex items-center gap-space-sm bg-pocket-void/50 p-space-xs px-space-md rounded-full shadow-inner">
+<div class="w-2.5 h-2.5 rounded-full bg-trophy-gold-bright animate-pulse"></div>
+<span class="font-label-sm text-label-sm text-surface-cream uppercase tracking-wide">Sync Target: Volunteer Dashboard</span>
+<span class="font-label-sm text-[11px] text-trophy-gold-bright bg-trophy-gold-bright/10 px-2 py-0.5 rounded-full">LIVE</span>
+</div>
+</div>
+<!-- Section 1: One-Click Instant Presets -->
+<div class="flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<div class="w-2 h-2 rounded-full bg-carrom-red-deep"></div>
+<h3 class="font-headline-sm text-headline-sm text-frame-mahogany font-bold tracking-tight">Instant Tactical Presets</h3>
+<span class="font-label-sm text-text-dim text-[11px] ml-space-xs">(Click to auto-fill composer or quick-fire)</span>
+</div>
+<span class="font-label-sm text-[11px] text-text-dim uppercase tracking-wider">6 Rapid Dispatches Configured</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-space-sm">
+<!-- Preset 1 -->
+<button class="group p-space-md rounded-xl bg-surface-cream-subtle hover:bg-surface-container transition-all flex flex-col justify-between text-left shadow-sm hover:shadow-md" onclick="loadPreset('ref-shift')" type="button">
+<div class="flex items-center justify-between w-full mb-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] group-hover:scale-110 transition-transform">schedule_send</span>
+<span class="font-label-sm text-[10px] uppercase font-bold text-primary bg-primary/10 px-1.5 py-0.5 rounded">Shift</span>
+</div>
+<div>
+<span class="font-body-md font-bold text-frame-mahogany block leading-snug">Ref Shift Rotation</span>
+<span class="font-label-sm text-[11px] text-text-dim line-clamp-1 mt-0.5">Round 3 bench handovers</span>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-text-dim group-hover:text-primary">
+<span class="font-label-sm text-[10px] uppercase">Load Preset</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</button>
+<!-- Preset 2 -->
+<button class="group p-space-md rounded-xl bg-surface-cream-subtle hover:bg-surface-container transition-all flex flex-col justify-between text-left shadow-sm hover:shadow-md" onclick="loadPreset('queen-warn')" type="button">
+<div class="flex items-center justify-between w-full mb-space-sm">
+<span class="material-symbols-outlined text-carrom-red-deep text-[20px] group-hover:scale-110 transition-transform">stars</span>
+<span class="font-label-sm text-[10px] uppercase font-bold text-carrom-red-deep bg-carrom-red-deep/10 px-1.5 py-0.5 rounded">Foul</span>
+</div>
+<div>
+<span class="font-body-md font-bold text-frame-mahogany block leading-snug">Queen Cover Alert</span>
+<span class="font-label-sm text-[11px] text-text-dim line-clamp-1 mt-0.5">Validate simultaneous stroke</span>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-text-dim group-hover:text-primary">
+<span class="font-label-sm text-[10px] uppercase">Load Preset</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</button>
+<!-- Preset 3 -->
+<button class="group p-space-md rounded-xl bg-surface-cream-subtle hover:bg-surface-container transition-all flex flex-col justify-between text-left shadow-sm hover:shadow-md" onclick="loadPreset('powder-ration')" type="button">
+<div class="flex items-center justify-between w-full mb-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] group-hover:scale-110 transition-transform">grain</span>
+<span class="font-label-sm text-[10px] uppercase font-bold text-secondary bg-secondary-container/30 px-1.5 py-0.5 rounded">Arena</span>
+</div>
+<div>
+<span class="font-body-md font-bold text-frame-mahogany block leading-snug">Powder Rationing</span>
+<span class="font-label-sm text-[11px] text-text-dim line-clamp-1 mt-0.5">Strict boric sprits cap</span>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-text-dim group-hover:text-primary">
+<span class="font-label-sm text-[10px] uppercase">Load Preset</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</button>
+<!-- Preset 4 -->
+<button class="group p-space-md rounded-xl bg-surface-cream-subtle hover:bg-surface-container transition-all flex flex-col justify-between text-left shadow-sm hover:shadow-md" onclick="loadPreset('standby-summon')" type="button">
+<div class="flex items-center justify-between w-full mb-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px] group-hover:scale-110 transition-transform">notifications_active</span>
+<span class="font-label-sm text-[10px] uppercase font-bold text-primary bg-primary/10 px-1.5 py-0.5 rounded">Urgent</span>
+</div>
+<div>
+<span class="font-body-md font-bold text-frame-mahogany block leading-snug">Standby Summons</span>
+<span class="font-label-sm text-[11px] text-text-dim line-clamp-1 mt-0.5">Report to Secr Desk</span>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-text-dim group-hover:text-primary">
+<span class="font-label-sm text-[10px] uppercase">Load Preset</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</button>
+<!-- Preset 5 -->
+<button class="group p-space-md rounded-xl bg-surface-cream-subtle hover:bg-surface-container transition-all flex flex-col justify-between text-left shadow-sm hover:shadow-md" onclick="loadPreset('lunch-swap')" type="button">
+<div class="flex items-center justify-between w-full mb-space-sm">
+<span class="material-symbols-outlined text-frame-mahogany text-[20px] group-hover:scale-110 transition-transform">restaurant</span>
+<span class="font-label-sm text-[10px] uppercase font-bold text-frame-mahogany bg-surface-container-high px-1.5 py-0.5 rounded">Relief</span>
+</div>
+<div>
+<span class="font-body-md font-bold text-frame-mahogany block leading-snug">Lunch Relief Swaps</span>
+<span class="font-label-sm text-[11px] text-text-dim line-clamp-1 mt-0.5">Batch 2 court relief</span>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-text-dim group-hover:text-primary">
+<span class="font-label-sm text-[10px] uppercase">Load Preset</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</button>
+<!-- Preset 6 -->
+<button class="group p-space-md rounded-xl bg-surface-cream-subtle hover:bg-surface-container transition-all flex flex-col justify-between text-left shadow-sm hover:shadow-md" onclick="loadPreset('score-sync')" type="button">
+<div class="flex items-center justify-between w-full mb-space-sm">
+<span class="material-symbols-outlined text-text-dim text-[20px] group-hover:scale-110 transition-transform">sync_problem</span>
+<span class="font-label-sm text-[10px] uppercase font-bold text-text-dim bg-surface-container-highest px-1.5 py-0.5 rounded">Sync</span>
+</div>
+<div>
+<span class="font-body-md font-bold text-frame-mahogany block leading-snug">Score Sheet Delay</span>
+<span class="font-label-sm text-[11px] text-text-dim line-clamp-1 mt-0.5">Physical slip rush</span>
+</div>
+<div class="mt-space-sm pt-space-xs flex items-center justify-between text-text-dim group-hover:text-primary">
+<span class="font-label-sm text-[10px] uppercase">Load Preset</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Main Bento Section: Composer Left (7 Cols) + Realtime Preview Right (5 Cols) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: Advanced Notice Composer -->
+<div class="lg:col-span-7 flex flex-col gap-space-md bg-surface-cream-subtle rounded-xl p-space-lg shadow-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-3 h-3 rounded-full bg-carrom-red-deep"></span>
+<h3 class="font-headline-sm text-headline-sm text-frame-mahogany font-bold tracking-tight">Notice Composer &amp; Dispatcher</h3>
+</div>
+<span class="font-label-sm text-[11px] text-text-dim">ID: <span class="text-frame-mahogany font-bold" id="composer-id">NTC-2027-049</span></span>
+</div>
+<!-- Config Matrix (Category, Priority, Target) -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md pt-space-xs">
+<!-- Category Selector -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-text-dim font-bold">Category</label>
+<div class="relative">
+<select class="w-full bg-surface-cream rounded-lg p-space-sm font-body-md text-on-surface appearance-none focus:outline-none focus:bg-surface-container-low shadow-sm" id="notice-category" onchange="updateLivePreview()">
+<option value="Urgent Station Call">Urgent Station Call</option>
+<option value="Protocol Update">Protocol Update</option>
+<option selected="" value="Roster Shift">Roster Shift</option>
+<option value="Station Callout">Station Callout</option>
+<option value="Arena Alert">Arena Alert</option>
+<option value="General Notice">General Notice</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 pointer-events-none text-text-dim text-[20px]">expand_more</span>
+</div>
+</div>
+<!-- Priority / Urgency -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-text-dim font-bold">Priority Tier</label>
+<div class="relative">
+<select class="w-full bg-surface-cream rounded-lg p-space-sm font-body-md text-on-surface appearance-none focus:outline-none focus:bg-surface-container-low shadow-sm" id="notice-priority" onchange="updateLivePreview()">
+<option value="Standard">Standard Notice</option>
+<option selected="" value="High Priority">High Priority (Amber)</option>
+<option value="Urgent Siren">Urgent Siren (Red Flash)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 pointer-events-none text-text-dim text-[20px]">expand_more</span>
+</div>
+</div>
+<!-- Target Audience -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-text-dim font-bold">Target Broadcast</label>
+<div class="relative">
+<select class="w-full bg-surface-cream rounded-lg p-space-sm font-body-md text-on-surface appearance-none focus:outline-none focus:bg-surface-container-low shadow-sm" id="notice-target" onchange="updateLivePreview()">
+<option value="All Field Volunteers">All Field Volunteers (32)</option>
+<option selected="" value="Boards 01–08 Referees">Boards 01–08 Referees</option>
+<option value="Boards 09–15 Referees">Boards 09–15 Referees</option>
+<option value="Standby Pool (Reserve)">Standby Pool (Reserve)</option>
+<option value="Grade 7-9 Super 1/2/3 Marshals">Grade 7-9 Super &amp; Whiz Marshals</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 pointer-events-none text-text-dim text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Headline Input -->
+<div class="flex flex-col gap-space-xs mt-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-text-dim font-bold">Notice Headline / Subject</label>
+<span class="font-label-sm text-[11px] text-text-dim"><span class="font-bold text-frame-mahogany" id="title-counter">45</span>/90 chars</span>
+</div>
+<input class="w-full bg-surface-cream rounded-lg p-space-sm font-headline-sm text-headline-sm font-bold text-frame-mahogany placeholder:text-text-dim/50 focus:outline-none focus:bg-surface-container-low shadow-sm" id="notice-title" maxlength="90" oninput="updateLivePreview()" placeholder="e.g. Immediate Referee Relief on Board 04" type="text" value="Referee Shift Rotation: Boards 01–08 at 14:15">
+</div>
+<!-- Notice Body & Formatting Helpers -->
+<div class="flex flex-col gap-space-xs mt-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-text-dim font-bold">Notice Body (Rich Text Markdown)</label>
+<!-- Formatting Quick Helpers -->
+<div class="flex items-center gap-1 bg-surface-cream p-1 rounded-lg shadow-inner">
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container font-bold text-frame-mahogany text-xs" onclick="insertFormat('bold')" title="Bold text" type="button">B</button>
+<button class="w-7 h-7 flex items-center justify-center rounded hover:bg-surface-container text-frame-mahogany text-xs" onclick="insertFormat('list')" title="Bulleted list" type="button">
+<span class="material-symbols-outlined text-[16px]">format_list_bulleted</span>
+</button>
+<button class="px-2 h-7 flex items-center justify-center rounded hover:bg-surface-container font-label-sm text-[10px] text-primary font-bold" onclick="insertFormat('board')" title="Insert Board Tag" type="button">Board 01</button>
+<button class="px-2 h-7 flex items-center justify-center rounded hover:bg-surface-container font-label-sm text-[10px] text-secondary font-bold" onclick="insertFormat('highlight')" title="Highlight tag" type="button">ALERT</button>
+</div>
+</div>
+<textarea class="w-full bg-surface-cream rounded-lg p-space-md font-body-md text-on-surface leading-relaxed placeholder:text-text-dim/50 focus:outline-none focus:bg-surface-container-low resize-y shadow-sm" id="notice-body" oninput="updateLivePreview()" placeholder="Enter detailed operational instructions..." rows="6">Quarterfinal matches conclude in 10 minutes. 
+
+• Hand over match logs to Secretarial Desk (Navaneet).
+• Check strike line bevels on Boards 02, 05, and 07.
+• Standby Marshals Ramesh &amp; Priya report to Arena South Gate immediately.</textarea>
+<div class="flex items-center justify-between text-text-dim">
+<span class="font-label-sm text-[11px]">Supports bullet points, board badges, and time tags</span>
+<span class="font-label-sm text-[11px]"><span class="font-bold text-frame-mahogany" id="body-counter">228</span> words / chars</span>
+</div>
+</div>
+<!-- Action Button Trigger Configuration -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md pt-space-xs">
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-text-dim font-bold">Volunteer CTA Action</label>
+<div class="relative">
+<select class="w-full bg-surface-cream rounded-lg p-space-sm font-body-md text-on-surface appearance-none focus:outline-none focus:bg-surface-container-low shadow-sm" id="notice-action" onchange="updateLivePreview()">
+<option value="Acknowledge Duty">Require 'Acknowledge Duty' Tap</option>
+<option value="Claim Station">Allow 'Claim Station' Allocation</option>
+<option value="Download Protocol PDF">Include 'Download Match Protocol PDF'</option>
+<option value="None">Informational Only (No Action Button)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 pointer-events-none text-text-dim text-[20px]">expand_more</span>
+</div>
+</div>
+<!-- Author Signature Toggle -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-sm text-label-sm uppercase tracking-wider text-text-dim font-bold">Authorized Dispatch Signature</label>
+<div class="relative">
+<select class="w-full bg-surface-cream rounded-lg p-space-sm font-body-md text-on-surface appearance-none focus:outline-none focus:bg-surface-container-low shadow-sm" id="notice-author" onchange="updateLivePreview()">
+<option selected="" value="Chandan &amp; Navaneet (Organizers)">Both Chandan &amp; Navaneet (Joint Command)</option>
+<option value="Chandan (Tournament Director)">Chandan (Chief Referee &amp; Ops)</option>
+<option value="Navaneet (Secretariat Lead)">Navaneet (Secretariat &amp; Records)</option>
+<option value="FKS Carrom Secretariat Desk">FKS Tournament Secretariat Office</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 pointer-events-none text-text-dim text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Action Button Controls Bar -->
+<div class="flex flex-wrap items-center justify-between gap-space-md pt-space-md border-t border-court-line/40">
+<div class="flex items-center gap-space-sm">
+<button class="px-space-md py-2.5 rounded-full bg-surface-cream hover:bg-surface-container text-frame-mahogany font-label-md text-label-md font-bold transition-all shadow-sm flex items-center gap-1.5" onclick="saveDraft()" type="button">
+<span class="material-symbols-outlined text-[18px]">draft</span>
+<span>Save Draft</span>
+</button>
+<button class="px-space-md py-2.5 rounded-full bg-surface-cream hover:bg-surface-container text-frame-mahogany font-label-md text-label-md font-bold transition-all shadow-sm flex items-center gap-1.5" onclick="scheduleRound3()" type="button">
+<span class="material-symbols-outlined text-[18px]">access_time</span>
+<span>Schedule for Round 3</span>
+</button>
+</div>
+<button class="px-space-lg py-3 rounded-full bg-carrom-red-deep hover:bg-primary text-on-primary font-body-md font-bold transition-all shadow-md hover:shadow-lg flex items-center gap-2" onclick="publishLive()" type="button">
+<span class="material-symbols-outlined text-[20px]">send</span>
+<span>Publish Live to Volunteer News</span>
+</button>
+</div>
+<div class="hidden p-space-sm px-space-md rounded-lg bg-surface-container-high text-primary font-label-sm text-[12px] flex items-center gap-2" id="dispatch-alert">
+<span class="material-symbols-outlined text-[16px]">check_circle</span>
+<span id="dispatch-alert-msg">Notice published live to all 32 connected Volunteer terminals.</span>
+</div>
+</div>
+<!-- RIGHT COLUMN: Realtime Live Noticeboard Preview -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- Live Preview Container Frame (Simulating the Volunteer View) -->
+<div class="bg-frame-mahogany p-space-md rounded-2xl shadow-xl flex flex-col gap-space-sm text-surface-cream">
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-space-xs">
+<div class="w-2.5 h-2.5 rounded-full bg-carrom-red-deep"></div>
+<span class="font-label-sm text-[11px] uppercase tracking-wider text-trophy-gold-bright font-bold">Volunteer News Display (Live Render)</span>
+</div>
+<span class="font-label-sm text-[10px] text-surface-cream-subtle bg-surface-cream/10 px-2 py-0.5 rounded">Syncs with PWA</span>
+</div>
+<!-- Phone / Tablet Notice Preview Surface -->
+<div class="bg-surface-cream rounded-xl p-space-lg text-on-surface flex flex-col gap-space-md shadow-md">
+<!-- Notice Header in Mobile App -->
+<div class="flex items-start justify-between gap-space-sm">
+<div class="flex flex-wrap items-center gap-1.5">
+<span class="font-label-sm text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container flex items-center gap-1" id="pv-priority-badge"><span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span><span>High Priority</span></span>
+<span class="font-label-sm text-[10px] uppercase font-semibold px-2 py-0.5 rounded-full bg-surface-container-highest text-frame-mahogany" id="pv-cat-badge">Roster Shift</span>
+</div>
+<span class="font-label-sm text-[11px] text-text-dim font-bold">Just Now</span>
+</div>
+<!-- Headline -->
+<div>
+<h4 class="font-headline-md text-headline-md font-bold text-frame-mahogany leading-tight" id="pv-headline">Referee Shift Rotation: Boards 01–08 at 14:15</h4>
+<div class="flex items-center gap-space-xs text-text-dim text-[12px] font-label-sm mt-1">
+<span class="material-symbols-outlined text-[14px]">cell_tower</span>
+<span>Target:</span>
+<span class="text-frame-mahogany font-bold" id="pv-target">Boards 01–08 Referees</span>
+</div>
+</div>
+<!-- Body Text -->
+<div class="bg-surface-cream-subtle/80 p-space-md rounded-xl text-body-md font-body-md text-on-surface leading-relaxed flex flex-col gap-2" id="pv-body"><div>Quarterfinal matches conclude in 10 minutes.</div><ul class="list-disc pl-4 space-y-1 text-sm"><li>Hand over match logs to Secretarial Desk (Navaneet).</li><li>Check strike line bevels on Boards 02, 05, and 07.</li><li>Standby Marshals Ramesh &amp; Priya report to Arena South Gate immediately.</li></ul></div>
+<!-- Action Button Preview -->
+<div class="pt-space-xs" id="pv-action-wrap">
+<button class="w-full py-space-sm px-space-md rounded-full bg-carrom-red-deep text-on-primary font-body-md font-bold flex items-center justify-center gap-2 shadow-sm pointer-events-none" type="button">
+<span class="material-symbols-outlined text-[18px]">thumb_up</span>
+<span id="pv-action-text">Acknowledge Duty</span>
+</button>
+</div>
+<!-- Author Stamp -->
+<div class="flex items-center justify-between pt-space-xs text-text-dim text-[11px] font-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-carrom-red-deep">verified</span>
+<span>Dispatched by: <strong class="text-frame-mahogany" id="pv-author">Chandan &amp; Navaneet (Organizers)</strong></span>
+</div>
+<span>FKS Secretariat ‘27</span>
+</div>
+</div>
+<div class="flex items-center justify-between px-space-xs text-surface-cream-subtle text-[11px] font-label-sm">
+<span>Push Notification Alert Tone: Standard Chime</span>
+<span class="text-trophy-gold-bright font-bold">Encrypted 256-bit</span>
+</div>
+</div>
+<!-- Quick Dispatch Diagnostics Panel -->
+<div class="bg-surface-cream-subtle rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-text-dim font-bold">Broadcast Transmission Health</span>
+<span class="font-label-sm text-[10px] text-carrom-red-deep font-bold">100% OPERATIONAL</span>
+</div>
+<div class="grid grid-cols-3 gap-space-sm text-center">
+<div class="bg-surface-cream p-space-sm rounded-lg">
+<span class="font-label-sm text-[10px] text-text-dim uppercase block">Subscribers</span>
+<span class="font-headline-sm font-bold text-frame-mahogany">32</span>
+</div>
+<div class="bg-surface-cream p-space-sm rounded-lg">
+<span class="font-label-sm text-[10px] text-text-dim uppercase block">Latency</span>
+<span class="font-headline-sm font-bold text-primary">128ms</span>
+</div>
+<div class="bg-surface-cream p-space-sm rounded-lg">
+<span class="font-label-sm text-[10px] text-text-dim uppercase block">Failed Push</span>
+<span class="font-headline-sm font-bold text-frame-mahogany">0</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Broadcast History & Active Feed Manager -->
+<div class="flex flex-col gap-space-md mt-space-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-frame-mahogany"></span>
+<h3 class="font-headline-sm text-headline-sm text-frame-mahogany font-bold tracking-tight">Active Broadcasts &amp; Dispatch History</h3>
+<span class="font-label-sm text-[11px] text-text-dim bg-surface-cream-subtle px-2 py-0.5 rounded-full ml-space-xs">6 Dispatches Active</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<button class="px-space-sm py-1 rounded-full bg-frame-mahogany text-surface-cream font-label-sm text-[11px] font-bold" onclick="filterHistory('all')" type="button">All (6)</button>
+<button class="px-space-sm py-1 rounded-full bg-surface-cream-subtle hover:bg-surface-container text-frame-mahogany font-label-sm text-[11px] font-semibold" onclick="filterHistory('urgent')" type="button">Urgent (2)</button>
+<button class="px-space-sm py-1 rounded-full bg-surface-cream-subtle hover:bg-surface-container text-frame-mahogany font-label-sm text-[11px] font-semibold" onclick="filterHistory('shift')" type="button">Shifts (2)</button>
+<button class="px-space-sm py-1 rounded-full bg-surface-cream-subtle hover:bg-surface-container text-primary font-label-sm text-[11px] font-semibold flex items-center gap-1" onclick="archiveAllRecalled()" type="button">
+<span class="material-symbols-outlined text-[14px]">archive</span>
+<span>Archive Stale</span>
+</button>
+</div>
+</div>
+<!-- Data Table Card -->
+<div class="bg-surface-cream-subtle rounded-xl shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-md text-on-surface">
+<thead class="bg-surface-container-high/60 font-label-sm text-label-sm uppercase tracking-wider text-text-dim">
+<tr>
+<th class="py-space-md px-space-md">Dispatch ID &amp; Time</th>
+<th class="py-space-md px-space-md">Headline &amp; Target</th>
+<th class="py-space-md px-space-md">Urgency / Type</th>
+<th class="py-space-md px-space-md">Author Signature</th>
+<th class="py-space-md px-space-md">Ack / Reach Rate</th>
+<th class="py-space-md px-space-md">Live Status</th>
+<th class="py-space-md px-space-md text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-court-line/40 text-sm" id="broadcast-history-body">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-cream/80 transition-colors" id="row-048">
+<td class="py-space-md px-space-md font-label-sm">
+<span class="font-bold text-frame-mahogany">NTC-048</span>
+<span class="block text-text-dim text-[11px]">13:42 IST (18m ago)</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-bold text-frame-mahogany block">Queen Cover Stroke Check Protocol</span>
+<span class="font-label-sm text-[11px] text-text-dim flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">group</span> Boards 01–15 Referees
+                </span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-label-sm text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> High Priority
+                </span>
+</td>
+<td class="py-space-md px-space-md font-label-sm text-[12px] text-frame-mahogany font-medium">
+                Chandan (Ops Lead)
+              </td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-2">
+<div class="w-24 bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 100%"></div>
+</div>
+<span class="font-label-sm text-xs font-bold text-primary">15/15 (100%)</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 font-label-sm text-[11px] font-bold text-carrom-red-deep bg-carrom-red-deep/10 px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-carrom-red-deep animate-ping"></span> LIVE ON PWA
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-text-dim hover:text-primary transition-colors" onclick="recallNotice('row-048')" title="Recall from Volunteers" type="button">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-text-dim hover:text-frame-mahogany transition-colors" onclick="editNotice('Queen Cover Stroke Check Protocol', 'referees')" title="Duplicate to Composer" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-cream/80 transition-colors" id="row-047">
+<td class="py-space-md px-space-md font-label-sm">
+<span class="font-bold text-frame-mahogany">NTC-047</span>
+<span class="block text-text-dim text-[11px]">13:10 IST (50m ago)</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-bold text-frame-mahogany block">Emergency Standby Summon: Gate C Relievers</span>
+<span class="font-label-sm text-[11px] text-text-dim flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">group</span> Standby Pool (Reserve)
+                </span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-label-sm text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-primary-container text-on-primary-container inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-cream animate-ping"></span> Urgent Siren
+                </span>
+</td>
+<td class="py-space-md px-space-md font-label-sm text-[12px] text-frame-mahogany font-medium">
+                Chandan &amp; Navaneet
+              </td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-2">
+<div class="w-24 bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 100%"></div>
+</div>
+<span class="font-label-sm text-xs font-bold text-primary">4/4 (100%)</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 font-label-sm text-[11px] font-bold text-carrom-red-deep bg-carrom-red-deep/10 px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-carrom-red-deep"></span> LIVE ON PWA
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-text-dim hover:text-primary transition-colors" onclick="recallNotice('row-047')" title="Recall from Volunteers" type="button">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-text-dim hover:text-frame-mahogany transition-colors" onclick="editNotice('Emergency Standby Summon: Gate C Relievers', 'standby')" title="Duplicate to Composer" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-cream/80 transition-colors" id="row-046">
+<td class="py-space-md px-space-md font-label-sm">
+<span class="font-bold text-frame-mahogany">NTC-046</span>
+<span class="block text-text-dim text-[11px]">12:30 IST (1h 30m ago)</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-bold text-frame-mahogany block">Lunch Relief Shift Phase 1 (Marshals Only)</span>
+<span class="font-label-sm text-[11px] text-text-dim flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">group</span> Grade 7-9 Super &amp; Whiz
+                </span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-label-sm text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-surface-container-highest text-frame-mahogany inline-flex items-center gap-1">
+                  Standard
+                </span>
+</td>
+<td class="py-space-md px-space-md font-label-sm text-[12px] text-frame-mahogany font-medium">
+                Navaneet (Secretariat)
+              </td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-2">
+<div class="w-24 bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 87%"></div>
+</div>
+<span class="font-label-sm text-xs font-bold text-primary">7/8 (87%)</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 font-label-sm text-[11px] font-semibold text-text-dim bg-surface-container px-2 py-0.5 rounded-full">
+                  EXPIRED
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-text-dim hover:text-primary transition-colors" onclick="recallNotice('row-046')" title="Archive Notice" type="button">
+<span class="material-symbols-outlined text-[18px]">archive</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-text-dim hover:text-frame-mahogany transition-colors" onclick="editNotice('Lunch Relief Shift Phase 1', 'marshals')" title="Duplicate to Composer" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-cream/80 transition-colors" id="row-045">
+<td class="py-space-md px-space-md font-label-sm">
+<span class="font-bold text-frame-mahogany">NTC-045</span>
+<span class="block text-text-dim text-[11px]">11:45 IST (2h 15m ago)</span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-bold text-frame-mahogany block">Boric Powder Distribution Cap: Max 2 Squirts</span>
+<span class="font-label-sm text-[11px] text-text-dim flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">group</span> All Field Volunteers (32)
+                </span>
+</td>
+<td class="py-space-md px-space-md">
+<span class="font-label-sm text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container inline-flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> High Priority
+                </span>
+</td>
+<td class="py-space-md px-space-md font-label-sm text-[12px] text-frame-mahogany font-medium">
+                Chandan &amp; Navaneet
+              </td>
+<td class="py-space-md px-space-md">
+<div class="flex items-center gap-2">
+<div class="w-24 bg-surface-container rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 100%"></div>
+</div>
+<span class="font-label-sm text-xs font-bold text-primary">32/32 (100%)</span>
+</div>
+</td>
+<td class="py-space-md px-space-md">
+<span class="inline-flex items-center gap-1 font-label-sm text-[11px] font-bold text-carrom-red-deep bg-carrom-red-deep/10 px-2 py-0.5 rounded-full">
+<span class="w-1.5 h-1.5 rounded-full bg-carrom-red-deep"></span> LIVE ON PWA
+                </span>
+</td>
+<td class="py-space-md px-space-md text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-text-dim hover:text-primary transition-colors" onclick="recallNotice('row-045')" title="Recall Notice" type="button">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+</button>
+<button class="p-1.5 rounded hover:bg-surface-container text-text-dim hover:text-frame-mahogany transition-colors" onclick="editNotice('Boric Powder Distribution Cap', 'all')" title="Duplicate to Composer" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer Summary -->
+<div class="p-space-md bg-surface-container-high/40 flex flex-col sm:flex-row items-center justify-between text-text-dim text-[12px] font-label-sm gap-2">
+<div class="flex items-center gap-space-sm">
+<span class="inline-block w-2 h-2 rounded-full bg-primary"></span>
+<span>Showing 4 recent dispatches. Historical archive holds 44 dispatches from Day 1 &amp; Day 2.</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-2 py-1 rounded bg-surface-cream text-frame-mahogany hover:bg-surface-container" type="button">Prev</button>
+<span class="px-2 font-bold text-frame-mahogany">Page 1 of 4</span>
+<button class="px-2 py-1 rounded bg-surface-cream text-frame-mahogany hover:bg-surface-container" type="button">Next</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Presets mapping dictionary
+  const PRESETS = {
+    'ref-shift': {
+      title: 'Referee Shift Rotation: Boards 01–08 at 14:15',
+      cat: 'Roster Shift',
+      priority: 'High Priority',
+      target: 'Boards 01–08 Referees',
+      action: 'Acknowledge Duty',
+      author: 'Chandan & Navaneet (Organizers)',
+      body: 'Quarterfinal matches conclude in 10 minutes.\n\n• Hand over match logs to Secretarial Desk (Navaneet).\n• Check strike line bevels on Boards 02, 05, and 07.\n• Standby Marshals Ramesh & Priya report to Arena South Gate immediately.'
+    },
+    'queen-warn': {
+      title: 'URGENT: Strict Queen Cover Validation Enforced',
+      cat: 'Arena Alert',
+      priority: 'Urgent Siren',
+      target: 'All Field Volunteers',
+      action: 'Acknowledge Duty',
+      author: 'Chandan (Tournament Director)',
+      body: 'Multiple complaints raised regarding Queen cover fouls.\n\n• A player pocketing the Queen MUST cover with their own carrom man in the immediate subsequent strike.\n• If foul stroke pocketed, Queen must be placed on the center circle circle perimeter.'
+    },
+    'powder-ration': {
+      title: 'Arena Alert: Strict Boric Powder Cap per Match',
+      cat: 'Arena Alert',
+      priority: 'Standard',
+      target: 'Boards 01–15 Referees',
+      action: 'None',
+      author: 'Navaneet (Secretariat Lead)',
+      body: 'Excess boric powder is accumulating in pocket troughs of Boards 04 and 11.\n\n• Apply maximum 2 light puffs per board before each game.\n• Do not allow players to apply personal powder bottles.'
+    },
+    'standby-summon': {
+      title: 'Standby Pool Summons: Report to Secretariat Now',
+      cat: 'Urgent Station Call',
+      priority: 'Urgent Siren',
+      target: 'Standby Pool (Reserve)',
+      action: 'Claim Station',
+      author: 'Chandan & Navaneet (Organizers)',
+      body: 'Referee swap needed for Board 06 (Men\'s Singles Semifinal tiebreaker).\n\n• Arrive at central desk within 3 minutes.\n• Bring spare referee tally card and certified timer stopwatch.'
+    },
+    'lunch-swap': {
+      title: 'Lunch Relief Swap: Shift 2 Activation',
+      cat: 'Roster Shift',
+      priority: 'Standard',
+      target: 'Grade 7-9 Super 1/2/3 Marshals',
+      action: 'Acknowledge Duty',
+      author: 'Navaneet (Secretariat Lead)',
+      body: 'Shift 2 volunteer marshals please proceed to Hospitality Room B for lunch relief.\n\n• Shift 1 marshals will cover Arena Central perimeter.\n• Return to stations promptly by 14:45.'
+    },
+    'score-sync': {
+      title: 'Score Slip Rush: Bring Hand Tallies Immediately',
+      cat: 'Station Callout',
+      priority: 'High Priority',
+      target: 'Boards 09–15 Referees',
+      action: 'Download Protocol PDF',
+      author: 'Chandan & Navaneet (Organizers)',
+      body: 'Boards 09 to 15 have ended Round 2.\n\n• Deliver physical signed score sheets to Navaneet directly.\n• Do not announce winners until board tally is verified and locked.'
+    }
+  };
+
+  function loadPreset(key) {
+    const data = PRESETS[key];
+    if (!data) return;
+
+    document.getElementById('notice-title').value = data.title;
+    document.getElementById('notice-category').value = data.cat;
+    document.getElementById('notice-priority').value = data.priority;
+    document.getElementById('notice-target').value = data.target;
+    document.getElementById('notice-action').value = data.action;
+    document.getElementById('notice-author').value = data.author;
+    document.getElementById('notice-body').value = data.body;
+
+    updateLivePreview();
+
+    // Flash preview to indicate reload
+    const pv = document.getElementById('pv-headline');
+    pv.classList.add('opacity-50');
+    setTimeout(() => pv.classList.remove('opacity-50'), 150);
+  }
+
+  function updateLivePreview() {
+    const title = document.getElementById('notice-title').value || 'Notice Headline Missing';
+    const cat = document.getElementById('notice-category').value;
+    const priority = document.getElementById('notice-priority').value;
+    const target = document.getElementById('notice-target').value;
+    const action = document.getElementById('notice-action').value;
+    const author = document.getElementById('notice-author').value;
+    const body = document.getElementById('notice-body').value;
+
+    // Counters
+    document.getElementById('title-counter').innerText = title.length;
+    document.getElementById('body-counter').innerText = body.length;
+
+    // Update Live Preview Elements
+    document.getElementById('pv-headline').innerText = title;
+    document.getElementById('pv-cat-badge').innerText = cat;
+    document.getElementById('pv-target').innerText = target;
+    document.getElementById('pv-author').innerText = author;
+
+    // Priority Styling
+    const pBadge = document.getElementById('pv-priority-badge');
+    if (priority === 'Urgent Siren') {
+      pBadge.className = 'font-label-sm text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-primary-container text-on-primary-container flex items-center gap-1';
+      pBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-surface-cream animate-ping"></span><span>Urgent Siren</span>';
+    } else if (priority === 'High Priority') {
+      pBadge.className = 'font-label-sm text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container flex items-center gap-1';
+      pBadge.innerHTML = '<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span><span>High Priority</span>';
+    } else {
+      pBadge.className = 'font-label-sm text-[10px] uppercase font-bold px-2 py-0.5 rounded-full bg-surface-container-highest text-frame-mahogany flex items-center gap-1';
+      pBadge.innerHTML = '<span>Standard Priority</span>';
+    }
+
+    // Action button
+    const actionWrap = document.getElementById('pv-action-wrap');
+    const actionText = document.getElementById('pv-action-text');
+    if (action === 'None') {
+      actionWrap.classList.add('hidden');
+    } else {
+      actionWrap.classList.remove('hidden');
+      actionText.innerText = action;
+    }
+
+    // Render formatted body with bullet point support
+    const lines = body.split('\n');
+    let html = '';
+    let inList = false;
+
+    lines.forEach(line => {
+      const trimmed = line.trim();
+      if (trimmed.startsWith('•') || trimmed.startsWith('-')) {
+        if (!inList) {
+          html += '<ul class="list-disc pl-4 space-y-1 text-sm">';
+          inList = true;
+        }
+        html += '<li>' + trimmed.replace(/^[•-]\s*/, '') + '</li>';
+      } else {
+        if (inList) {
+          html += '</ul>';
+          inList = false;
+        }
+        if (trimmed.length > 0) {
+          html += '<div>' + trimmed + '</div>';
+        }
+      }
+    });
+    if (inList) html += '</ul>';
+
+    document.getElementById('pv-body').innerHTML = html || '<span class="text-text-dim/60 italic">Notice description preview...</span>';
+  }
+
+  function insertFormat(type) {
+    const textarea = document.getElementById('notice-body');
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const text = textarea.value;
+
+    let insertion = '';
+    if (type === 'bold') insertion = '**' + (text.substring(start, end) || 'Important') + '**';
+    if (type === 'list') insertion = '\n• ' + (text.substring(start, end) || 'Action item here');
+    if (type === 'board') insertion = '[Board 04] ';
+    if (type === 'highlight') insertion = '[ATTENTION] ';
+
+    textarea.value = text.substring(0, start) + insertion + text.substring(end);
+    textarea.focus();
+    updateLivePreview();
+  }
+
+  function publishLive() {
+    const alertBox = document.getElementById('dispatch-alert');
+    const alertMsg = document.getElementById('dispatch-alert-msg');
+    const title = document.getElementById('notice-title').value;
+    
+    alertMsg.innerText = `Published live to Volunteer terminals: "${title.substring(0, 35)}..."`;
+    alertBox.classList.remove('hidden');
+    
+    // Add row to history
+    const tbody = document.getElementById('broadcast-history-body');
+    const newId = 'NTC-049';
+    const tr = document.createElement('tr');
+    tr.id = 'row-049';
+    tr.className = 'hover:bg-surface-cream/80 transition-colors bg-surface-container/20';
+    tr.innerHTML = `
+      <td class="py-space-md px-space-md font-label-sm">
+        <span class="font-bold text-primary">${newId}</span>
+        <span class="block text-text-dim text-[11px]">Just Now (Active)</span>
+      </td>
+      <td class="py-space-md px-space-md">
+        <span class="font-bold text-frame-mahogany block">${title}</span>
+        <span class="font-label-sm text-[11px] text-text-dim flex items-center gap-1">
+          <span class="material-symbols-outlined text-[13px]">group</span> ${document.getElementById('notice-target').value}
+        </span>
+      </td>
+      <td class="py-space-md px-space-md">
+        <span class="font-label-sm text-[10px] font-bold uppercase px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container inline-flex items-center gap-1">
+          ${document.getElementById('notice-priority').value}
+        </span>
+      </td>
+      <td class="py-space-md px-space-md font-label-sm text-[12px] text-frame-mahogany font-medium">
+        ${document.getElementById('notice-author').value.split(' ')[0]} (You)
+      </td>
+      <td class="py-space-md px-space-md">
+        <div class="flex items-center gap-2">
+          <div class="w-24 bg-surface-container rounded-full h-2 overflow-hidden">
+            <div class="bg-primary h-full rounded-full" style="width: 15%"></div>
+          </div>
+          <span class="font-label-sm text-xs font-bold text-primary">5/32 (15%)</span>
+        </div>
+      </td>
+      <td class="py-space-md px-space-md">
+        <span class="inline-flex items-center gap-1 font-label-sm text-[11px] font-bold text-carrom-red-deep bg-carrom-red-deep/10 px-2 py-0.5 rounded-full">
+          <span class="w-1.5 h-1.5 rounded-full bg-carrom-red-deep animate-ping"></span> DISPATCHING
+        </span>
+      </td>
+      <td class="py-space-md px-space-md text-right">
+        <div class="flex items-center justify-end gap-1">
+          <button type="button" onclick="recallNotice('row-049')" class="p-1.5 rounded hover:bg-surface-container text-text-dim hover:text-primary transition-colors" title="Recall">
+            <span class="material-symbols-outlined text-[18px]">cancel</span>
+          </button>
+        </div>
+      </td>
+    `;
+    tbody.prepend(tr);
+
+    setTimeout(() => {
+      alertBox.classList.add('hidden');
+    }, 5000);
+  }
+
+  function saveDraft() {
+    const alertBox = document.getElementById('dispatch-alert');
+    const alertMsg = document.getElementById('dispatch-alert-msg');
+    alertMsg.innerText = 'Draft saved locally to Chandan & Navaneet shared administrative notes.';
+    alertBox.classList.remove('hidden');
+    setTimeout(() => alertBox.classList.add('hidden'), 4000);
+  }
+
+  function scheduleRound3() {
+    const alertBox = document.getElementById('dispatch-alert');
+    const alertMsg = document.getElementById('dispatch-alert-msg');
+    alertMsg.innerText = 'Queued to dispatch automatically when Round 3 timer triggers at 14:15 IST.';
+    alertBox.classList.remove('hidden');
+    setTimeout(() => alertBox.classList.add('hidden'), 4500);
+  }
+
+  function recallNotice(rowId) {
+    const row = document.getElementById(rowId);
+    if (!row) return;
+    if (confirm('Recall this broadcast from all volunteer screens immediately?')) {
+      row.style.opacity = '0.4';
+      row.querySelector('td:nth-child(6)').innerHTML = '<span class="font-label-sm text-[11px] text-text-dim uppercase font-bold">RECALLED</span>';
+    }
+  }
+
+  function archiveAllRecalled() {
+    alert('Stale expired notices archived to historical audit logs.');
+  }
+
+  function editNotice(title, type) {
+    document.getElementById('notice-title').value = title;
+    updateLivePreview();
+    window.scrollTo({ top: 320, behavior: 'smooth' });
+  }
+
+  function filterHistory(filter) {
+    const rows = document.querySelectorAll('#broadcast-history-body tr');
+    rows.forEach(r => {
+      if (filter === 'all') {
+        r.style.display = '';
+      } else if (filter === 'urgent') {
+        r.style.display = r.innerText.includes('Urgent') || r.innerText.includes('High') ? '' : 'none';
+      } else if (filter === 'shift') {
+        r.style.display = r.innerText.includes('Shift') ? '' : 'none';
+      }
+    });
+  }
+
+  // Initialize on load
+  document.addEventListener('DOMContentLoaded', updateLivePreview);
+</script></main></div>
+
+
+
+</body></html>

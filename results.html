@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_dashboard" name="shell-type"/>
+<title>Results &amp; Live Standings · FKS Carrom Open 2027</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&amp;family=Outfit:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+    @layer base {
+      html, body {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        overscroll-behavior: none;
+      }
+    }
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "frame-mahogany": "#2B1D16",
+            "carrom-red-deep": "#C2271B",
+            "court-line": "#C8BEAB",
+            "pocket-void": "#0F0B0A",
+            "trophy-gold-bright": "#E5C158",
+            "surface-cream": "#F7F3E9",
+            "surface-cream-subtle": "#EFE9D8",
+            "text-dim": "#6E685F",
+            "primary": "#b71711",
+            "primary-badge": "#e0382b"
+          },
+          fontFamily: {
+            headline: ["Outfit", "sans-serif"],
+            mono: ["JetBrains Mono", "monospace"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-surface-cream text-[#201a18] antialiased selection:bg-[#b71711] selection:text-white flex min-h-screen">
+<!-- Mobile Top Bar Header -->
+<header class="lg:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 py-3.5 bg-[#1f1510] border-b border-[#33221a] text-white shadow-md">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-[#e0382b] flex items-center justify-center shadow-md border-2 border-trophy-gold-bright/60 shrink-0">
+<span class="font-bold text-white text-base">◎</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline text-white font-bold leading-tight text-[15px]">FKS Carrom 2027</span>
+<span class="font-mono text-court-line uppercase tracking-widest text-[10px]">Results &amp; Standings</span>
+</div>
+</div>
+<button class="text-white p-1.5 rounded-lg hover:bg-black/40 focus:outline-none flex items-center justify-center" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+</header>
+<!-- Mobile Slide Drawer -->
+<div class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden lg:hidden" id="mobileDrawer">
+<div class="fixed inset-y-0 left-0 w-72 bg-[#1f1510] border-r border-[#33221a] p-6 flex flex-col justify-between text-white shadow-2xl">
+<div class="flex flex-col gap-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-[#e0382b] flex items-center justify-center shadow-md border-2 border-trophy-gold-bright/60 shrink-0">
+<span class="font-bold text-white text-lg">◎</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline text-white font-bold text-base leading-tight">FKS Carrom 2027</span>
+<span class="font-mono text-court-line uppercase tracking-widest text-[10px]">Solos &amp; Doubles</span>
+</div>
+</div>
+<button class="text-white/80 hover:text-white p-1 rounded-lg" onclick="toggleMobileMenu()">
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+</div>
+<nav class="flex flex-col gap-1.5 font-headline text-sm font-medium">
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#EFE9D8]/80 hover:bg-black/30 hover:text-white transition-colors" href="index.html">
+<span class="material-symbols-outlined text-[19px]">home</span><span>Home</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#EFE9D8]/80 hover:bg-black/30 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">calendar_today</span><span>Schedule</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#EFE9D8]/80 hover:bg-black/30 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[19px]">grid_view</span><span>Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg bg-[#e0382b] text-white font-bold shadow-md" href="results.html">
+<span class="material-symbols-outlined text-[19px]">emoji_events</span><span>Results</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#EFE9D8]/80 hover:bg-black/30 hover:text-white transition-colors" href="volunteer.html">
+<span class="material-symbols-outlined text-[19px]">handshake</span><span>Volunteer</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#EFE9D8]/80 hover:bg-black/30 hover:text-white transition-colors" href="volunteer_news.html">
+<span class="material-symbols-outlined text-[19px]">campaign</span><span>Volunteer News</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#EFE9D8]/80 hover:bg-black/30 hover:text-white transition-colors" href="login.html">
+<span class="material-symbols-outlined text-[19px]">lock</span><span>Login</span>
+</a>
+</nav>
+</div>
+<div class="flex flex-col gap-3 pt-4 border-t border-[#33221a]">
+<div class="p-3 rounded-xl bg-black/40 border border-[#E5C158]/20 flex flex-col gap-0.5">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-trophy-gold-bright text-[15px]">location_on</span>
+<span class="font-headline text-white font-bold text-xs">The Future Kid's School</span>
+</div>
+<span class="font-mono text-court-line text-[11px]">Hyderabad · Jan 6 &amp; 7, 2027</span>
+</div>
+<a class="w-full py-2.5 px-4 rounded-lg bg-[#e0382b] hover:bg-[#b71711] text-white font-headline text-xs font-bold text-center shadow-md flex items-center justify-center gap-2 transition-all" href="registration.html">
+<span class="material-symbols-outlined text-[17px]">how_to_reg</span>
+<span>Register Now</span>
+</a>
+<span class="text-[10px] text-center text-court-line font-mono">Registrations close Dec 28, 2026</span>
+</div>
+</div>
+</div>
+<!-- Persistent Full-Height Desktop Sidebar -->
+<aside class="hidden lg:flex flex-col justify-between w-64 xl:w-72 shrink-0 min-h-screen sticky top-0 bg-[#1f1510] border-r border-[#33221a] p-5 xl:p-6 text-white shadow-xl z-40">
+<div class="flex flex-col gap-6">
+<!-- Brand Logo / Emblem -->
+<div class="flex items-center gap-3 px-1 py-1">
+<div class="w-10 h-10 rounded-full bg-[#e0382b] flex items-center justify-center shadow-md border-2 border-trophy-gold-bright/60 shrink-0">
+<span class="font-bold text-white text-lg">◎</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline text-white font-bold text-lg leading-tight tracking-tight">FKS Carrom 2027</span>
+<span class="font-mono text-court-line uppercase tracking-widest text-[10px]">Solos &amp; Doubles</span>
+</div>
+</div>
+<!-- Navigation links -->
+<nav class="flex flex-col gap-1 font-headline text-sm font-medium">
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#EFE9D8]/80 hover:bg-black/30 hover:text-white transition-colors" href="index.html">
+<span class="material-symbols-outlined text-[18px]">home</span>
+<span>Home</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#EFE9D8]/80 hover:bg-black/30 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+<span>Schedule</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#EFE9D8]/80 hover:bg-black/30 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">grid_view</span>
+<span>Overview</span>
+</a>
+<!-- Active Results Tab -->
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg bg-[#e0382b] text-white font-bold shadow-md transition-all" href="results.html">
+<span class="material-symbols-outlined text-[18px]">emoji_events</span>
+<span>Results</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#EFE9D8]/80 hover:bg-black/30 hover:text-white transition-colors" href="volunteer.html">
+<span class="material-symbols-outlined text-[18px]">handshake</span>
+<span>Volunteer</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#EFE9D8]/80 hover:bg-black/30 hover:text-white transition-colors" href="volunteer_news.html">
+<span class="material-symbols-outlined text-[18px]">campaign</span>
+<span>Volunteer News</span>
+</a>
+<a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg text-[#EFE9D8]/80 hover:bg-black/30 hover:text-white transition-colors" href="login.html">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+<span>Login</span>
+</a>
+</nav>
+</div>
+<!-- Venue Card & Registration CTA at Bottom -->
+<div class="flex flex-col gap-3 pt-4 border-t border-[#33221a]">
+<div class="p-3.5 rounded-xl bg-black/40 border border-trophy-gold-bright/20 flex flex-col gap-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-trophy-gold-bright text-[16px]">location_on</span>
+<span class="font-headline text-white font-bold text-xs tracking-tight">The Future Kid's School</span>
+</div>
+<span class="font-mono text-court-line text-[11px]">Hyderabad · Jan 6 &amp; 7, 2027</span>
+</div>
+<a class="w-full py-2.5 px-4 rounded-lg bg-[#e0382b] hover:bg-[#b71711] text-white font-headline text-xs font-bold text-center shadow-md flex items-center justify-center gap-2 transition-all hover:shadow-lg" href="registration.html">
+<span class="material-symbols-outlined text-[17px]">how_to_reg</span>
+<span>Register Now</span>
+</a>
+<span class="text-[10px] text-center text-court-line/80 font-mono tracking-tight">Registrations close Dec 28, 2026</span>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 w-full bg-surface-cream text-[#201a18] pt-16 lg:pt-0">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 py-6 lg:py-8 flex flex-col gap-7">
+<!-- Section 2: Header & Status Section -->
+<section class="flex flex-col gap-3">
+<!-- Eyebrow & Badges -->
+<div class="flex flex-wrap items-center justify-between gap-2.5">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#e0382b]"></span>
+<span class="font-mono text-xs text-[#5b403c] uppercase tracking-wider font-semibold">
+              FKS ARCHIVES · TOURNAMENT RECORDS · JAN 6 &amp; 7, 2027 / GRADES 5-9 / HYDERABAD
+            </span>
+</div>
+<!-- Live Badges -->
+<div class="flex items-center gap-2 flex-wrap font-mono text-[11px] font-semibold">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#EFE9D8] text-[#2B1D16] border border-[#C8BEAB]/40 shadow-sm">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+              OFFICIAL VERIFIED
+            </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#fed65b]/40 text-[#745c00] border border-[#fed65b] shadow-sm">
+<span class="material-symbols-outlined text-[13px] animate-spin">sync</span>
+              AUTO-REFRESH: 5s
+            </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-900 border border-amber-300 shadow-sm">
+<span class="material-symbols-outlined text-[13px] text-amber-700" style="font-variation-settings: 'FILL' 1;">military_tech</span>
+              PODIUM HONORS
+            </span>
+</div>
+</div>
+<!-- Title & Subtitle + Action Buttons -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 pt-1">
+<div class="flex flex-col gap-1.5 max-w-3xl">
+<h1 class="font-headline text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#2B1D16] tracking-tight leading-tight">
+              Championship Results &amp; Live Standings
+            </h1>
+<p class="font-headline text-sm sm:text-base text-text-dim leading-relaxed">
+              Official validated strike metrics, knockout ladder progression, and verified podium rankings across all 15 Precisa birch-ply competition boards.
+            </p>
+</div>
+<div class="flex items-center gap-2.5 shrink-0">
+<button class="px-4 py-2 rounded-full bg-[#EFE9D8] hover:bg-[#e4d7d4] text-[#2B1D16] font-mono text-xs font-semibold flex items-center gap-1.5 shadow-sm border border-[#C8BEAB]/40 transition-colors" onclick="window.print()">
+<span class="material-symbols-outlined text-[17px]">print</span>
+<span>Print Slips</span>
+</button>
+<button class="px-4 py-2 rounded-full bg-[#2B1D16] hover:bg-[#0F0B0A] text-white font-mono text-xs font-semibold flex items-center gap-1.5 shadow-md transition-all">
+<span class="material-symbols-outlined text-[17px] text-trophy-gold-bright">download</span>
+<span>Export CSV</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section 3: Live Match Arena Strip (Quick Board Tickers) -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+<!-- Board 03 -->
+<div class="p-4 rounded-xl bg-white border border-[#EFE9D8] shadow-sm flex flex-col justify-between gap-3 hover:border-[#e0382b]/30 transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-[#2B1D16] text-[#F7F3E9] font-mono text-xs font-bold">BRD 03</span>
+<span class="font-headline text-xs font-semibold text-text-dim">Solos Semi-Final 1</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#e0382b]/10 text-[#C2271B] font-mono text-[10px] font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-[#C2271B] animate-ping"></span>
+              Live End 3
+            </span>
+</div>
+<div class="flex items-center justify-between font-headline">
+<div class="flex flex-col">
+<span class="font-bold text-sm text-[#2B1D16]">Aarav Mehta</span>
+<span class="text-[11px] text-text-dim font-mono">Striker: 14.5g · White</span>
+</div>
+<div class="px-3 py-1 rounded-lg bg-[#F7F3E9] font-mono text-lg font-bold text-[#C2271B] tracking-wider border border-[#C8BEAB]/30">
+              18 – 14
+            </div>
+<div class="flex flex-col items-end">
+<span class="font-bold text-sm text-[#2B1D16]">Kabir Verma</span>
+<span class="text-[11px] text-text-dim font-mono">Black · 2 Breaks</span>
+</div>
+</div>
+<div class="w-full bg-[#EFE9D8] rounded-full h-1.5 overflow-hidden">
+<div class="bg-[#C2271B] h-full rounded-full" style="width: 68%;"></div>
+</div>
+</div>
+<!-- Board 07 -->
+<div class="p-4 rounded-xl bg-white border border-[#EFE9D8] shadow-sm flex flex-col justify-between gap-3 hover:border-trophy-gold-bright transition-all">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-[#2B1D16] text-[#F7F3E9] font-mono text-xs font-bold">BRD 07</span>
+<span class="font-headline text-xs font-semibold text-text-dim">Doubles Semis</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 font-mono text-[10px] font-bold">
+<span class="material-symbols-outlined text-[13px] text-amber-700" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+              Queen Covered
+            </span>
+</div>
+<div class="flex items-center justify-between font-headline">
+<div class="flex flex-col">
+<span class="font-bold text-sm text-[#2B1D16]">Rohan &amp; K.</span>
+<span class="text-[11px] text-text-dim font-mono">Seed 2 Pair</span>
+</div>
+<div class="px-3 py-1 rounded-lg bg-[#F7F3E9] font-mono text-lg font-bold text-[#2B1D16] tracking-wider border border-[#C8BEAB]/30">
+              22 – 09
+            </div>
+<div class="flex flex-col items-end">
+<span class="font-bold text-sm text-[#2B1D16]">Siddharth &amp; D.</span>
+<span class="text-[11px] text-text-dim font-mono">Seed 6 Pair</span>
+</div>
+</div>
+<div class="w-full bg-[#EFE9D8] rounded-full h-1.5 overflow-hidden">
+<div class="bg-amber-600 h-full rounded-full" style="width: 84%;"></div>
+</div>
+</div>
+<!-- Board 12 -->
+<div class="p-4 rounded-xl bg-white border border-[#EFE9D8] shadow-sm flex flex-col justify-between gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded bg-[#5b403c] text-[#F7F3E9] font-mono text-xs font-bold">BRD 12</span>
+<span class="font-headline text-xs font-semibold text-text-dim">Court Prep</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-mono text-[10px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+              Surface Powdered &amp; Ready
+            </span>
+</div>
+<div class="flex items-center justify-between py-1">
+<div class="flex flex-col">
+<span class="font-headline font-bold text-sm text-[#2B1D16]">Wave 2 Fixture On Deck</span>
+<span class="font-mono text-xs text-text-dim">Grade 7 Boys Knockout Round</span>
+</div>
+<div class="text-right font-mono text-xs text-text-dim">
+              Call Time: 10:15 AM
+            </div>
+</div>
+<div class="flex items-center justify-between text-[11px] font-mono text-text-dim border-t border-[#EFE9D8] pt-2">
+<span>Referee: K. Raman</span>
+<span class="text-emerald-700 font-semibold">Starch Level: Optimal</span>
+</div>
+</div>
+</section>
+<!-- Section 4: Podium Leaders · Solos Championship -->
+<section class="flex flex-col gap-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-trophy-gold-bright text-[22px]" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+<h2 class="font-headline text-xl sm:text-2xl font-bold text-[#2B1D16]">
+              Podium Leaders · Solos Championship
+            </h2>
+</div>
+<span class="font-mono text-xs text-text-dim">Official FKS Verified Rankings</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-stretch">
+<!-- 2nd Place · Silver Medalist -->
+<div class="p-5 rounded-2xl bg-[#EFE9D8] flex flex-col items-center text-center justify-between gap-3 shadow-sm border-t-4 border-[#C8BEAB] hover:shadow-md transition-shadow">
+<div class="w-14 h-14 rounded-full bg-white flex items-center justify-center text-[#2B1D16] shadow-sm border border-[#C8BEAB]/40">
+<span class="material-symbols-outlined text-[30px] text-slate-500">military_tech</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="font-mono text-[11px] text-text-dim uppercase tracking-wider font-bold">2nd Place · Silver Medalist</span>
+<h3 class="font-headline text-xl font-bold text-[#2B1D16]">Rohan Sharma</h3>
+<span class="font-mono text-xs text-[#5b403c] font-semibold">Grade 8-B · Runner-Up Medals &amp; Laurels</span>
+</div>
+<div class="w-full p-2.5 rounded-xl bg-white/80 flex items-center justify-between font-mono text-xs">
+<span class="text-text-dim">Tournament Points</span>
+<span class="font-bold text-[#2B1D16]">28 Pts (5-1)</span>
+</div>
+</div>
+<!-- 1st Place · Grand Champion (Prominent Center) -->
+<div class="p-6 rounded-2xl bg-gradient-to-b from-[#2B1D16] to-[#1a110c] text-white flex flex-col items-center text-center justify-between gap-3 shadow-xl border-t-4 border-trophy-gold-bright md:-mt-2 relative overflow-hidden">
+<div class="absolute -right-8 -top-8 w-28 h-28 rounded-full bg-trophy-gold-bright/10 pointer-events-none blur-xl"></div>
+<div class="w-16 h-16 rounded-full bg-trophy-gold-bright/20 flex items-center justify-center text-trophy-gold-bright border-2 border-trophy-gold-bright shadow-lg">
+<span class="material-symbols-outlined text-[36px]" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-mono text-xs text-trophy-gold-bright uppercase tracking-widest font-extrabold flex items-center justify-center gap-1">
+<span>★</span> Grand Champion · Gold Cup <span>★</span>
+</span>
+<h3 class="font-headline text-2xl font-black text-[#F7F3E9] tracking-tight">Aarav Mehta</h3>
+<span class="font-mono text-xs text-court-line font-medium">Grade 9-A · FKS Gold Trophy &amp; Distinction</span>
+</div>
+<div class="w-full flex items-center justify-around py-2 px-3 rounded-xl bg-black/40 border border-trophy-gold-bright/30 font-mono text-xs">
+<div class="flex flex-col items-center">
+<span class="text-court-line text-[10px] uppercase">Match Points</span>
+<span class="font-bold text-trophy-gold-bright text-sm">36 Total Pts</span>
+</div>
+<div class="w-px h-6 bg-court-line/30"></div>
+<div class="flex flex-col items-center">
+<span class="text-court-line text-[10px] uppercase">Queen Pocket</span>
+<span class="font-bold text-emerald-400 text-sm">100% Success</span>
+</div>
+</div>
+</div>
+<!-- 3rd Place · Bronze Medalist -->
+<div class="p-5 rounded-2xl bg-[#EFE9D8] flex flex-col items-center text-center justify-between gap-3 shadow-sm border-t-4 border-amber-700 hover:shadow-md transition-shadow">
+<div class="w-14 h-14 rounded-full bg-white flex items-center justify-center text-amber-800 shadow-sm border border-amber-200">
+<span class="material-symbols-outlined text-[30px] text-amber-700">workspace_premium</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="font-mono text-[11px] text-text-dim uppercase tracking-wider font-bold">3rd Place · Bronze Medalist</span>
+<h3 class="font-headline text-xl font-bold text-[#2B1D16]">Ananya Reddy</h3>
+<span class="font-mono text-xs text-[#5b403c] font-semibold">Grade 7-C · 2nd Runner-Up Medals</span>
+</div>
+<div class="w-full p-2.5 rounded-xl bg-white/80 flex items-center justify-between font-mono text-xs">
+<span class="text-text-dim">Tournament Points</span>
+<span class="font-bold text-[#2B1D16]">21 Pts (4-1)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Category & Round Switcher -->
+<section class="flex flex-col gap-4">
+<!-- Event Category Pills + Filters -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
+<div class="inline-flex p-1 rounded-full bg-[#EFE9D8] self-start shadow-sm border border-[#C8BEAB]/30">
+<button class="px-4 py-1.5 rounded-full bg-[#e0382b] text-white font-headline text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+<span>Solos (Singles)</span>
+</button>
+<button class="px-4 py-1.5 rounded-full text-[#2B1D16] hover:bg-white/60 font-headline text-xs font-medium transition-colors">
+              Doubles Team
+            </button>
+<button class="px-4 py-1.5 rounded-full text-[#2B1D16] hover:bg-white/60 font-headline text-xs font-medium transition-colors">
+              Open Doubles (Draw)
+            </button>
+</div>
+<!-- Search & Filter -->
+<div class="flex flex-wrap items-center gap-2.5">
+<div class="relative min-w-[220px]">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-dim text-[18px]">search</span>
+<input class="w-full pl-9 pr-3 py-2 rounded-xl bg-white text-[#2B1D16] placeholder-text-dim font-headline text-xs border border-[#C8BEAB]/50 focus:outline-none focus:ring-1 focus:ring-[#e0382b] shadow-sm" placeholder="Search competitor or partner..." type="text"/>
+</div>
+<div class="relative">
+<select class="appearance-none pl-3 pr-8 py-2 rounded-xl bg-white text-[#2B1D16] font-mono text-xs border border-[#C8BEAB]/50 focus:outline-none focus:ring-1 focus:ring-[#e0382b] shadow-sm cursor-pointer">
+<option>All Grades (5-9)</option>
+<option>Grade 5</option>
+<option>Grade 6</option>
+<option>Grade 7</option>
+<option>Grade 8</option>
+<option>Grade 9</option>
+</select>
+<span class="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-text-dim text-[16px] pointer-events-none">arrow_drop_down</span>
+</div>
+</div>
+</div>
+<!-- Round Navigation Tabs -->
+<nav aria-label="Tournament Knockout Rounds" class="w-full overflow-x-auto pb-1">
+<div class="flex items-center gap-2 min-w-max">
+<button class="px-3.5 py-2 rounded-xl bg-white hover:bg-[#EFE9D8] text-[#2B1D16] font-mono text-xs font-semibold border border-[#C8BEAB]/40 shadow-sm transition-colors">
+              Top 64 (32 Matches)
+            </button>
+<button class="px-3.5 py-2 rounded-xl bg-white hover:bg-[#EFE9D8] text-[#2B1D16] font-mono text-xs font-semibold border border-[#C8BEAB]/40 shadow-sm transition-colors">
+              Top 32 (16 Matches)
+            </button>
+<button class="px-3.5 py-2 rounded-xl bg-white hover:bg-[#EFE9D8] text-[#2B1D16] font-mono text-xs font-semibold border border-[#C8BEAB]/40 shadow-sm transition-colors">
+              Top 16 (8 Matches)
+            </button>
+<button class="px-3.5 py-2 rounded-xl bg-white hover:bg-[#EFE9D8] text-[#2B1D16] font-mono text-xs font-semibold border border-[#C8BEAB]/40 shadow-sm transition-colors">
+              Quarter-Finals (4 Matches)
+            </button>
+<button class="px-3.5 py-2 rounded-xl bg-[#2B1D16] text-white font-mono text-xs font-bold flex items-center gap-1.5 shadow-md">
+<span class="w-2 h-2 rounded-full bg-[#e0382b] animate-ping"></span>
+<span>Semi-Finals (Live)</span>
+</button>
+</div>
+</nav>
+</section>
+<!-- Section 6: Comprehensive Match Results Table -->
+<section class="flex flex-col gap-3">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#e0382b]"></span>
+<h3 class="font-headline text-lg sm:text-xl font-bold text-[#2B1D16]">
+              Verified Competitor Standings &amp; Match Sheets
+            </h3>
+</div>
+<span class="font-mono text-xs text-text-dim">Referee Signed Slips · Desk Table A</span>
+</div>
+<div class="w-full overflow-hidden rounded-2xl bg-white border border-[#C8BEAB]/40 shadow-md">
+<div class="w-full overflow-x-auto">
+<table class="w-full text-left border-collapse min-w-[780px]">
+<thead>
+<tr class="bg-[#EFE9D8] text-[#2B1D16] font-mono text-xs uppercase tracking-wider border-b border-[#C8BEAB]/40">
+<th class="py-3 px-4">RANK</th>
+<th class="py-3 px-4">COMPETITOR / ENTRY</th>
+<th class="py-3 px-4">GRADE &amp; SEC</th>
+<th class="py-3 px-4">BRD #</th>
+<th class="py-3 px-4">MATCHUP / ROUND</th>
+<th class="py-3 px-4">MATCH STATUS</th>
+<th class="py-3 px-4 text-right">SCORE / BREAKS</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#EFE9D8] font-headline text-sm">
+<!-- Rank 1: Gold Badge -->
+<tr class="bg-amber-50/70 hover:bg-amber-100/60 transition-colors">
+<td class="py-3.5 px-4 font-mono">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-trophy-gold-bright text-[#2B1D16] font-bold text-xs shadow-sm">
+                      🥇 #1
+                    </span>
+</td>
+<td class="py-3.5 px-4 font-bold text-[#2B1D16] flex items-center gap-2">
+<span>Aarav Mehta</span>
+<span class="font-mono text-[10px] px-1.5 py-0.2 rounded bg-amber-200 text-amber-900 font-bold">GOLD</span>
+</td>
+<td class="py-3.5 px-4 font-mono text-text-dim text-xs">9-A</td>
+<td class="py-3.5 px-4 font-mono font-bold text-xs">
+<span class="px-2 py-0.5 rounded bg-[#2B1D16] text-[#F7F3E9]">BRD 01</span>
+</td>
+<td class="py-3.5 px-4 text-xs font-semibold text-[#5b403c]">Finals vs Rohan Sharma</td>
+<td class="py-3.5 px-4 font-mono text-xs">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-semibold">
+                      Completed · Q Covered
+                    </span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono font-bold text-base text-[#C2271B]">
+                    25 – 11
+                  </td>
+</tr>
+<!-- Rank 2: Silver Badge -->
+<tr class="bg-slate-50/70 hover:bg-slate-100/60 transition-colors">
+<td class="py-3.5 px-4 font-mono">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-200 text-[#2B1D16] font-bold text-xs shadow-sm">
+                      🥈 #2
+                    </span>
+</td>
+<td class="py-3.5 px-4 font-bold text-[#2B1D16] flex items-center gap-2">
+<span>Rohan Sharma</span>
+<span class="font-mono text-[10px] px-1.5 py-0.2 rounded bg-slate-300 text-slate-800 font-bold">SILVER</span>
+</td>
+<td class="py-3.5 px-4 font-mono text-text-dim text-xs">8-B</td>
+<td class="py-3.5 px-4 font-mono font-bold text-xs">
+<span class="px-2 py-0.5 rounded bg-[#2B1D16] text-[#F7F3E9]">BRD 01</span>
+</td>
+<td class="py-3.5 px-4 text-xs font-semibold text-[#5b403c]">Semi-Final 2 vs Ananya R.</td>
+<td class="py-3.5 px-4 font-mono text-xs">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-semibold">
+                      Completed · Won
+                    </span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono font-bold text-base text-[#2B1D16]">
+                    21 – 16
+                  </td>
+</tr>
+<!-- Rank 3: Bronze Badge -->
+<tr class="bg-amber-50/40 hover:bg-amber-100/50 transition-colors">
+<td class="py-3.5 px-4 font-mono">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-amber-200 text-amber-900 font-bold text-xs shadow-sm">
+                      🥉 #3
+                    </span>
+</td>
+<td class="py-3.5 px-4 font-bold text-[#2B1D16] flex items-center gap-2">
+<span>Ananya Reddy</span>
+<span class="font-mono text-[10px] px-1.5 py-0.2 rounded bg-amber-300 text-amber-950 font-bold">BRONZE</span>
+</td>
+<td class="py-3.5 px-4 font-mono text-text-dim text-xs">7-C</td>
+<td class="py-3.5 px-4 font-mono font-bold text-xs">
+<span class="px-2 py-0.5 rounded bg-[#EFE9D8] text-[#2B1D16]">BRD 02</span>
+</td>
+<td class="py-3.5 px-4 text-xs font-semibold text-[#5b403c]">3rd Place Match vs Priya Sen</td>
+<td class="py-3.5 px-4 font-mono text-xs">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-semibold">
+                      Completed · Won
+                    </span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono font-bold text-base text-[#2B1D16]">
+                    19 – 12
+                  </td>
+</tr>
+<!-- Row 4: Live pulsing indicator -->
+<tr class="hover:bg-[#EFE9D8]/40 transition-colors">
+<td class="py-3.5 px-4 font-mono text-xs font-bold text-text-dim">#4</td>
+<td class="py-3.5 px-4 font-semibold text-[#2B1D16]">Kabir Verma</td>
+<td class="py-3.5 px-4 font-mono text-text-dim text-xs">9-B</td>
+<td class="py-3.5 px-4 font-mono font-bold text-xs">
+<span class="px-2 py-0.5 rounded bg-[#e0382b] text-white">BRD 03</span>
+</td>
+<td class="py-3.5 px-4 text-xs text-[#5b403c]">Semi-Final 1 vs Aarav Mehta</td>
+<td class="py-3.5 px-4 font-mono text-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#e0382b]/10 text-[#C2271B] font-semibold">
+<span class="w-2 h-2 rounded-full bg-[#C2271B] animate-pulse"></span>
+                      Board Live · End 3
+                    </span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono font-bold text-base text-[#C2271B]">
+                    14 – 18
+                  </td>
+</tr>
+<!-- Row 5: Completed Match -->
+<tr class="hover:bg-[#EFE9D8]/40 transition-colors">
+<td class="py-3.5 px-4 font-mono text-xs font-bold text-text-dim">#5</td>
+<td class="py-3.5 px-4 font-semibold text-[#2B1D16]">Priya Sen</td>
+<td class="py-3.5 px-4 font-mono text-text-dim text-xs">9-B</td>
+<td class="py-3.5 px-4 font-mono font-bold text-xs">
+<span class="px-2 py-0.5 rounded bg-[#EFE9D8] text-[#2B1D16]">BRD 02</span>
+</td>
+<td class="py-3.5 px-4 text-xs text-[#5b403c]">3rd Place Playoff</td>
+<td class="py-3.5 px-4 font-mono text-xs">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-700">
+                      Defeated (4th)
+                    </span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono font-bold text-sm text-text-dim">
+                    12 – 19
+                  </td>
+</tr>
+<!-- Row 6: Live Doubles -->
+<tr class="hover:bg-[#EFE9D8]/40 transition-colors">
+<td class="py-3.5 px-4 font-mono text-xs font-bold text-text-dim">#6</td>
+<td class="py-3.5 px-4 font-semibold text-[#2B1D16]">Devansh K. &amp; Samarth</td>
+<td class="py-3.5 px-4 font-mono text-text-dim text-xs">6-A / 6-B</td>
+<td class="py-3.5 px-4 font-mono font-bold text-xs">
+<span class="px-2 py-0.5 rounded bg-[#e0382b] text-white">BRD 07</span>
+</td>
+<td class="py-3.5 px-4 text-xs text-[#5b403c]">Doubles Semis vs Rohan &amp; K.</td>
+<td class="py-3.5 px-4 font-mono text-xs">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-semibold">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+                      Board Live
+                    </span>
+</td>
+<td class="py-3.5 px-4 text-right font-mono font-bold text-base text-[#2B1D16]">
+                    09 – 22
+                  </td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer -->
+<div class="p-3.5 bg-[#F7F3E9] border-t border-[#C8BEAB]/40 flex flex-col sm:flex-row items-center justify-between gap-2.5 font-mono text-xs text-text-dim">
+<div class="flex items-center gap-3">
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#C2271B]"></span> Live
+              </span>
+<span class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-emerald-600"></span> Validated Final
+              </span>
+</div>
+<span>Showing verified entries 1–6 of 64 total tournament cards</span>
+</div>
+</div>
+</section>
+<!-- Section 7: Knockout Ladder / Bracket Progression Flow -->
+<section class="p-5 lg:p-6 rounded-2xl bg-[#EFE9D8] border border-[#C8BEAB]/40 shadow-sm flex flex-col gap-4">
+<div class="flex items-center justify-between flex-wrap gap-2">
+<div class="flex flex-col gap-0.5">
+<span class="font-mono text-xs text-[#C2271B] font-bold tracking-widest uppercase">Live Knockout Flow</span>
+<h3 class="font-headline text-xl font-bold text-[#2B1D16]">
+              Knockout Ladder · Quarter-Finals to Grand Championship
+            </h3>
+</div>
+<span class="px-3 py-1 rounded-full bg-[#2B1D16] text-[#F7F3E9] font-mono text-xs font-semibold">
+            Grand Final: Board 01 · 02:50 PM
+          </span>
+</div>
+<!-- Bracket Grid -->
+<div class="w-full overflow-x-auto pb-2">
+<div class="min-w-[760px] grid grid-cols-3 gap-6 items-center">
+<!-- Col 1: Quarter-Finalists -->
+<div class="flex flex-col gap-4">
+<div class="font-mono text-xs text-text-dim font-bold uppercase tracking-wider text-center">
+                Quarter-Finals (QF)
+              </div>
+<!-- QF Match 1 -->
+<div class="p-3 rounded-xl bg-white border border-[#C8BEAB]/40 shadow-sm flex flex-col gap-1.5">
+<span class="font-mono text-[10px] text-text-dim">QF 1 · Match 57</span>
+<div class="flex items-center justify-between font-headline text-xs font-bold text-[#2B1D16]">
+<span>Aarav Mehta (9-A)</span>
+<span class="font-mono text-[#C2271B]">21</span>
+</div>
+<div class="flex items-center justify-between font-headline text-xs text-text-dim">
+<span>Vihaan Joshi (5-C)</span>
+<span class="font-mono">08</span>
+</div>
+</div>
+<!-- QF Match 2 -->
+<div class="p-3 rounded-xl bg-white border border-[#C8BEAB]/40 shadow-sm flex flex-col gap-1.5">
+<span class="font-mono text-[10px] text-text-dim">QF 2 · Match 58</span>
+<div class="flex items-center justify-between font-headline text-xs font-bold text-[#2B1D16]">
+<span>Kabir Verma (9-B)</span>
+<span class="font-mono text-[#C2271B]">19</span>
+</div>
+<div class="flex items-center justify-between font-headline text-xs text-text-dim">
+<span>Neil Roy (7-C)</span>
+<span class="font-mono">13</span>
+</div>
+</div>
+<!-- QF Match 3 -->
+<div class="p-3 rounded-xl bg-white border border-[#C8BEAB]/40 shadow-sm flex flex-col gap-1.5">
+<span class="font-mono text-[10px] text-text-dim">QF 3 · Match 59</span>
+<div class="flex items-center justify-between font-headline text-xs font-bold text-[#2B1D16]">
+<span>Rohan Sharma (8-B)</span>
+<span class="font-mono text-[#C2271B]">24</span>
+</div>
+<div class="flex items-center justify-between font-headline text-xs text-text-dim">
+<span>Siddharth Rao (6-B)</span>
+<span class="font-mono">11</span>
+</div>
+</div>
+<!-- QF Match 4 -->
+<div class="p-3 rounded-xl bg-white border border-[#C8BEAB]/40 shadow-sm flex flex-col gap-1.5">
+<span class="font-mono text-[10px] text-text-dim">QF 4 · Match 60</span>
+<div class="flex items-center justify-between font-headline text-xs font-bold text-[#2B1D16]">
+<span>Ananya Reddy (7-C)</span>
+<span class="font-mono text-[#C2271B]">20</span>
+</div>
+<div class="flex items-center justify-between font-headline text-xs text-text-dim">
+<span>Diya Patel (8-A)</span>
+<span class="font-mono">14</span>
+</div>
+</div>
+</div>
+<!-- Col 2: Semi-Finals (Live) -->
+<div class="flex flex-col gap-8">
+<div class="font-mono text-xs text-[#C2271B] font-bold uppercase tracking-wider text-center flex items-center justify-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-[#C2271B] animate-ping"></span>
+<span>Semi-Finals (Live)</span>
+</div>
+<!-- SF 1 (Live) -->
+<div class="p-3.5 rounded-xl bg-white border-2 border-[#e0382b] shadow-md flex flex-col gap-2">
+<div class="flex items-center justify-between font-mono text-[10px]">
+<span class="font-bold text-[#C2271B]">SF 1 · Board 03</span>
+<span class="px-2 py-0.2 rounded-full bg-red-100 text-red-700 font-bold">LIVE END 3</span>
+</div>
+<div class="flex items-center justify-between font-headline text-sm font-bold text-[#2B1D16]">
+<span>Aarav Mehta</span>
+<span class="font-mono text-[#C2271B] font-extrabold">18</span>
+</div>
+<div class="flex items-center justify-between font-headline text-sm font-semibold text-text-dim">
+<span>Kabir Verma</span>
+<span class="font-mono">14</span>
+</div>
+<span class="font-mono text-[10px] text-text-dim text-right">Advancing to Gold Medal Match</span>
+</div>
+<!-- SF 2 (Concluded) -->
+<div class="p-3.5 rounded-xl bg-white border border-[#C8BEAB]/40 shadow-sm flex flex-col gap-2">
+<div class="flex items-center justify-between font-mono text-[10px]">
+<span class="font-bold text-[#2B1D16]">SF 2 · Board 02</span>
+<span class="px-2 py-0.2 rounded-full bg-emerald-100 text-emerald-800 font-bold">OFFICIAL</span>
+</div>
+<div class="flex items-center justify-between font-headline text-sm font-bold text-[#2B1D16]">
+<span>Rohan Sharma</span>
+<span class="font-mono text-[#C2271B]">21 (Adv.)</span>
+</div>
+<div class="flex items-center justify-between font-headline text-sm text-text-dim">
+<span>Ananya Reddy</span>
+<span class="font-mono">16</span>
+</div>
+<span class="font-mono text-[10px] text-emerald-700 text-right font-semibold">Rohan Sharma advances to Final</span>
+</div>
+</div>
+<!-- Col 3: Grand Championship Final -->
+<div class="flex flex-col gap-4">
+<div class="font-mono text-xs text-trophy-gold-bright font-bold uppercase tracking-wider text-center">
+                Grand Championship Final
+              </div>
+<div class="p-5 rounded-2xl bg-[#2B1D16] text-white shadow-xl border-2 border-trophy-gold-bright flex flex-col gap-3 relative overflow-hidden">
+<div class="flex items-center justify-between">
+<span class="font-mono text-xs font-bold text-trophy-gold-bright uppercase tracking-wider flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">emoji_events</span>
+                    Gold Medal Contest
+                  </span>
+<span class="px-2 py-0.5 rounded bg-black/60 font-mono text-[10px] text-court-line">Board 01</span>
+</div>
+<div class="flex flex-col gap-2 pt-1 font-headline">
+<div class="p-2.5 rounded-lg bg-black/50 border border-trophy-gold-bright/30 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-bold text-sm text-white">Rohan Sharma</span>
+<span class="font-mono text-[10px] text-court-line">Grade 8-B · SF2 Winner</span>
+</div>
+<span class="font-mono text-trophy-gold-bright font-bold text-sm">FINALIST</span>
+</div>
+<div class="text-center font-mono text-xs text-court-line py-0.5 font-bold">vs</div>
+<div class="p-2.5 rounded-lg bg-[#e0382b]/30 border border-[#e0382b]/60 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-bold text-sm text-white">Winner of SF-1 (Live)</span>
+<span class="font-mono text-[10px] text-court-line">Aarav M. (18) vs Kabir V. (14)</span>
+</div>
+<span class="font-mono text-white text-[11px] font-bold px-2 py-0.5 rounded bg-[#e0382b]">WAITING</span>
+</div>
+</div>
+<div class="pt-2 border-t border-white/10 flex items-center justify-between font-mono text-[11px] text-court-line">
+<span>Match 63 · 8 Ends</span>
+<span class="text-trophy-gold-bright font-bold">Gold Cup 2027</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 8: Dispute & Secretariat Guidance Card -->
+<section class="p-5 sm:p-6 rounded-2xl bg-[#2B1D16] text-[#F7F3E9] shadow-xl border border-trophy-gold-bright/30 flex flex-col md:flex-row items-center justify-between gap-5">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-[#e0382b] flex items-center justify-center shrink-0 shadow-md">
+<span class="material-symbols-outlined text-[24px] text-white">contact_support</span>
+</div>
+<div class="flex flex-col gap-1">
+<h3 class="font-headline text-lg sm:text-xl font-bold text-white">
+              Official Secretariat Guidance &amp; Score Inquiries
+            </h3>
+<p class="font-headline text-xs sm:text-sm text-court-line max-w-xl leading-relaxed">
+              For referee rulings, walkover verification, or official scorecard submissions, visit Central Desk Table A or email the verification controller directly at <a class="font-mono text-trophy-gold-bright underline underline-offset-2 hover:text-white transition-colors" href="mailto:fkscarrom5@gmail.com">fkscarrom5@gmail.com</a>.
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-3 flex-wrap shrink-0">
+<button class="px-4 py-2.5 rounded-full bg-white hover:bg-[#EFE9D8] text-[#2B1D16] font-mono text-xs font-bold flex items-center gap-2 shadow-sm transition-all">
+<span class="material-symbols-outlined text-[17px]">download</span>
+<span>Full Brackets (PDF)</span>
+</button>
+<a class="px-4 py-2.5 rounded-full bg-black/60 hover:bg-black text-white border border-[#C8BEAB]/30 font-mono text-xs font-semibold flex items-center gap-2 transition-all" href="#">
+<span class="material-symbols-outlined text-[17px]">calendar_month</span>
+<span>View Schedule</span>
+</a>
+</div>
+</section>
+</div>
+</main>
+<script>
+    function toggleMobileMenu() {
+      const d = document.getElementById('mobileDrawer');
+      if (d) {
+        d.classList.toggle('hidden');
+      }
+    }
+  </script>
+</body></html>

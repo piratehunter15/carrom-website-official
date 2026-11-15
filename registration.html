@@ -1,0 +1,603 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Tournament Registration — FKS Carrom Open 2027</title>
+<meta content="Register for FKS Carrom Open 2027. Select your grade, section, and Carrom events (Solos, Doubles, Open Doubles)." name="description">
+<meta content="FKS Carrom Open 2027, carrom registration, solos, doubles, open doubles" name="keywords">
+<meta content="index, follow" name="robots">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&amp;family=Outfit:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Domine:wght@500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-cream": "#F7F3E9",
+            "surface-cream-subtle": "#EFE9D8",
+            "frame-mahogany": "#2B1D16",
+            "pocket-void": "#0F0B0A",
+            "carrom-red-deep": "#C2271B",
+            "court-line": "#C8BEAB",
+            "trophy-gold-bright": "#E5C158",
+            "primary": "#b71711",
+            "primary-container": "#db3428",
+            "text-dim": "#6E685F",
+            "surface": "#fff8f6",
+            "surface-dim": "#e4d7d4",
+            "surface-container-low": "#fef1ed",
+            "surface-container": "#f9ebe7",
+            "surface-container-high": "#f3e5e1",
+            "surface-container-highest": "#ede0dc",
+            "surface-container-lowest": "#ffffff",
+            "outline": "#906f6b",
+            "outline-variant": "#e4beb8",
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    body {
+      background-color: #fbf7f4;
+      font-family: 'Outfit', sans-serif;
+      color: #201a18;
+    }
+    .court-grain {
+      background-image: radial-gradient(rgba(144, 111, 107, 0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .carrom-pocket {
+      box-shadow: inset 0 3px 6px rgba(0,0,0,0.85), 0 1px 1px rgba(255,255,255,0.1);
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col md:flex-row antialiased selection:bg-red-500 selection:text-white items-stretch">
+<!-- ================= PERSISTENT DESKTOP & MOBILE SIDEBAR ================= -->
+<aside class="w-full md:w-72 lg:w-80 bg-[#1f1510] border-r border-[#33221a] text-[#EDE0DC] flex-shrink-0 flex flex-col justify-between shadow-2xl z-40 md:h-screen min-h-screen">
+  <div class="p-6 md:p-7 flex flex-col gap-6">
+    <!-- Tournament Brand Header -->
+    <a class="flex items-center gap-3.5 group" href="index.html">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#db3428] via-[#b71711] to-[#930003] flex items-center justify-center shadow-lg shadow-red-950/60 ring-2 ring-[#fed65b]/50 flex-shrink-0 relative"><svg class="w-6 h-6" fill="none" viewBox="0 0 24 24"><circle cx="12" cy="12" fill="none" r="10" stroke="#fed65b" stroke-dasharray="2 2" stroke-width="1.5"></circle><circle cx="12" cy="12" fill="#2B1D16" r="7" stroke="#ffffff" stroke-width="1.2"></circle><circle cx="12" cy="12" fill="#fed65b" r="3.5"></circle><circle cx="12" cy="12" fill="#b71711" r="1.5"></circle></svg></div>
+      <div>
+        <span class="font-extrabold text-lg md:text-xl tracking-tight text-white group-hover:text-[#fed65b] transition-colors leading-tight block">FKS Carrom 2027</span>
+      </div>
+    </a>
+
+    <!-- Navigation Links -->
+    <nav class="space-y-1.5 font-medium text-sm"><a class="flex items-center gap-3 px-3.5 py-2 rounded-xl text-[#d4c3bd] hover:text-white hover:bg-white/[0.06] transition-all" href="index.html"><span class="material-symbols-outlined text-lg opacity-70">home</span><span>Home</span></a><a class="flex items-center gap-3 px-3.5 py-2 rounded-xl text-[#d4c3bd] hover:text-white hover:bg-white/[0.06] transition-all whitespace-nowrap" href="schedule.html"><span class="material-symbols-outlined text-lg opacity-70">calendar_month</span><span>Schedule</span></a><a class="flex items-center gap-3 px-3.5 py-2 rounded-xl text-[#d4c3bd] hover:text-white hover:bg-white/[0.06] transition-all" href="overview.html"><span class="material-symbols-outlined text-lg opacity-70">info</span><span>Overview</span></a><a class="flex items-center gap-3 px-3.5 py-2 rounded-xl text-[#d4c3bd] hover:text-white hover:bg-white/[0.06] transition-all" href="results.html"><span class="material-symbols-outlined text-lg opacity-70">trophy</span><span>Results</span></a><a class="flex items-center gap-3 px-3.5 py-2 rounded-xl text-[#d4c3bd] hover:text-white hover:bg-white/[0.06] transition-all" href="volunteer.html"><span class="material-symbols-outlined text-lg opacity-70">groups</span><span>Volunteer</span></a><a class="flex items-center gap-3 px-3.5 py-2 rounded-xl text-[#d4c3bd] hover:text-white hover:bg-white/[0.06] transition-all" href="volunteer_news.html"><span class="material-symbols-outlined text-lg opacity-70">newspaper</span><span>Volunteer News</span></a><a class="flex items-center gap-3 px-3.5 py-2 rounded-xl text-[#d4c3bd] hover:text-white hover:bg-white/[0.06] transition-all" href="login.html"><span class="material-symbols-outlined text-lg opacity-70">admin_panel_settings</span><span>Login</span></a></nav>
+  </div>
+
+  <!-- Sidebar Footer with Venue & Register CTA -->
+  <div class="p-6 md:p-7 border-t border-[#33221a] bg-[#18100c]/80 space-y-3">
+    <div class="p-3.5 rounded-xl bg-[#2a1c15] border border-[#38241b] space-y-1.5">
+      <div class="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider text-[#fed65b] font-semibold">
+        <span class="material-symbols-outlined text-xs">location_on</span>
+        <span>TOURNAMENT VENUE</span>
+      </div>
+      <p class="text-xs text-[#EDE0DC] font-medium leading-snug">The Future Kid's School, Hyderabad</p>
+      <p class="text-[11px] font-mono text-[#C8BEAB]/70">Jan 6 &amp; 7, 2027 · 10–15 Boards</p>
+    </div>
+    <a class="w-full py-2.5 px-3 rounded-xl bg-gradient-to-r from-[#db3428] to-[#b71711] hover:from-[#e0382b] hover:to-[#930003] text-white font-bold text-xs uppercase tracking-wider font-mono flex items-center justify-center gap-2 shadow-lg shadow-red-950/40 transition-all" href="registration.html">
+      <span class="material-symbols-outlined text-sm">how_to_reg</span>
+      <span>Register Now</span>
+    </a>
+    <div class="text-[11px] font-mono text-center text-[#C8BEAB]/60">
+      Registration Closes: Dec 28, 2026
+    </div>
+  </div>
+</aside>
+<!-- ================= MAIN CONTENT CANVAS ================= -->
+<main class="flex-1 flex flex-col min-w-0 court-grain overflow-x-hidden">
+<!-- Top Decorative Banner / Carrom Court Themed Header -->
+<header class="relative bg-gradient-to-b from-[#18100c] via-[#1f1510] to-[#18100c] text-white px-6 py-10 md:px-12 md:py-14 border-b-4 border-[#C2271B] overflow-hidden">
+<!-- Carrom Corner Pocket Circles -->
+<div class="absolute -top-7 -left-7 w-20 h-20 rounded-full bg-[#0F0B0A] border-4 border-[#2d1c14] carrom-pocket pointer-events-none hidden sm:block"></div>
+<div class="absolute -top-7 -right-7 w-20 h-20 rounded-full bg-[#0F0B0A] border-4 border-[#2d1c14] carrom-pocket pointer-events-none hidden sm:block"></div>
+<!-- Court Target Circle Motifs Background Overlay -->
+<div class="absolute inset-0 opacity-10 pointer-events-none flex items-center justify-center">
+<div class="w-96 h-96 rounded-full border border-[#FED65B]"></div>
+<div class="absolute w-64 h-64 rounded-full border border-red-500"></div>
+<div class="absolute w-32 h-32 rounded-full border border-[#FED65B]"></div>
+</div>
+<div class="max-w-3xl mx-auto text-center relative z-10">
+<!-- Eyebrow Badge -->
+
+<h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-3">
+          Tournament Registration &amp; Event Entry
+        </h2>
+<p class="text-[#f5ebe6]/80 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+          Select your grade, section, and carrom events. Official competition equipment is fully provided across 10–15 dedicated boards.
+        </p>
+<!-- Deadline Notice Pill -->
+<div class="inline-flex items-center gap-2 mt-5 px-4 py-1.5 rounded-lg bg-[#b71711]/25 border border-[#ffb4a9]/30 text-[#ffb4a9] text-xs font-mono font-medium shadow-sm">
+<span class="material-symbols-outlined text-sm text-[#fed65b]">alarm</span>
+          Registration Deadline: December 28, 2026 (11:59 PM IST)
+        </div>
+</div>
+</header>
+<!-- Content Area: Registration Card -->
+<div class="flex-1 px-4 py-8 sm:px-6 md:px-10 lg:px-12 flex justify-center">
+<div class="w-full max-w-3xl">
+<!-- Cash Payment Notice Card -->
+<div class="mb-6 bg-[#fed65b]/10 border border-[#fed65b]/40 rounded-2xl p-4 sm:p-5 flex items-start gap-3.5 shadow-sm">
+<span class="material-symbols-outlined text-[#735c00] text-2xl flex-shrink-0 mt-0.5">payments</span>
+<div class="text-xs sm:text-sm text-[#3b2d00] leading-relaxed">
+<strong class="font-bold text-[#241a00] font-mono tracking-wide uppercase text-xs block mb-0.5">Cash Payment Policy:</strong>
+            Hand over your tournament registration fee in cash directly to student organizers <strong class="font-bold text-black">Chandan</strong> or <strong class="font-bold text-black">Navaneet</strong> to confirm your slot in the draw.
+          </div>
+</div>
+<!-- Form Card Container styled like birchwood board surface -->
+<div class="bg-white rounded-3xl border border-[#e4d7d4] shadow-xl p-6 sm:p-8 md:p-10 relative overflow-hidden">
+<!-- Subtle Decorative Court corner marks -->
+<div class="absolute top-4 left-4 w-6 h-6 border-t-2 border-l-2 border-[#C8BEAB] rounded-tl pointer-events-none"></div>
+<div class="absolute top-4 right-4 w-6 h-6 border-t-2 border-r-2 border-[#C8BEAB] rounded-tr pointer-events-none"></div>
+<form class="space-y-7" id="reg-form">
+<!-- Full Name -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<label class="block text-xs font-mono font-bold tracking-wider uppercase text-[#201a18]" for="name">
+                  Full Name <span class="text-[#b71711]">*</span>
+</label>
+<span class="text-[11px] font-mono text-[#6E685F]">Required</span>
+</div>
+<div class="relative">
+<input autocomplete="name" class="w-full px-4 py-3.5 rounded-xl border border-[#e4d7d4] bg-[#fff8f6] text-[#201a18] font-sans text-sm md:text-base focus:bg-white focus:border-[#b71711] focus:ring-4 focus:ring-red-500/10 transition-all outline-none placeholder:text-gray-400" id="name" name="name" placeholder="e.g. Aarav Mehta" required="" type="text">
+</div>
+</div>
+<!-- Grade Selection -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<label class="block text-xs font-mono font-bold tracking-wider uppercase text-[#201a18]">
+                  Grade <span class="text-[#b71711]">*</span>
+</label>
+<span class="text-[11px] font-mono text-[#6E685F]">Grades 5 – 9</span>
+</div>
+<div class="grid grid-cols-3 sm:grid-cols-5 gap-2.5" id="grade-options">
+<button class="grade-pill py-3 px-2 rounded-xl border border-[#e4d7d4] bg-[#f9ebe7]/60 hover:bg-[#f3e5e1] hover:border-[#906f6b] text-center text-sm font-bold text-[#201a18] transition-all" data-grade="5" type="button">
+                  Grade 5
+                </button>
+<button class="grade-pill py-3 px-2 rounded-xl border border-[#e4d7d4] bg-[#f9ebe7]/60 hover:bg-[#f3e5e1] hover:border-[#906f6b] text-center text-sm font-bold text-[#201a18] transition-all" data-grade="6" type="button">
+                  Grade 6
+                </button>
+<button class="grade-pill py-3 px-2 rounded-xl border border-[#e4d7d4] bg-[#f9ebe7]/60 hover:bg-[#f3e5e1] hover:border-[#906f6b] text-center text-sm font-bold text-[#201a18] transition-all" data-grade="7" type="button">
+                  Grade 7
+                </button>
+<button class="grade-pill py-3 px-2 rounded-xl border border-[#e4d7d4] bg-[#f9ebe7]/60 hover:bg-[#f3e5e1] hover:border-[#906f6b] text-center text-sm font-bold text-[#201a18] transition-all" data-grade="8" type="button">
+                  Grade 8
+                </button>
+<button class="grade-pill py-3 px-2 rounded-xl border border-[#e4d7d4] bg-[#f9ebe7]/60 hover:bg-[#f3e5e1] hover:border-[#906f6b] text-center text-sm font-bold text-[#201a18] transition-all" data-grade="9" type="button">
+                  Grade 9
+                </button>
+</div>
+<p class="mt-2 text-xs text-[#6E685F] font-normal leading-relaxed">
+                Unified competition: All 5 grades compete together in unified tournament brackets.
+              </p>
+</div>
+<!-- Section -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<label class="block text-xs font-mono font-bold tracking-wider uppercase text-[#201a18]" for="section">
+                  Section <span class="text-[#b71711]">*</span>
+</label>
+<span class="text-[11px] font-mono text-[#6E685F]">Required</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<input class="w-full px-4 py-3.5 rounded-xl border border-[#e4d7d4] bg-[#fff8f6] text-[#201a18] font-sans text-sm md:text-base focus:bg-white focus:border-[#b71711] focus:ring-4 focus:ring-red-500/10 transition-all outline-none placeholder:text-gray-400" id="section" name="section" placeholder="e.g. Super 1, Whiz 2, or Section A" required="" type="text">
+<!-- Quick Fill Buttons for common FKS section formats -->
+<div class="flex items-center gap-1.5 flex-wrap">
+<span class="text-[11px] font-mono text-[#6E685F] w-full">Quick suggestions:</span>
+<button class="px-2.5 py-1 text-xs font-mono rounded-lg bg-[#fef1ed] border border-[#e4beb8] hover:bg-[#f3e5e1] text-[#5b403c] transition-colors" onclick="setSection('Super 1')" type="button">Super 1</button>
+<button class="px-2.5 py-1 text-xs font-mono rounded-lg bg-[#fef1ed] border border-[#e4beb8] hover:bg-[#f3e5e1] text-[#5b403c] transition-colors" onclick="setSection('Super 2')" type="button">Super 2</button>
+<button class="px-2.5 py-1 text-xs font-mono rounded-lg bg-[#fef1ed] border border-[#e4beb8] hover:bg-[#f3e5e1] text-[#5b403c] transition-colors" onclick="setSection('Whiz 1')" type="button">Whiz 1</button>
+<button class="px-2.5 py-1 text-xs font-mono rounded-lg bg-[#fef1ed] border border-[#e4beb8] hover:bg-[#f3e5e1] text-[#5b403c] transition-colors" onclick="setSection('Whiz 2')" type="button">Whiz 2</button>
+</div>
+</div>
+</div>
+<!-- Events Offered Selection -->
+<div>
+<div class="flex items-center justify-between mb-2">
+<label class="block text-xs font-mono font-bold tracking-wider uppercase text-[#201a18]">
+                  Select Event(s) <span class="text-[#b71711]">*</span>
+</label>
+<span class="text-[11px] font-mono text-[#b71711] font-semibold">At least 1 required</span>
+</div>
+<div class="space-y-3" id="event-options">
+<!-- Solos Card -->
+<div class="event-check group cursor-pointer border-2 border-[#e4d7d4] rounded-2xl p-4 sm:p-4.5 bg-[#fff8f6]/50 hover:bg-[#fff8f6] hover:border-[#b71711]/60 transition-all flex items-center justify-between select-none" data-event="Solos" data-price="200">
+<div class="flex items-center gap-3.5">
+<!-- Red carrom coin indicator -->
+<div class="w-7 h-7 rounded-full bg-gradient-to-br from-[#db3428] to-[#930003] shadow-md flex items-center justify-center border-2 border-white ring-1 ring-red-300">
+<div class="w-2.5 h-2.5 rounded-full border border-white/60"></div>
+</div>
+<div>
+<div class="font-bold text-base text-[#201a18] group-hover:text-[#b71711] transition-colors">Solos (Singles)</div>
+<div class="text-xs text-[#6E685F] mt-0.5">1v1 Knockout Match · Day 1 (Wednesday, Jan 6)</div>
+</div>
+</div>
+<div class="flex items-center gap-3.5">
+<span class="font-mono font-bold text-sm bg-[#ede0dc] text-[#5b403c] px-3 py-1.5 rounded-lg border border-[#e4beb8] price-tag">₹200</span>
+<div class="check-box w-6 h-6 rounded-lg border-2 border-[#906f6b] flex items-center justify-center text-white transition-all text-sm">
+<span class="material-symbols-outlined text-sm font-bold hidden">check</span>
+</div>
+</div>
+</div>
+<!-- Doubles Card -->
+<div class="event-check group cursor-pointer border-2 border-[#e4d7d4] rounded-2xl p-4 sm:p-4.5 bg-[#fff8f6]/50 hover:bg-[#fff8f6] hover:border-[#b71711]/60 transition-all flex items-center justify-between select-none" data-event="Doubles" data-price="200">
+<div class="flex items-center gap-3.5">
+<!-- Black carrom coin indicator -->
+<div class="w-7 h-7 rounded-full bg-gradient-to-br from-[#2B1D16] to-[#0F0B0A] shadow-md flex items-center justify-center border-2 border-white ring-1 ring-neutral-700">
+<div class="w-2.5 h-2.5 rounded-full border border-white/40"></div>
+</div>
+<div>
+<div class="font-bold text-base text-[#201a18] group-hover:text-[#b71711] transition-colors">Doubles</div>
+<div class="text-xs text-[#6E685F] mt-0.5">2v2 Dedicated Partner Team · Day 2 (Thursday, Jan 7)</div>
+</div>
+</div>
+<div class="flex items-center gap-3.5">
+<span class="font-mono font-bold text-sm bg-[#ede0dc] text-[#5b403c] px-3 py-1.5 rounded-lg border border-[#e4beb8] price-tag">₹200</span>
+<div class="check-box w-6 h-6 rounded-lg border-2 border-[#906f6b] flex items-center justify-center text-white transition-all text-sm">
+<span class="material-symbols-outlined text-sm font-bold hidden">check</span>
+</div>
+</div>
+</div>
+<!-- Open Doubles Card -->
+<div class="event-check group cursor-pointer border-2 border-[#e4d7d4] rounded-2xl p-4 sm:p-4.5 bg-[#fff8f6]/50 hover:bg-[#fff8f6] hover:border-[#b71711]/60 transition-all flex items-center justify-between select-none" data-event="Open Doubles" data-price="150">
+<div class="flex items-center gap-3.5">
+<!-- Gold Queen coin indicator -->
+<div class="w-7 h-7 rounded-full bg-gradient-to-br from-[#fed65b] to-[#c9971f] shadow-md flex items-center justify-center border-2 border-white ring-1 ring-amber-300">
+<div class="w-2 h-2 rounded-full bg-[#b71711]"></div>
+</div>
+<div>
+<div class="font-bold text-base text-[#201a18] group-hover:text-[#b71711] transition-colors">Open Doubles (Mixed Draw)</div>
+<div class="text-xs text-[#6E685F] mt-0.5">Duo assigned via random draw across all grades · Day 2 (Thursday, Jan 7)</div>
+</div>
+</div>
+<div class="flex items-center gap-3.5">
+<span class="font-mono font-bold text-sm bg-[#ede0dc] text-[#5b403c] px-3 py-1.5 rounded-lg border border-[#e4beb8] price-tag">₹150</span>
+<div class="check-box w-6 h-6 rounded-lg border-2 border-[#906f6b] flex items-center justify-center text-white transition-all text-sm">
+<span class="material-symbols-outlined text-sm font-bold hidden">check</span>
+</div>
+</div>
+</div>
+</div>
+<p class="mt-2 text-xs text-[#6E685F] italic">
+                Note: You can play Solos and/or either Doubles format (selecting dedicated Doubles disables Open Doubles and vice-versa).
+              </p>
+</div>
+<!-- Dynamic Partner Field (Shows when Doubles is chosen) -->
+<div class="hidden transition-all duration-300" id="partner-container">
+<div class="bg-amber-50/70 border-2 border-dashed border-[#e5c158] rounded-2xl p-4 sm:p-5">
+<div class="flex items-center justify-between mb-2">
+<label class="block text-xs font-mono font-bold tracking-wider uppercase text-[#735c00] flex items-center gap-1.5" for="partnerName">
+<span class="material-symbols-outlined text-sm">person_add</span>
+                    Partner's Full Name <span class="text-[#b71711]">*</span>
+</label>
+<span class="text-[11px] font-mono text-[#735c00] font-semibold">Required for Doubles</span>
+</div>
+<input class="w-full px-4 py-3 rounded-xl border border-[#e5c158]/70 bg-white text-[#201a18] font-sans text-sm focus:border-[#735c00] focus:ring-4 focus:ring-amber-500/10 transition-all outline-none" id="partnerName" name="partnerName" placeholder="e.g. Rohan Sharma" type="text">
+<p class="mt-2 text-xs text-[#735c00]/80">
+                  Important: Your partner must also fill out their own separate registration form and select Doubles.
+                </p>
+</div>
+</div>
+<!-- Dynamic Fee Calculator Box -->
+<div class="bg-[#fef1ed] border border-[#e4beb8] rounded-2xl p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div>
+<div class="text-sm sm:text-base font-bold text-[#201a18]" id="fee-label">Select at least one event</div>
+<div class="text-xs text-[#6E685F] mt-0.5">Fees update immediately based on your selected categories</div>
+</div>
+<div class="text-left sm:text-right">
+<div class="text-3xl sm:text-4xl font-extrabold font-mono text-[#b71711] tracking-tight" id="fee-amount">₹0</div>
+<div class="text-[10px] font-mono text-[#6E685F] uppercase tracking-wider">Total Registration Due</div>
+</div>
+</div>
+<div class="text-center font-mono text-xs text-[#6E685F] py-1 border-y border-[#ede0dc]">
+              Fee Guide: Solos ₹200 · Doubles ₹200 · Open Doubles ₹150 (per person)
+            </div>
+<input id="fee-amount-input" name="feeAmount" type="hidden" value="0">
+<!-- Submit Button Row -->
+<div>
+<button class="w-full py-4 px-6 rounded-2xl font-bold text-base md:text-lg text-white bg-[#b71711] hover:bg-[#930003] active:scale-[0.99] disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-[#b71711] disabled:active:scale-100 shadow-xl shadow-red-950/20 transition-all flex items-center justify-center gap-2 cursor-pointer font-sans" disabled="" id="submit-btn" type="submit">
+<span class="material-symbols-outlined text-xl">send</span>
+<span>Submit Registration</span>
+</button>
+</div>
+<!-- Status message container -->
+<div class="hidden p-4 rounded-2xl text-sm font-medium leading-relaxed" id="status-msg"></div>
+</form>
+</div>
+<!-- Additional Assistance / Help Card -->
+<div class="mt-8 text-center text-xs font-mono text-[#6E685F] space-y-1">
+<p>Having trouble registering or want to make edits? Contact the carrom committee room at lunch recess.</p>
+<p>© 2027 The Future Kid's School, Hyderabad · Official Tournament Committee</p>
+</div>
+</div>
+</div>
+</main>
+<!-- ================= INLINE LOGIC & FORM SCRIPTS ================= -->
+<script>
+    let selectedGrade = null;
+    const form = document.getElementById('reg-form');
+    const nameInput = document.getElementById('name');
+    const sectionInput = document.getElementById('section');
+    const partnerInput = document.getElementById('partnerName');
+    const partnerContainer = document.getElementById('partner-container');
+    const gradePills = document.querySelectorAll('.grade-pill');
+    const eventChecks = document.querySelectorAll('.event-check');
+    const submitBtn = document.getElementById('submit-btn');
+    const feeLabel = document.getElementById('fee-label');
+    const feeAmount = document.getElementById('fee-amount');
+    const feeAmountInput = document.getElementById('fee-amount-input');
+    const statusMsg = document.getElementById('status-msg');
+
+    const REGISTRATION_API_URL = '/api/registrations';
+
+    function setSection(val) {
+      sectionInput.value = val;
+      checkFormValidity();
+    }
+
+    // Grade selection logic
+    gradePills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        gradePills.forEach(p => {
+          p.classList.remove('bg-[#2B1D16]', 'text-white', 'border-[#2B1D16]', 'shadow-md');
+          p.classList.add('bg-[#f9ebe7]/60', 'text-[#201a18]', 'border-[#e4d7d4]');
+        });
+        pill.classList.remove('bg-[#f9ebe7]/60', 'text-[#201a18]', 'border-[#e4d7d4]');
+        pill.classList.add('bg-[#2B1D16]', 'text-white', 'border-[#2B1D16]', 'shadow-md');
+        selectedGrade = pill.getAttribute('data-grade');
+        checkFormValidity();
+      });
+    });
+
+    // Event Mutual Exclusion Logic (Doubles vs Open Doubles)
+    eventChecks.forEach(check => {
+      check.addEventListener('click', () => {
+        if (check.classList.contains('opacity-40')) return;
+
+        const eventName = check.getAttribute('data-event');
+        const isSelected = check.classList.contains('is-selected');
+
+        if (isSelected) {
+          deselectEvent(check);
+          if (eventName === 'Doubles') {
+            enableEvent('Open Doubles');
+          } else if (eventName === 'Open Doubles') {
+            enableEvent('Doubles');
+          }
+        } else {
+          selectEvent(check);
+          if (eventName === 'Doubles') {
+            disableAndUnselectEvent('Open Doubles');
+          } else if (eventName === 'Open Doubles') {
+            disableAndUnselectEvent('Doubles');
+          }
+        }
+
+        togglePartnerField();
+        calculateTotalFee();
+        checkFormValidity();
+      });
+    });
+
+    function selectEvent(el) {
+      el.classList.add('is-selected', 'border-[#b71711]', 'bg-red-50/60', 'shadow-md');
+      el.classList.remove('border-[#e4d7d4]', 'bg-[#fff8f6]/50');
+      
+      const priceTag = el.querySelector('.price-tag');
+      if (priceTag) {
+        priceTag.classList.remove('bg-[#ede0dc]', 'text-[#5b403c]');
+        priceTag.classList.add('bg-[#b71711]', 'text-white');
+      }
+
+      const checkBox = el.querySelector('.check-box');
+      if (checkBox) {
+        checkBox.classList.add('bg-[#b71711]', 'border-[#b71711]');
+        const checkIcon = checkBox.querySelector('.material-symbols-outlined');
+        if (checkIcon) checkIcon.classList.remove('hidden');
+      }
+    }
+
+    function deselectEvent(el) {
+      el.classList.remove('is-selected', 'border-[#b71711]', 'bg-red-50/60', 'shadow-md');
+      el.classList.add('border-[#e4d7d4]', 'bg-[#fff8f6]/50');
+
+      const priceTag = el.querySelector('.price-tag');
+      if (priceTag) {
+        priceTag.classList.add('bg-[#ede0dc]', 'text-[#5b403c]');
+        priceTag.classList.remove('bg-[#b71711]', 'text-white');
+      }
+
+      const checkBox = el.querySelector('.check-box');
+      if (checkBox) {
+        checkBox.classList.remove('bg-[#b71711]', 'border-[#b71711]');
+        const checkIcon = checkBox.querySelector('.material-symbols-outlined');
+        if (checkIcon) checkIcon.classList.add('hidden');
+      }
+    }
+
+    function disableAndUnselectEvent(targetName) {
+      const el = Array.from(eventChecks).find(c => c.getAttribute('data-event') === targetName);
+      if (el) {
+        deselectEvent(el);
+        el.classList.add('opacity-40', 'pointer-events-none');
+      }
+    }
+
+    function enableEvent(targetName) {
+      const el = Array.from(eventChecks).find(c => c.getAttribute('data-event') === targetName);
+      if (el) {
+        el.classList.remove('opacity-40', 'pointer-events-none');
+      }
+    }
+
+    function togglePartnerField() {
+      const isDoublesSelected = Array.from(eventChecks).some(
+        el => el.getAttribute('data-event') === 'Doubles' && el.classList.contains('is-selected')
+      );
+      if (isDoublesSelected) {
+        partnerContainer.classList.remove('hidden');
+        partnerInput.setAttribute('required', 'required');
+      } else {
+        partnerContainer.classList.add('hidden');
+        partnerInput.removeAttribute('required');
+        partnerInput.value = '';
+      }
+    }
+
+    function calculateTotalFee() {
+      const selectedEls = Array.from(document.querySelectorAll('.event-check.is-selected'));
+      let total = 0;
+      selectedEls.forEach(el => {
+        total += parseInt(el.getAttribute('data-price') || '0', 10);
+      });
+
+      if (selectedEls.length === 0) {
+        feeLabel.innerText = 'Select at least one event';
+        feeAmount.innerText = '₹0';
+        feeAmountInput.value = '0';
+      } else {
+        feeLabel.innerText = `${selectedEls.length} category event${selectedEls.length > 1 ? 's' : ''} chosen`;
+        feeAmount.innerText = `₹${total}`;
+        feeAmountInput.value = String(total);
+      }
+      return total;
+    }
+
+    function checkFormValidity() {
+      const hasName = nameInput.value.trim() !== '';
+      const hasSection = sectionInput.value.trim() !== '';
+      const hasSelectedGrade = selectedGrade !== null;
+      const selectedCount = document.querySelectorAll('.event-check.is-selected').length;
+
+      const isDoublesSelected = Array.from(eventChecks).some(
+        el => el.getAttribute('data-event') === 'Doubles' && el.classList.contains('is-selected')
+      );
+      const hasPartnerIfRequired = !isDoublesSelected || partnerInput.value.trim() !== '';
+
+      const isValid = hasName && hasSection && hasSelectedGrade && (selectedCount > 0) && hasPartnerIfRequired;
+      submitBtn.disabled = !isValid;
+    }
+
+    [nameInput, sectionInput, partnerInput].forEach(inp => {
+      inp.addEventListener('input', checkFormValidity);
+    });
+
+    // Form submission via Fetch API
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const selectedEvents = Array.from(document.querySelectorAll('.event-check.is-selected'))
+        .map(el => el.getAttribute('data-event'));
+      const totalFee = calculateTotalFee();
+
+      const payload = {
+        name: nameInput.value.trim(),
+        section: sectionInput.value.trim(),
+        grade: `Grade ${selectedGrade}`,
+        partnerName: partnerInput.value.trim(),
+        events: selectedEvents.join(', '),
+        totalFee: totalFee
+      };
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = `
+        <span class="inline-block animate-spin material-symbols-outlined text-lg">progress_activity</span>
+        <span>Submitting Entry...</span>
+      `;
+      statusMsg.className = 'hidden';
+
+      try {
+        const response = await fetch(REGISTRATION_API_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || data.error || data.success === false) {
+          if (response.status === 409 || (data.error && data.error.toLowerCase().includes('duplicate'))) {
+            throw new Error(data.error || 'A registration with this name or details already exists.');
+          }
+          throw new Error(data.error || data.message || 'Submission failed. Please check with coordinators.');
+        }
+
+        const regId = data.id || data.registrationId || ('REG-' + Math.floor(1000 + Math.random() * 9000));
+
+        statusMsg.innerHTML = `
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-emerald-600 text-2xl">check_circle</span>
+            <div>
+              <div class="font-bold text-emerald-900">Registration Confirmed!</div>
+              <div class="text-emerald-800 mt-1">
+                Your entry ID is <span class="font-mono font-bold bg-white px-2 py-0.5 rounded border border-emerald-300">${regId}</span>. 
+                Please pay <strong class="font-bold">₹${totalFee}</strong> cash to Chandan or Navaneet before Dec 28, 2026.
+              </div>
+            </div>
+          </div>
+        `;
+        statusMsg.className = 'p-5 rounded-2xl text-sm font-medium leading-relaxed bg-emerald-50 border border-emerald-300 shadow-sm block';
+
+        // Reset form
+        form.reset();
+        selectedGrade = null;
+        gradePills.forEach(p => {
+          p.classList.remove('bg-[#2B1D16]', 'text-white', 'border-[#2B1D16]', 'shadow-md');
+          p.classList.add('bg-[#f9ebe7]/60', 'text-[#201a18]', 'border-[#e4d7d4]');
+        });
+        eventChecks.forEach(c => {
+          deselectEvent(c);
+          c.classList.remove('opacity-40', 'pointer-events-none');
+        });
+        togglePartnerField();
+        calculateTotalFee();
+
+      } catch (err) {
+        console.error('Registration Error:', err);
+        statusMsg.innerHTML = `
+          <div class="flex items-start gap-3">
+            <span class="material-symbols-outlined text-red-600 text-2xl">error</span>
+            <div>
+              <div class="font-bold text-red-900">Submission Error</div>
+              <div class="text-red-800 mt-1">${err.message || 'Unable to register at this time. Please speak directly to tournament organizers.'}</div>
+            </div>
+          </div>
+        `;
+        statusMsg.className = 'p-5 rounded-2xl text-sm font-medium leading-relaxed bg-red-50 border border-red-300 shadow-sm block';
+      } finally {
+        submitBtn.innerHTML = `
+          <span class="material-symbols-outlined text-xl">send</span>
+          <span>Submit Registration</span>
+        `;
+        checkFormValidity();
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+
+
+
+</body></html>

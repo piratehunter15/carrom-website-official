@@ -1,0 +1,87 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/api/registrations",
+      "destination": "/api/registrations.js"
+    },
+    {
+      "source": "/api/registration",
+      "destination": "/api/registrations.js"
+    },
+    {
+      "source": "/api/payments",
+      "destination": "/api/payments.js"
+    },
+    {
+      "source": "/api/payment",
+      "destination": "/api/payments.js"
+    },
+    {
+      "source": "/api/results",
+      "destination": "/api/results.js"
+    },
+    {
+      "source": "/api/result",
+      "destination": "/api/results.js"
+    },
+    {
+      "source": "/api/scores",
+      "destination": "/api/results.js"
+    },
+    {
+      "source": "/api/volunteers",
+      "destination": "/api/volunteers.js"
+    },
+    {
+      "source": "/api/volunteer",
+      "destination": "/api/volunteers.js"
+    },
+    {
+      "source": "/api/volunteernews",
+      "destination": "/api/volunteers.js?action=notices"
+    },
+    {
+      "source": "/api/volunteer_news",
+      "destination": "/api/volunteers.js?action=notices"
+    },
+    {
+      "source": "/api/notices",
+      "destination": "/api/volunteers.js?action=notices"
+    },
+    {
+      "source": "/api/notice",
+      "destination": "/api/volunteers.js?action=notices"
+    },
+    {
+      "source": "/api/announcements",
+      "destination": "/api/volunteers.js?action=notices"
+    },
+    {
+      "source": "/api/:match*",
+      "destination": "/api/:match*.js"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Credentials", "value": "true" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+        { "key": "Access-Control-Allow-Headers", "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization" }
+      ]
+    },
+    {
+      "source": "/(.*).(css|js|png|jpg|jpeg|svg|webp|ico)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}
